@@ -1,3 +1,6 @@
+> _Manifest the divinity within you and everything will be harmoniously arranged around it
+> - Swami Vivekananda_
+
 ## A Glimpse of Kiran
 
 Kiran Kashyap is a proud Scrum Master and an agility enthusiast.  His daily job is filled with exciting activities ranging from fighting impediments raised by his teams to proudly serving coffees to stressed-out team members.
