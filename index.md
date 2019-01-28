@@ -1,5 +1,5 @@
 > Manifest the divinity within you and everything will be harmoniously arranged around it
-> - Swami Vivekananda
+> -Swami Vivekananda
 
 ## A Glimpse of Kiran
 
