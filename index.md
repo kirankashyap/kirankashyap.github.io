@@ -9,9 +9,10 @@ As a Scrum Master, he has taught agility to his teams and is involved in explori
 
 ## Upcoming Conference Talks
 * [World DevOps Summit 2019](http://www.unicomlearning.com/World_Devops_Summit_2019/)
-
-## Talk Proposals
 * [Regional Scrum Gathering 2019](https://confengine.com/user/kiran-kashyap)
 * [XP 2019 Canada](https://submissions.agilealliance.org/xp2019/sessions)
+
+## Talk Proposals
 * [Agile 2019 Washington](https://submissions.agilealliance.org/agile2019/sessions)
+* [Lean Kanban India 2019](https://www.leankanbanindia.com/)
 
