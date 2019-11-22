@@ -10,17 +10,14 @@ As a change agent, he has taught agility and DevOps to his teams and is involved
 He is on a learning mission to explore technical agility and possibly, contribute to the field with his own creative twist.  In his leisure time, he can be seen playing badminton, reading lectures of Swami Vivekananda or motivating youngsters at Vivekananda Institute for Youth Awakening (VIYA) at Bengaluru.
 
 ## Past Conference Talks
-* [Agile 2019 Washington](https://submissions.agilealliance.org/agile2019/sessions)
 * [XP 2019 Canada](https://submissions.agilealliance.org/xp2019/sessions)
 * [World DevOps Summit 2019](http://www.unicomlearning.com/World_Devops_Summit_2019/)
 * [Regional Scrum Gathering 2019](https://confengine.com/user/kiran-kashyap)
 
 ## Upcoming Conference Talks
 * [NextGen DevOps Conference Bengaluru]()
+* [Agile NCR 2019](https://agilencr.org/paper-submissions-5/)
 
 ## Talk Proposals
-* [Lean Kanban India 2019](https://www.leankanbanindia.com/)
-* [Regional Scrum Gathering Nepal](https://www.scrumalliance.org/courses-events/events/regional-scrum-gatherings/2019/regional-scrum-gathering-nepal-2019/home)
-* [Agile NCR 2019](https://agilencr.org/paper-submissions-5/)
 * [Agile India 2020](https://confengine.com/agile-india-2020/proposals)
 
