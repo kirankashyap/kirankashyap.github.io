@@ -16,9 +16,7 @@ He is on a learning mission to explore technical agility and possibly, contribut
 * [NextGen DevOps Conference Bengaluru]() 
 * [Agile NCR 2019](https://agilencr.org/paper-submissions-5/)
 
-## Upcoming Conference Talks
-* [Agile Mumbai 2020](https://www.agilealliance.org/third-party-event/agile-mumbai-2020/) 
-
 ## Talk Proposals
 * [Agile India 2020](https://confengine.com/agile-india-2020/proposals)
+* [Agile Mumbai 2020](https://www.agilealliance.org/third-party-event/agile-mumbai-2020/)
 
