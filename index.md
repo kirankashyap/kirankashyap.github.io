@@ -14,9 +14,10 @@ He is on a learning mission to explore technical agility and possibly, contribut
 * [World DevOps Summit 2019](http://www.unicomlearning.com/World_Devops_Summit_2019/)
 * [Regional Scrum Gathering 2019](https://confengine.com/user/kiran-kashyap)
 * [NextGen DevOps Conference Bengaluru]() 
+* [Agile NCR 2019](https://agilencr.org/paper-submissions-5/)
 
 ## Upcoming Conference Talks
-* [Agile NCR 2019](https://agilencr.org/paper-submissions-5/)
+* [Agile Mumbai 2020](https://www.agilealliance.org/third-party-event/agile-mumbai-2020/) 
 
 ## Talk Proposals
 * [Agile India 2020](https://confengine.com/agile-india-2020/proposals)
