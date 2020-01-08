@@ -19,4 +19,5 @@ He is on a learning mission to explore technical agility and possibly, contribut
 ## Talk Proposals
 * [Agile India 2020](https://confengine.com/agile-india-2020/proposals)
 * [Agile Mumbai 2020](https://www.agilealliance.org/third-party-event/agile-mumbai-2020/)
+* [Agile Gurugram 2020](http://www.agilegurgaon.com/)
 
