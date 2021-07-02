@@ -9,6 +9,9 @@ As a change agent, he has taught agility and DevOps to his teams and is involved
 
 He is on a learning mission to explore technical agility and possibly, contribute to the field with his own creative twist.  In his leisure time, he can be seen playing badminton and reading lectures of Swami Vivekananda.
 
+## Books
+* [Metrics for Agile Product Teams](https://www.amazon.in/Metrics-Agile-Product-Teams-Illustrated-ebook/dp/B0925X6HHX/ref=sr_1_1?dchild=1&keywords=kiran+kashyap&qid=1625245100&sr=8-1)
+* 
 ## Past Conference Talks
 * [XP 2019 Canada](https://submissions.agilealliance.org/xp2019/sessions)
 * [Agile India 2020](https://confengine.com/agile-india-2020/proposals)
