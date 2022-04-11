@@ -66,10 +66,10 @@ content:
   - title: Blogs
     layout: text
     content: | # this will include new lines to allow paragraphs
-      * [Pick A Question — A Remote Retrospective](https://medium.com/@kiran.kashyap.ds/pick-a-question-a-remote-retrospective-a7c1e2f0b30a)
-      * [How to be a Despicable Scrum Master?](https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661)
-      * [Crafting a True Pull System using Kanban Board](https://medium.com/@kiran.kashyap.ds/crafting-a-true-pull-system-using-kanban-board-7775d87b82b8)
-      * [The Happiness Curve Retrospective for Distributed Teams](https://medium.com/@kiran.kashyap.ds/the-happiness-curve-retrospective-for-distributed-teams-f8cdc8987805)
+      - [Pick A Question - A Remote Retrospective](https://medium.com/@kiran.kashyap.ds/pick-a-question-a-remote-retrospective-a7c1e2f0b30a)
+      - [How to be a Despicable Scrum Master?](https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661)
+      - [Crafting a True Pull System using Kanban Board](https://medium.com/@kiran.kashyap.ds/crafting-a-true-pull-system-using-kanban-board-7775d87b82b8)
+      - [The Happiness Curve Retrospective for Distributed Teams](https://medium.com/@kiran.kashyap.ds/the-happiness-curve-retrospective-for-distributed-teams-f8cdc8987805)
 
   - title: Past Conference Talks
     layout: text
