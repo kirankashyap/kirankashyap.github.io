@@ -66,10 +66,11 @@ content:
   - title: Blogs
     layout: text
     content: | # this will include new lines to allow paragraphs
-      - [Pick A Question - A Remote Retrospective](https://medium.com/@kiran.kashyap.ds/pick-a-question-a-remote-retrospective-a7c1e2f0b30a)
-      - [How to be a Despicable Scrum Master?](https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661)
-      - [Crafting a True Pull System using Kanban Board](https://medium.com/@kiran.kashyap.ds/crafting-a-true-pull-system-using-kanban-board-7775d87b82b8)
-      - [The Happiness Curve Retrospective for Distributed Teams](https://medium.com/@kiran.kashyap.ds/the-happiness-curve-retrospective-for-distributed-teams-f8cdc8987805)
+      - [Pick A Question - A Remote Retrospective](https://medium.com/@kiran.kashyap.ds/pick-a-question-a-remote-retrospective-a7c1e2f0b30a) -  In this retrospective, the team would be presented with a series of closed question cards. Each member will randomly choose a question to open and answer.
+      - [How to be a Despicable Scrum Master?](https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661) - Well, some people may not be fans of you when you do the right thing. That does not mean people will love you when you do the wrong thing. This is precisely what we are going to discuss here. Here are few ways you can make people hate you as a Scrum Master.
+      - [Crafting a True Pull System using Kanban Board](https://medium.com/@kiran.kashyap.ds/crafting-a-true-pull-system-using-kanban-board-7775d87b82b8) - Crafting a True Pull System using Kanban Board.
+      - [The Happiness Curve Retrospective for Distributed Teams](https://medium.com/@kiran.kashyap.ds/the-happiness-curve-retrospective-for-distributed-teams-f8cdc8987805) - This blog post is a narration of how I prepared for the retrospective, how I ran it and how it turned out. So, if this is your kind of stuff, read on!
+      - [Scrum Master Interview Questions: Advanced](https://medium.com/@kiran.kashyap.ds/scrum-master-interview-questions-advanced-14c574282aef) - In this write-up I will try to share some of the tricky questions you can expect in scrum master interviews. I have excluded many of the basic Scrum Master interview questions.
 
   - title: Past Conference Talks
     layout: text
