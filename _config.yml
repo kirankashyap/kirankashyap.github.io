@@ -61,7 +61,7 @@ content:
 
             This book will guide you to define meaningful metrics right from the stage of forecasting up to even after the product hits the market.
 
-            #![book](https://m.media-amazon.com/images/I/41vALQL8PCL.jpg "Book")
+          #![book](https://m.media-amazon.com/images/I/41vALQL8PCL.jpg "Book")
             
       - layout: left
         title: TDD for Spring Boot REST Microservices 
