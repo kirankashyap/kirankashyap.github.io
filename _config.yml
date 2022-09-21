@@ -61,19 +61,20 @@ content:
 
             This book will guide you to define meaningful metrics right from the stage of forecasting up to even after the product hits the market.
 
-            ![book](https://m.media-amazon.com/images/I/41vALQL8PCL.jpg "Book")
+            #![book](https://m.media-amazon.com/images/I/41vALQL8PCL.jpg "Book")
       
-      content:
+    content:
       - layout: left
         title: TDD for Spring Boot REST Microservices 
         link: https://amzn.to/3jrkNf6
         # link_text: boringcompany.com
         sub_title: A step by step blueprint for the confused souls
-        description: | # It is very easy to understand the ‘red-green-refactor’ definition from Wikipedia or by watching some Youtube videos to parrot the definition of Test Driven Development. However, to apply that understanding in practice for a real-life project, you need more specific knowledge than just ‘red-green-refactor’. This book intends to develop the specific expertise you can apply in the context of building Spring Boot REST microservices.
+        description: | # this will include new lines to allow paragraphs
+            It is very easy to understand the ‘red-green-refactor’ definition from Wikipedia or by watching some Youtube videos to parrot the definition of Test Driven Development. However, to apply that understanding in practice for a real-life project, you need more specific knowledge than just ‘red-green-refactor’. This book intends to develop the specific expertise you can apply in the context of building Spring Boot REST microservices.
         
-        Spring Boot’s authors went to great lengths to make TDD super easy so that developers can create well-designed and robust microservices with confidence. This book will help you uncover some of the hidden tools (not so much hidden as much as ignored by the masses) in the Spring Boot framework that can make your TDD practice productive and efficient. Also, this book will help you practice these concepts step-by-step in an example project using an easy-to-follow blueprint
+            Spring Boot’s authors went to great lengths to make TDD super easy so that developers can create well-designed and robust microservices with confidence. This book will help you uncover some of the hidden tools (not so much hidden as much as ignored by the masses) in the Spring Boot framework that can make your TDD practice productive and efficient. Also, this book will help you practice these concepts step-by-step in an example project using an easy-to-follow blueprint
 
-          ![book](  https://m.media-amazon.com/images/I/41MLajnSaGL.jpg "Book")
+          #![book](  https://m.media-amazon.com/images/I/41MLajnSaGL.jpg "Book")
 
   - title: Blogs
     layout: text
