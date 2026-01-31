@@ -159,6 +159,7 @@ section {
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
+  padding-bottom: 1rem;
 }
 
 .hero-content {
@@ -302,7 +303,7 @@ section {
 /* About */
 #about {
   min-height: auto;
-  padding: 4rem 0;
+  padding: 1rem 0;
 }
 
 .glass-card {
