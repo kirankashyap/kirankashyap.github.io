@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'work'>;
+}
+
+const { data, id } = Astro.props.project;
+---
+
+<a class="card" href={`/work/${id}`}>
+	<div class="cover">
+		<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+	</div>
+	<div class="meta">
+		<span class="title">{data.title}</span>
+		<span class="subtitle">{data.subtitle}</span>
+	</div>
+</a>
+
+<style>
+	.card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		background: var(--gray-999);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		overflow: hidden;
+		box-shadow: var(--shadow-sm);
+		text-decoration: none;
+		transition: box-shadow var(--theme-transition);
+	}
+
+	.card:hover {
+		box-shadow: var(--shadow-md);
+	}
+
+	.cover {
+		height: 14rem;
+		background: var(--gray-900);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.25rem;
+	}
+
+	.cover img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+	}
+
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 1.25rem;
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.title {
+		font-family: var(--font-brand);
+		font-weight: 600;
+		font-size: var(--text-md);
+		color: var(--gray-0);
+	}
+
+	.subtitle {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.card {
+			border-radius: 1.25rem;
+		}
+
+		.cover {
+			height: 18rem;
+		}
+	}
+</style>

@@ -1,0 +1,126 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+
+import CallToAction from '../../components/CallToAction.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import Pill from '../../components/Pill.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+// This is a dynamic route that generates a page for every Markdown file in src/content/
+// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
+// https://docs.astro.build/en/guides/routing/#dynamic-routes
+export async function getStaticPaths() {
+	const work = await getCollection('work');
+	return work.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} | Kiran Kashyap`} description={entry.data.description}>
+	<div class="stack gap-20">
+		<div class="stack gap-15">
+			<header>
+				<div class="wrapper stack gap-2">
+					<a class="back-link" href="/#books"><Icon icon="arrow-left" /> Books</a>
+					<Hero title={entry.data.title} tagline={entry.data.subtitle} align="start">
+						<div class="details">
+							<div class="tags">
+								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+							</div>
+							<CallToAction href={entry.data.amazonUrl}>
+								View on Amazon
+								<Icon icon="arrow-right" size="1.1em" />
+							</CallToAction>
+						</div>
+					</Hero>
+				</div>
+			</header>
+			<main class="wrapper">
+				<div class="stack gap-10 content">
+					{entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
+					<div class="content">
+						<Content />
+					</div>
+				</div>
+			</main>
+		</div>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	header {
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	.back-link {
+		display: none;
+	}
+
+	.details {
+		display: flex;
+		flex-direction: column;
+		padding: 0.5rem;
+		gap: 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.content {
+		max-width: 65ch;
+		margin-inline: auto;
+	}
+
+	.content > :global(* + *) {
+		margin-top: 1rem;
+	}
+
+	.content :global(img) {
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-sm);
+		background: var(--gray-900);
+		border: 1px solid var(--gray-800);
+		max-height: 26rem;
+		object-fit: contain;
+	}
+
+	.back-link {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.back-link:hover,
+	.back-link:focus {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.back-link {
+			display: block;
+			align-self: flex-start;
+		}
+
+		.details {
+			flex-direction: row;
+			gap: 2.5rem;
+		}
+	}
+</style>

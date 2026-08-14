@@ -1,0 +1,94 @@
+---
+import Icon from './Icon.astro';
+
+const skills: { icon: keyof typeof import('./IconPaths').iconPaths; title: string; description: string }[] = [
+	{
+		icon: 'terminal-window',
+		title: 'AI & Automation',
+		description:
+			'Building AI agents, skills, and tools end-to-end — from an org-wide AI product at Amadeus to hands-on GitHub Copilot and LLM workflows that ship real productivity gains.',
+	},
+	{
+		icon: 'kanban',
+		title: 'Technical Program Management',
+		description:
+			"Driving multi-team, cross-org programs end-to-end — from a multi-team cloud transformation at Lowe's to release management for microservices on GCP.",
+	},
+	{
+		icon: 'rocket-launch',
+		title: 'Product & Delivery Leadership',
+		description:
+			'Setting up data-driven forecasting, roadmaps, and metrics dashboards that leadership and CXOs actually use to make decisions.',
+	},
+	{
+		icon: 'microphone-stage',
+		title: 'Leadership & Team Coaching',
+		description:
+			'Coaching leaders and teams through change, running workshops that save hours every week, and mentoring PMs and engineers.',
+	},
+	{
+		icon: 'code',
+		title: 'Engineering Practices',
+		description:
+			'Championing built-in quality practices like TDD, BDD, and mutation testing to raise engineering standards.',
+	},
+	{
+		icon: 'list',
+		title: 'Systems Thinking',
+		description:
+			'Applying a holistic approach to solve complex organizational challenges and optimize workflows end-to-end.',
+	},
+];
+---
+
+<section class="box skills">
+	{
+		skills.map(({ icon, title, description }) => (
+			<div class="stack gap-2 lg:gap-4">
+				<Icon icon={icon} color="var(--accent-regular)" size="2rem" />
+				<h2>{title}</h2>
+				<p>{description}</p>
+			</div>
+		))
+	}
+</section>
+
+<style>
+	.box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.skills {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+
+	.skills h2 {
+		font-size: var(--text-lg);
+	}
+
+	.skills p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+
+		.skills {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 3rem 4rem;
+		}
+
+		.skills h2 {
+			font-size: var(--text-xl);
+		}
+	}
+</style>

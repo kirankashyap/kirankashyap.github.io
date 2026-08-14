@@ -1,0 +1,672 @@
+---
+import { getCollection } from 'astro:content';
+// Component Imports
+// Page section components
+import ContactCTA from '../components/ContactCTA.astro';
+import Grid from '../components/Grid.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Skills from '../components/Skills.astro';
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Content Fetching: List all books, most recent first
+const books = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+const experience = [
+	{ company: 'Amadeus', role: 'Senior Agile Coach', date: 'Feb 2024 – Present' },
+	{ company: 'Tailorbird', tag: 'Startup', role: 'Senior Scrum Master & Quality Leader', date: 'Nov 2022 – Jan 2024' },
+	{ company: 'Conversenow.ai', tag: 'Startup', role: 'Senior Scrum Master / Project Manager', date: 'May 2022 – Aug 2022' },
+	{ company: "Lowe's", role: 'Senior Scrum Master', date: 'Feb 2020 – May 2022' },
+	{ company: 'Societe Generale', role: 'Scrum Master', date: 'Apr 2019 – Feb 2020' },
+	{ company: 'Cognizant Technology Solutions', role: 'Scrum Master → Production Support → PEGA Developer', date: 'Oct 2013 – Apr 2019' },
+];
+
+const writings = [
+	{
+		title: 'Pick A Question - A Remote Retrospective',
+		description: 'Interactive team retrospective methodology.',
+		href: 'https://medium.com/@kiran.kashyap.ds/pick-a-question-a-remote-retrospective-a7c1e2f0b30a',
+	},
+	{
+		title: 'How to be a Despicable Scrum Master?',
+		description: 'Satirical look at Scrum Master anti-patterns.',
+		href: 'https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661',
+	},
+	{
+		title: 'Crafting a True Pull System',
+		description: 'Using Kanban boards effectively.',
+		href: 'https://medium.com/@kiran.kashyap.ds/crafting-a-true-pull-system-using-kanban-board-7775d87b82b8',
+	},
+	{
+		title: 'The Happiness Curve Retrospective',
+		description: 'For distributed teams.',
+		href: 'https://medium.com/@kiran.kashyap.ds/the-happiness-curve-retrospective-for-distributed-teams-f8cdc8987805',
+	},
+	{
+		title: 'Scrum Master Interview Questions',
+		description: 'Advanced tricky questions.',
+		href: 'https://medium.com/@kiran.kashyap.ds/scrum-master-interview-questions-advanced-14c574282aef',
+	},
+	{
+		title: 'Are your engineering teams slowing down despite using AI?',
+		description: 'Questioning whether AI adoption is actually improving engineering productivity or quietly creating new bottlenecks.',
+		href: 'https://substack.com/@kirankashyap608058/p-200991497',
+	},
+	{
+		title: 'The 1978 Prophecy: Why Dijkstra Would Have Deleted Your AI Prompts',
+		description: "Reading Edsger Dijkstra's principles against modern AI prompt engineering, and a humble attempt to fix it.",
+		href: 'https://substack.com/@kirankashyap608058/p-195897717',
+	},
+	{
+		title: 'The Writer Who Shaped My Path: A Tribute to S.L. Bhyrappa',
+		description: 'A personal tribute to the author whose writing shaped my own path.',
+		href: 'https://substack.com/@kirankashyap608058/p-175049850',
+	},
+];
+
+const contributions = [
+	{
+		title: 'github/copilot-sdk',
+		description: 'Added per-language custom instruction links to the FAQ.',
+		href: 'https://github.com/github/copilot-sdk/pull/740',
+	},
+	{
+		title: 'stryker-mutator/stryker-js',
+		description: "Added a '% score of covered' column to the clear-text mutation testing report.",
+		href: 'https://github.com/stryker-mutator/stryker-js/pull/4945',
+	},
+	{
+		title: 'ampyard/Llaboratory',
+		description: 'Implemented tool-calls history UI and API.',
+		href: 'https://github.com/ampyard/Llaboratory/pull/28',
+	},
+	{
+		title: 'ampyard/spec-tracer',
+		description: 'Fixed module name matching to be case-insensitive.',
+		href: 'https://github.com/ampyard/spec-tracer/pull/17',
+	},
+];
+
+const talks = [
+	{ year: '2021', name: 'Agile India 2021' },
+	{ year: '2020', name: 'Regional Scrum Gathering Hyderabad' },
+	{ year: '2020', name: 'Agile India 2020' },
+	{ year: '2019', name: 'XP 2019 Canada' },
+	{ year: '2019', name: 'World DevOps Summit' },
+	{ year: '2019', name: 'Regional Scrum Gathering' },
+	{ year: '2019', name: 'Agile NCR 2019' },
+	{ year: 'Earlier', name: 'NextGen DevOps Conference Bengaluru' },
+];
+---
+
+<BaseLayout>
+	<div class="stack gap-20 lg:gap-48">
+		<div class="wrapper stack gap-8 lg:gap-20">
+			<header class="hero">
+				<Hero
+					title="Kiran Kashyap"
+					tagline="AI Builder, Technical Program Leader & Author."
+					align="start"
+				>
+					<p class="lede">
+						I design and ship AI agents, tools, and workflows, and lead complex technical programs
+						and product delivery end-to-end. 13+ years across engineering, program management,
+						product, and leadership coaching — currently building AI-enabled workflows adopted
+						org-wide.
+					</p>
+					<div class="cta-row">
+						<a class="icon-btn" href="mailto:kiran.kashyap.ds@gmail.com" aria-label="Email">
+							<Icon icon="paper-plane-tilt" size="1.3em" />
+						</a>
+						<a
+							class="icon-btn"
+							href="https://www.linkedin.com/in/kirankashyapds/"
+							target="_blank"
+							rel="noopener"
+							aria-label="LinkedIn"
+						>
+							<Icon icon="linkedin-logo" size="1.3em" />
+						</a>
+						<a
+							class="icon-btn"
+							href="https://github.com/kirankashyap/"
+							target="_blank"
+							rel="noopener"
+							aria-label="GitHub"
+						>
+							<Icon icon="github-logo" size="1.3em" />
+						</a>
+					</div>
+				</Hero>
+
+				<div class="hero-media">
+					<img
+						alt="Kiran Kashyap"
+						width="480"
+						height="480"
+						src="/kiran-kashyap-image.png"
+					/>
+					<div class="stats">
+						<div class="stat">
+							<span class="stat-num">13+</span>
+							<span class="stat-label">Years in Tech</span>
+						</div>
+						<span class="stat-divider" aria-hidden="true"></span>
+						<div class="stat">
+							<span class="stat-num">3</span>
+							<span class="stat-label">Books Authored</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<Skills />
+		</div>
+
+		<main class="wrapper stack gap-20 lg:gap-48">
+			<section id="about" class="about">
+				<h2 class="section-title">About</h2>
+				<div class="content">
+					<p>
+						<strong>AI builder</strong> at heart — I design, build, and ship AI agents, skills, and
+						tools that people actually use every day, from org-wide AI products to reusable agents
+						and prompts other teams build on top of.
+					</p>
+					<p>
+						I pair that with 13+ years leading <strong>technical programs and product delivery</strong>
+						— multi-team cloud transformations, release management, data-driven forecasting, and
+						metrics that leadership actually acts on. I have also spent years as a{' '}
+						<strong>leadership and team coach</strong>, helping engineers, PMs, and execs cut through
+						noise and do their best work.
+					</p>
+					<p>
+						I have worked across early-stage startups and large enterprises. That mix taught me the
+						same lesson everywhere: whether the problem is a broken release process or an unclear AI
+						strategy, it pays to think in <strong>systems</strong> and get hands-on with the tooling
+						rather than stay theoretical. I am also an active <strong>open source contributor</strong>{' '}
+						and <strong>blogger</strong>, sharing what I learn along the way.
+					</p>
+					<p>
+						When I am not building or leading, you will usually find me on a badminton, snooker, or
+						pickleball court. In my free time, I love reading Swami Vivekananda.
+					</p>
+				</div>
+			</section>
+
+			<section class="about">
+				<h2 class="section-title">Experience</h2>
+				<div class="content">
+					<ul class="experience-list">
+						{
+							experience.map((job) => (
+								<li class="experience-item">
+									<div class="experience-heading">
+										<span class="experience-company">
+											{job.company}
+											{job.tag && <span class="experience-tag">{job.tag}</span>}
+										</span>
+										<span class="experience-date">{job.date}</span>
+									</div>
+									<p class="experience-role">{job.role}</p>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<section id="books" class="section with-cta">
+				<header class="section-header books-header stack gap-2 lg:gap-4">
+					<h3>Books</h3>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="triple">
+						{
+							books.map((project) => (
+								<li>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</section>
+
+			<section id="writings" class="about">
+				<h2 class="section-title">Writings</h2>
+				<div class="content">
+					<ul class="writings-list">
+						{
+							writings.map((post) => (
+								<li>
+									<a href={post.href} target="_blank" rel="noopener" class="writing-link">
+										<span class="writing-title">{post.title}</span>
+										<span class="writing-desc">{post.description}</span>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<section id="open-source" class="about">
+				<h2 class="section-title">Open Source Contributions</h2>
+				<div class="content">
+					<ul class="writings-list">
+						{
+							contributions.map((c) => (
+								<li>
+									<a href={c.href} target="_blank" rel="noopener" class="writing-link">
+										<span class="writing-title">{c.title}</span>
+										<span class="writing-desc">{c.description}</span>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<section id="speaking" class="section bg-variant">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Conference Talks</h3>
+					<p>
+						A selection of the conferences and gatherings I have spoken at on Agile, DevOps, and
+						engineering practice.
+					</p>
+				</header>
+
+				<div class="gallery stack gap-10 lg:gap-15">
+					<div class="video-embed">
+						<iframe
+							src="https://www.youtube.com/embed/videoseries?list=PLU5wcuPNwfnM"
+							title="Kiran Kashyap — Conference Talks playlist"
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+						/>
+					</div>
+
+					<Grid variant="small">
+						{
+							talks.map((talk) => (
+								<li class="mention-card">
+									<p class="mention-year">{talk.year}</p>
+									<p>{talk.name}</p>
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.lede {
+		max-width: 46ch;
+		color: var(--gray-300);
+		font-size: var(--text-base);
+		line-height: 1.7;
+	}
+
+	.hero-media {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.stats {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.15rem;
+	}
+
+	.stat-num {
+		font-family: var(--font-brand);
+		font-weight: 700;
+		font-size: var(--text-2xl);
+		color: var(--gray-0);
+		line-height: 1.1;
+	}
+
+	.stat-label {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+
+	.stat-divider {
+		width: 1px;
+		height: 2.25rem;
+		background: var(--gray-800);
+	}
+
+	.cta-row {
+		display: flex;
+		gap: 0.75rem;
+		justify-content: center;
+	}
+
+	.icon-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--gray-800);
+		background: var(--gray-999_40);
+		color: var(--gray-200);
+		box-shadow: var(--shadow-sm);
+		transition: color var(--theme-transition), border-color var(--theme-transition);
+	}
+
+	.icon-btn:hover,
+	.icon-btn:focus {
+		color: var(--accent-regular);
+		border-color: var(--accent-regular);
+	}
+
+	.hero-media {
+		order: -1;
+	}
+
+	.hero-media img {
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		border: 1px solid var(--gray-800);
+		box-shadow: var(--shadow-md);
+		max-width: 260px;
+	}
+
+	@media (min-width: 50em) {
+		.hero-media {
+			order: 0;
+		}
+
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 3.75rem;
+			align-items: center;
+		}
+
+		.cta-row {
+			justify-content: flex-start;
+		}
+
+		.hero-media img {
+			aspect-ratio: 1 / 1;
+			max-width: 100%;
+			border-radius: 2rem;
+		}
+	}
+
+	/* ====================================================== */
+
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-2xl);
+	}
+
+	.books-header h3 {
+		font-size: var(--text-xl);
+	}
+
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			gap: 5rem;
+		}
+
+		.section.with-cta {
+			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		}
+
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+
+		.books-header h3 {
+			font-size: var(--text-2xl);
+		}
+
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+		}
+
+		.gallery {
+			grid-area: gallery;
+		}
+
+		.cta {
+			grid-area: cta;
+		}
+	}
+
+	/* ====================================================== */
+
+	.video-embed {
+		position: relative;
+		width: 100%;
+		max-width: 56rem;
+		margin-inline: auto;
+		aspect-ratio: 16 / 9;
+		border-radius: 1rem;
+		overflow: hidden;
+		border: 1px solid var(--gray-800);
+		box-shadow: var(--shadow-md);
+	}
+
+	.video-embed iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	/* ====================================================== */
+
+	.mention-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.4rem;
+		height: 7rem;
+		padding: 1.5rem;
+		text-align: center;
+		align-items: center;
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		color: var(--gray-300);
+		background: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.mention-year {
+		font-family: var(--font-brand);
+		font-weight: 600;
+		color: var(--accent-regular);
+	}
+
+	@media (min-width: 50em) {
+		.mention-card {
+			border-radius: 1.25rem;
+			height: 9rem;
+		}
+	}
+
+	/* ====================================================== */
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.about .content {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.about .content p {
+		line-height: 1.75;
+	}
+
+	.about .content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.about .content :global(a:hover),
+	.about .content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	.experience-list,
+	.writings-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.experience-item {
+		padding: 1.1rem 0;
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.experience-list li:last-child {
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	.experience-heading {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.experience-company {
+		font-family: var(--font-brand);
+		font-weight: 600;
+		font-size: var(--text-md);
+		color: var(--gray-0);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.experience-tag {
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 600;
+		color: var(--accent-text-over);
+		background-color: var(--accent-regular);
+		border: 1px solid var(--accent-regular);
+		border-radius: 999rem;
+		padding: 0.15rem 0.55rem;
+	}
+
+	.experience-date {
+		font-family: var(--font-brand);
+		font-style: italic;
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		white-space: nowrap;
+	}
+
+	.experience-role {
+		color: var(--gray-300);
+		margin-top: 0.2rem;
+	}
+
+	.writings-list li {
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.writings-list li:last-child {
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	.writing-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 1rem 0;
+		text-decoration: none !important;
+	}
+
+	.writing-title {
+		font-family: var(--font-brand);
+		font-weight: 600;
+		color: var(--gray-0);
+		transition: color var(--theme-transition);
+	}
+
+	.writing-link:hover .writing-title,
+	.writing-link:focus .writing-title {
+		color: var(--accent-regular);
+	}
+
+	.writing-desc {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+</style>

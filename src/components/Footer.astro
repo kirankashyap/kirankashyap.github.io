@@ -1,0 +1,68 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	<div class="group">
+		<p>Building AI-powered tools and leading technical programs, teams, and coaching engagements.</p>
+		<p>&copy; {currentYear} Kiran Kashyap</p>
+	</div>
+	<p class="socials">
+		<a href="https://www.linkedin.com/in/kirankashyapds/" target="_blank" rel="noopener">LinkedIn</a>
+		<a href="https://github.com/kirankashyap/" target="_blank" rel="noopener">GitHub</a>
+		<a href="mailto:kiran.kashyap.ds@gmail.com">Email</a>
+	</p>
+</footer>
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: auto;
+		padding: 3rem 2rem;
+		text-align: center;
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+		border-top: 1px solid var(--gray-800);
+	}
+
+	footer a {
+		color: var(--gray-400);
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition), color var(--theme-transition);
+	}
+
+	footer a:hover,
+	footer a:focus {
+		color: var(--accent-regular);
+		text-decoration-color: currentColor;
+	}
+
+	.group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.socials {
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	@media (min-width: 50em) {
+		footer {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 2.5rem 5rem;
+			text-align: left;
+		}
+
+		.socials {
+			justify-content: flex-end;
+		}
+	}
+</style>
