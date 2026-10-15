@@ -1,8 +1,25 @@
 ---
-import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+<BaseLayout title="Page not found | Kiran Kashyap" description="This page does not exist." noindex>
+	<section class="wrapper notfound">
+		<p class="eyebrow">404</p>
+		<h1>This page does not exist.</h1>
+		<p>It may have moved when the site was redesigned.</p>
+		<a class="btn btn-primary" href="/">Go to the home page</a>
+	</section>
 </BaseLayout>
+
+<style>
+	.notfound {
+		display: grid;
+		justify-items: start;
+		gap: 1.25rem;
+		padding-block: 8rem;
+	}
+
+	h1 {
+		font-size: var(--text-3xl);
+	}
+</style>

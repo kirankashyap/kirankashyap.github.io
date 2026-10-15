@@ -1,0 +1,236 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { Picture, getImage } from 'astro:assets';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Icon from '../../components/Icon.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { person } from '../../data/profile';
+import { bookGraph } from '../../data/schema';
+
+interface Props {
+	entry: CollectionEntry<'books'>;
+}
+
+export async function getStaticPaths() {
+	const books = await getCollection('books');
+	return books.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+const ogCover = await getImage({ src: data.cover, width: 1200, format: 'jpg' });
+const isUpcoming = data.status === 'upcoming';
+
+const otherBooks = (await getCollection('books')).filter((b) => b.id !== entry.id);
+---
+
+<BaseLayout
+	title={`${data.title}: ${data.subtitle} | Kiran Kashyap`}
+	description={`${data.subtitle}. ${data.description.trim()}`}
+	image={ogCover.src}
+	type="book"
+	jsonLd={bookGraph(entry, ogCover.src)}
+>
+	<article class="wrapper book">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<a href="/"><Icon icon="arrow-left" /> Home</a>
+			<span aria-hidden="true">/</span>
+			<a href="/#books">Books</a>
+		</nav>
+
+		<div class="layout">
+			<div class="cover">
+				<Picture
+					src={data.cover}
+					alt={data.coverAlt}
+					widths={[360, 540, 720]}
+					sizes="(min-width: 50em) 360px, 80vw"
+					formats={['avif', 'webp']}
+						fallbackFormat="jpg"
+					loading="eager"
+				/>
+			</div>
+
+			<div class="stack copy">
+				<div class="tags">
+					{isUpcoming && <span class="tag tag-accent">Coming soon</span>}
+					{data.publishDate && !isUpcoming && <span class="tag">{data.publishDate.getFullYear()}</span>}
+					{data.tags.filter((t) => t !== 'Upcoming').map((t) => <span class="tag">{t}</span>)}
+				</div>
+				<h1>{data.title}</h1>
+				<p class="subtitle">{data.subtitle}</p>
+				<p class="authors">By {data.authors.join(', ')}</p>
+
+				<div class="prose">
+					<Content />
+				</div>
+
+				{
+					data.amazonUrl ? (
+						<a class="btn btn-primary" href={data.amazonUrl} target="_blank" rel="noopener">
+							Get it on Amazon <Icon icon="arrow-up-right" />
+						</a>
+					) : (
+						<a class="btn btn-primary" href={`mailto:${person.email}?subject=${encodeURIComponent(`Notify me: ${data.title}`)}`}>
+							<Icon icon="envelope" /> Tell me when it's out
+						</a>
+					)
+				}
+			</div>
+		</div>
+
+		<aside class="more" aria-labelledby="more-title">
+			<h2 id="more-title">More books</h2>
+			<ul role="list">
+				{
+					otherBooks.map((b) => (
+						<li>
+							<a href={`/books/${b.id}/`}>
+								<span class="more-title">{b.data.title}</span>
+								<span class="more-sub">{b.data.subtitle}</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</aside>
+	</article>
+
+	<ContactCTA />
+</BaseLayout>
+
+<style>
+	.book {
+		padding-block: 2rem 4rem;
+	}
+
+	.crumbs {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 2.5rem;
+		font-size: var(--text-sm);
+		color: var(--ink-3);
+	}
+
+	.crumbs a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		text-decoration: none;
+		color: var(--ink-2);
+	}
+
+	.crumbs a:hover {
+		color: var(--accent);
+	}
+
+	.layout {
+		display: grid;
+		gap: 3rem;
+	}
+
+	.cover {
+		justify-self: center;
+		width: min(80%, 22rem);
+	}
+
+	.cover :global(img) {
+		border-radius: 0.4rem 1rem 1rem 0.4rem;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.copy {
+		gap: 1rem;
+		align-items: flex-start;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	h1 {
+		font-size: var(--text-3xl);
+	}
+
+	.subtitle {
+		font-size: var(--text-lg);
+		color: var(--accent);
+	}
+
+	.authors {
+		font-size: var(--text-sm);
+		color: var(--ink-3);
+	}
+
+	.prose {
+		display: grid;
+		gap: 1rem;
+		max-width: 62ch;
+		margin-block: 1rem;
+		font-size: var(--text-md);
+	}
+
+	.more {
+		margin-top: 5rem;
+		padding-top: 2.5rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.more h2 {
+		font-size: var(--text-xl);
+		margin-bottom: 1.25rem;
+	}
+
+	.more ul {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.more a {
+		display: grid;
+		gap: 0.25rem;
+		height: 100%;
+		padding: 1.25rem 1.5rem;
+		border-radius: var(--radius);
+		border: 1px solid var(--line);
+		background: var(--surface);
+		text-decoration: none;
+		transition: border-color var(--theme-transition);
+	}
+
+	.more a:hover {
+		border-color: var(--accent);
+	}
+
+	.more-title {
+		font-weight: 600;
+		color: var(--ink);
+	}
+
+	.more-sub {
+		font-size: var(--text-sm);
+		color: var(--ink-3);
+	}
+
+	@media (min-width: 50em) {
+		.layout {
+			grid-template-columns: 22rem 1fr;
+			gap: 5rem;
+			align-items: start;
+		}
+
+		.cover {
+			width: 100%;
+			position: sticky;
+			top: 6rem;
+		}
+
+		.more ul {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>
