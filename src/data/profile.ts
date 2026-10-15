@@ -380,6 +380,36 @@ export const contributions: LinkItem[] = [
 	},
 ];
 
+/**
+ * Standalone pages hosted on this domain. Most are separate repos with GitHub
+ * Pages turned on; /kathopanishad lives in public/ of this repo. Listed in the
+ * sitemap and llms.txt but not on the home page.
+ */
+export const projects: LinkItem[] = [
+	{
+		title: 'Nachiketa talks with Yama',
+		description:
+			'The story of Nachiketa from the Katha Upanishad, told simply as an illustrated conversation between the boy and Yama.',
+		href: `${SITE_URL}/kathopanishad/`,
+	},
+	{
+		title: 'momonaku: Tokyo Lines',
+		description: "A 10-question memory game about Tokyo's train system. Unofficial and fan-made.",
+		href: `${SITE_URL}/momonaku/`,
+	},
+	{
+		title: 'India personal inflation calculator',
+		description:
+			'Works out your personal inflation rate in India from your own spending, for rural or urban households.',
+		href: `${SITE_URL}/calculate-your-inflation-india/`,
+	},
+	{
+		title: 'Pick a question retrospective',
+		description: 'The tool for running the remote "pick a question" retrospective format.',
+		href: `${SITE_URL}/pick-a-question-retro/`,
+	},
+];
+
 // ---------------------------------------------------------------------------
 // Formatting helpers shared by pages and machine-readable endpoints.
 

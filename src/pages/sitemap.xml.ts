@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { SITE_URL } from '../data/profile';
+import { SITE_URL, projects } from '../data/profile';
 
 export const GET: APIRoute = async () => {
 	const today = new Date().toISOString().slice(0, 10);
@@ -8,6 +8,7 @@ export const GET: APIRoute = async () => {
 	const urls = [
 		{ loc: `${SITE_URL}/`, priority: '1.0' },
 		...books.map((b) => ({ loc: `${SITE_URL}/books/${b.id}/`, priority: '0.7' })),
+		...projects.map((p) => ({ loc: p.href, priority: '0.5' })),
 		{ loc: `${SITE_URL}/llms.txt`, priority: '0.3' },
 	];
 
