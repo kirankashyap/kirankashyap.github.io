@@ -214,8 +214,8 @@ footer p + p{margin-top:.6rem}
 
 <div class="tools" id="tools"><div class="wrap">
   <div class="seg" role="group" aria-label="How to read">
-    <button id="r-all" aria-pressed="true">Read all</button>
-    <button id="r-slow" aria-pressed="false">One at a time</button>
+    <button id="r-all" aria-pressed="false">Read all</button>
+    <button id="r-slow" aria-pressed="true">One at a time</button>
   </div>
   <div class="seg" role="group" aria-label="Depth"><button id="d-deep" aria-pressed="true">Going deeper</button><button id="d-story" aria-pressed="false">Story only</button></div>
   <div class="seg" role="group" aria-label="Pictures">
@@ -778,11 +778,11 @@ const io=new IntersectionObserver(es=>{
 items.forEach(el=>io.observe(el));
 
 let shown=items.length;
-function setSlow(on){
+function setSlow(on,noScroll){
   document.body.classList.toggle('slow',on);
   document.getElementById('r-slow').setAttribute('aria-pressed',on);
   document.getElementById('r-all').setAttribute('aria-pressed',!on);
-  if(on){shown=2;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));nextbar.hidden=false;lastEl=null;setStage(items[1]);document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
+  if(on){shown=2;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));nextbar.hidden=false;lastEl=null;setStage(items[1]);if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
   else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true}
 }
 function step(){
@@ -798,6 +798,7 @@ next.addEventListener('click',step);
 document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' ')&&e.target===document.body){e.preventDefault();step()}});
 document.getElementById('r-slow').addEventListener('click',()=>setSlow(true));
 document.getElementById('r-all').addEventListener('click',()=>setSlow(false));
+setSlow(true,true); // default: one at a time, without jumping past the intro
 
 function pair(a,b,cls,key,invert){
   const A=document.getElementById(a),B=document.getElementById(b);
