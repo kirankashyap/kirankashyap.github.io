@@ -382,8 +382,8 @@ export const contributions: LinkItem[] = [
 
 /**
  * Standalone pages hosted on this domain. Most are separate repos with GitHub
- * Pages turned on; /kathopanishad lives in public/ of this repo. Listed in the
- * sitemap and llms.txt but not on the home page.
+ * Pages turned on; /kathopanishad and /mundakopanishad live in public/ of this
+ * repo. Listed in the sitemap and llms.txt but not on the home page.
  */
 export const projects: LinkItem[] = [
 	{
@@ -391,6 +391,12 @@ export const projects: LinkItem[] = [
 		description:
 			'The story of Nachiketa from the Katha Upanishad, told simply as an illustrated conversation between the boy and Yama.',
 		href: `${SITE_URL}/kathopanishad/`,
+	},
+	{
+		title: 'Shaunaka asks Angiras',
+		description:
+			'The Mundaka Upanishad told simply as an illustrated conversation between the householder Shaunaka and the sage Angiras: two kinds of knowledge, the bow and arrow, and the two birds.',
+		href: `${SITE_URL}/mundakopanishad/`,
 	},
 	{
 		title: 'momonaku: Tokyo Lines',

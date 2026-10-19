@@ -1,0 +1,1088 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaunaka Asks Angiras</title>
+<meta name="description" content="The Mundaka Upanishad told simply as an illustrated conversation between the householder Shaunaka and the sage Angiras.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Mukta:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600&text=%E0%A5%90&display=swap">
+<style>
+/* Layout: a picture-book stage pinned above one narrow chat column. Shaunaka sits on the left, Angiras under his tree on the right; the scene and the speaker follow the conversation. */
+:root{
+  --bg:#F1EFE6; --surface:#FAF8F1; --ink:#2A2A22; --muted:#626255; --line:#D6D2C2;
+  --sh:#E2ECD4; --sh-ink:#22301A; --ri:#F7E2C6; --ri-ink:#3F2410;
+  --gold:#94640F; --gold-soft:#EFD9A6; --deep:#E7E6DA;
+  --sky1:#DCE8DA; --sky2:#F6EBD3; --night1:#1D2244; --night2:#45497A; --dawn1:#F2C9A0; --dawn2:#FBE8CF; --sea1:#CFE3EC; --sea2:#F2EBDA;
+  --grass:#C2CB9E; --grass2:#A9B585; --leaf:#9AB27E; --leaf2:#82A068; --trunk:#7A5530; --hill2:#B7C2B4; --star:#FFFFFF;
+  --f-display:"Marcellus","Noto Serif Kannada","Cormorant Garamond",Georgia,serif;
+  --f-body:"Gentium Book Plus","Gentium Plus","Noto Serif Kannada",Georgia,"Times New Roman",serif;
+  --f-ui:"Mukta","Noto Sans Kannada","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --night1:#0B0E24; --night2:#262A55; --dawn1:#4A3A50; --dawn2:#86605E; --sea1:#1C2E3A; --sea2:#34382C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; --hill2:#2E3A36; --star:#F3EAD2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --night1:#0B0E24; --night2:#262A55; --dawn1:#4A3A50; --dawn2:#86605E; --sea1:#1C2E3A; --sea2:#34382C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; --hill2:#2E3A36; --star:#F3EAD2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.1rem;line-height:1.55}
+.wrap{max-width:40rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;line-height:1.2;font-size:clamp(2rem,6vw,2.9rem)}
+p{margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+header{padding-block:2.2rem 1rem}
+header .wrap{display:grid;gap:.9rem}
+.cast{display:flex;gap:1.4rem;flex-wrap:wrap}
+.who{display:flex;gap:.6rem;align-items:center;font-family:var(--f-ui);font-size:.95rem;color:var(--muted)}
+.who b{color:var(--ink);font-weight:600;display:block}
+.label{font-family:var(--f-ui);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted)}
+.av{width:44px;height:44px;flex:none;border-radius:50%;display:block}
+
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;padding-block:.45rem;font-family:var(--f-ui);font-size:.88rem}
+.seg{display:flex;border:1px solid var(--line);border-radius:99px;padding:2px}
+.seg button{border:0;background:none;color:var(--muted);font:inherit;padding:.15rem .75rem;border-radius:99px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* stage */
+.stage-wrap{position:sticky;z-index:5;top:calc(var(--tools-h,48px) + env(safe-area-inset-top,0px));background:var(--bg);padding-block:.6rem .4rem}
+body.no-stage .stage-wrap{display:none}
+.stage{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.stage svg{display:block;width:100%;height:auto}
+.caption{position:absolute;left:12px;top:10px;font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:color-mix(in srgb,var(--bg) 75%,transparent);padding:.1rem .6rem;border-radius:99px}
+
+#st .sky1{stop-color:var(--sky1);transition:stop-color 1.2s}
+#st .sky2{stop-color:var(--sky2);transition:stop-color 1.2s}
+#st[data-scene="light"] .sky1{stop-color:var(--night1)} #st[data-scene="light"] .sky2{stop-color:var(--night2)}
+#st[data-scene="dawn"] .sky1{stop-color:var(--dawn1)} #st[data-scene="dawn"] .sky2{stop-color:var(--dawn2)}
+#st[data-scene="ocean"] .sky1{stop-color:var(--sea1)} #st[data-scene="ocean"] .sky2{stop-color:var(--sea2)}
+
+.fade{transition:opacity .9s ease}
+.p{opacity:0}
+#st[data-scene="arrive"] .p-arrive, #st[data-scene="two"] .p-two,
+#st[data-scene="spider"] .p-spider, #st[data-scene="boats"] .p-boats,
+#st[data-scene="fire"] .p-fire, #st[data-scene="bow"] .p-bow,
+#st[data-scene="light"] .p-light, #st[data-scene="birds"] .p-birds,
+#st[data-scene="dawn"] .p-dawn, #st[data-scene="ocean"] .p-ocean{opacity:1}
+
+/* speaker */
+.spot{opacity:0;transition:opacity .6s}
+#st[data-who="s"] #sh .spot, #st[data-who="a"] #ang .spot{opacity:.75}
+.arms-talk{opacity:0;transition:opacity .5s}.arms-listen{opacity:1;transition:opacity .5s}
+#st[data-who="s"] #sh .arms-talk, #st[data-who="a"] #ang .arms-talk{opacity:1}
+#st[data-who="s"] #sh .arms-listen, #st[data-who="a"] #ang .arms-listen{opacity:0}
+.m-open{opacity:0}
+.head,.breathe,.eyes,.rays,.halo,.flame,.rock,.peck{transform-box:fill-box}
+.head{transform-origin:50% 100%}
+#st.talking[data-who="s"] #sh .m-open, #st.talking[data-who="a"] #ang .m-open{animation:mouth .34s steps(1) infinite}
+#st.talking[data-who="s"] #sh .head, #st.talking[data-who="a"] #ang .head{animation:nod 2.2s ease-in-out}
+@keyframes mouth{0%{opacity:1}50%{opacity:0}}
+@keyframes nod{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg) translateY(-1px)}65%{transform:rotate(2deg)}}
+
+/* idle life */
+.breathe{transform-origin:50% 100%;animation:breathe 4.5s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1,1.018)}}
+.eyes{transform-origin:center;animation:blink 5.5s infinite}
+#ang .eyes{animation-delay:-2.3s}
+@keyframes blink{0%,95%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.flame{transform-origin:50% 100%;animation:flick 2.4s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1,1)}40%{transform:scale(.92,1.08)}70%{transform:scale(1.05,.96)}}
+.halo{transform-origin:center;animation:halo 6s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.08);opacity:.6}}
+.rays{transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{opacity:.45}}
+.twinkle{animation:tw 4s ease-in-out infinite}.twinkle:nth-child(2n){animation-delay:-1.4s}.twinkle:nth-child(3n){animation-delay:-2.6s}
+@keyframes tw{50%{opacity:.3}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(1.2deg)}}
+/* spider lets its thread out and draws it back in */
+.thread{transform-box:view-box;transform-origin:400px 100px;animation:thread 5s ease-in-out infinite}
+.spd{animation:spd 5s ease-in-out infinite}
+@keyframes thread{50%{transform:scaleY(.6)}}
+@keyframes spd{50%{transform:translateY(-34px)}}
+.rock{transform-origin:50% 100%;animation:rock 3s ease-in-out infinite}
+.rock2{animation-duration:2.4s;animation-delay:-1.2s}
+@keyframes rock{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+.spark{animation:spark 2.8s ease-out infinite}
+.spark:nth-child(3n){animation-duration:3.3s}.spark:nth-child(4n){animation-duration:2.4s}
+@keyframes spark{0%{transform:translateY(40px);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),-50px);opacity:0}}
+.flow{stroke-dasharray:6 10;animation:flow 1.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-16}}
+.peck{transform-origin:50% 100%;animation:peckb 1.8s ease-in-out infinite}
+@keyframes peckb{0%,55%,100%{transform:rotate(0)}68%{transform:rotate(-14deg)}80%{transform:rotate(0)}}
+
+/* chat */
+.chat{display:flex;flex-direction:column;gap:.55rem;padding-block:1rem 2rem}
+.row{display:flex;gap:.55rem;align-items:flex-end;max-width:88%}
+.row.s{align-self:flex-start}
+.row.a{align-self:flex-end;flex-direction:row-reverse}
+.row .av{width:36px;height:36px}
+.row.cont .av{visibility:hidden}
+.bub{padding:.6rem .9rem;border-radius:18px;min-width:0}
+.s .bub{background:var(--sh);color:var(--sh-ink);border-bottom-left-radius:6px}
+.a .bub{background:var(--ri);color:var(--ri-ink);border-bottom-right-radius:6px}
+.name{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.06em;color:var(--muted);margin-bottom:.1rem}
+.a .name{text-align:right}
+.row.cont .name{display:none}
+.verse-ref{font-family:var(--f-ui);font-size:.72rem;color:var(--gold);letter-spacing:.06em;margin-top:.25rem;display:block}
+.a .verse-ref{text-align:right}
+.tell{align-self:center;text-align:center;max-width:34rem;color:var(--muted);font-style:italic;padding:.4rem .5rem;font-size:1.02rem}
+.div{align-self:stretch;display:flex;align-items:center;gap:.8rem;margin-block:1.4rem .4rem;font-family:var(--f-display);font-size:1.25rem;color:var(--ink)}
+.div::before,.div::after{content:"";flex:1;border-top:1px solid var(--line)}
+.think{align-self:center;max-width:32rem;background:var(--surface);border:1px dashed var(--gold);border-radius:14px;padding:.7rem 1rem;font-size:1rem}
+.think b{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.15rem}
+body.slow .chat > .later{display:none}
+body.slow .chat{padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px))}
+body.slow .chat > *{scroll-margin-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
+body.slow footer{padding-bottom:8.5rem}
+body.slow .chat, body.slow .stage{cursor:pointer}
+.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:1.4rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
+.nextbar[hidden]{display:none}
+.next{pointer-events:auto;font-family:var(--f-ui);font-size:1.08rem;font-weight:600;background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:.8rem 1.9rem;min-width:min(16rem,100%);display:flex;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.next .arr{display:inline-block;font-size:1.3em;line-height:1;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.next.hint{animation:ring 2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 0 color-mix(in srgb,var(--gold) 70%,transparent)}70%,100%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 16px transparent}}
+.tap-hint{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.tap-hint[hidden]{display:none}
+/* "someone is about to speak" bubble at the end of the revealed chat */
+.typing{display:flex;gap:.55rem;align-items:flex-end;opacity:.85}
+.typing[hidden]{display:none}
+.typing.mid{align-self:center}
+.typing.mid .av{display:none}
+.typing.mid .bub{background:var(--surface);border:1px dashed var(--line);color:var(--muted)}
+.typing .bub{padding:.8rem 1rem}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:.9;transform:translateY(-3px)}}
+.prog{height:3px}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s ease}
+body:not(.slow) .prog{display:none}
+.pop{animation:pop .4s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* going deeper cards */
+.deep{align-self:stretch;background:var(--deep);border-radius:16px;padding:1.1rem clamp(.9rem,3.5vw,1.6rem);display:grid;gap:.85rem;margin-block:.4rem}
+.deep .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.deep h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem;margin:0;line-height:1.25}
+.deep blockquote{margin:0;font-family:var(--f-display);font-size:clamp(1.12rem,2.6vw,1.3rem);line-height:1.5}
+.deep .vr{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.15rem}
+.deep p{font-size:1.02rem;line-height:1.62}
+body.story .deep{display:none}
+
+/* widgets: the two kinds of knowing, the bow, the two birds */
+.widget{align-self:stretch;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;display:grid;gap:.8rem;margin-block:.4rem}
+.widget .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.widget svg{width:100%;height:auto;display:block}
+.widget .hit{cursor:pointer}
+.widget .hit:hover .shape,.widget .hit:focus .shape,.widget .hit.on .shape{filter:drop-shadow(0 0 6px var(--gold))}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips button{font-family:var(--f-ui);font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:.2rem .8rem;cursor:pointer}
+.chips button.on{border-color:var(--gold);background:var(--gold-soft)}
+.info{min-height:5rem;font-size:1.02rem}
+.info h4{font-family:var(--f-display);font-weight:400;font-size:1.2rem;margin:0 0 .2rem}
+.info .means{font-family:var(--f-ui);color:var(--gold);font-size:.92rem;letter-spacing:.04em}
+.calm-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:.7rem}
+.calm-row p{font-size:.98rem;color:var(--muted);max-width:24rem}
+.calm-row .seg,.ctl{font-family:var(--f-ui);font-size:.9rem}
+.ctl{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.fire{font-family:var(--f-ui);font-size:.95rem;font-weight:600;background:var(--gold);color:var(--bg);border:0;border-radius:99px;padding:.3rem 1.1rem;cursor:pointer}
+
+.two-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:.6rem}
+.two-grid>div{border-radius:12px;padding:.8rem .95rem;display:grid;gap:.45rem;align-content:start}
+.two .lo{background:var(--bg)}
+.two .hi{background:var(--gold-soft)}
+.two h4{font-family:var(--f-display);font-weight:400;font-size:1.2rem;margin:0;line-height:1.3}
+.two .sk{font-style:italic;color:var(--muted);font-size:.92rem;margin-top:-.35rem}
+.two ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem}
+.two li{font-family:var(--f-ui);font-size:.86rem;border:1px solid var(--line);border-radius:99px;padding:.05rem .6rem;background:var(--surface)}
+.two .sub{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.two .sum{font-size:.98rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.45rem;margin-top:.15rem}
+.two .hi .sum{border-color:color-mix(in srgb,var(--gold) 40%,transparent);color:var(--ink)}
+@media (max-width:520px){.two-grid{grid-template-columns:1fr}}
+
+.om{font-family:"Noto Sans Devanagari",sans-serif;font-weight:600;fill:#5A3A1E}
+.bowsvg .aim{transform-box:view-box;transform-origin:124px 128px}
+.bowsvg.wander .aim{animation:wander 2.8s ease-in-out infinite}
+.bowsvg.shot .aim{animation:none}
+@keyframes wander{0%,100%{transform:rotate(0)}20%{transform:rotate(-4deg)}50%{transform:rotate(3.5deg)}75%{transform:rotate(-1.5deg)}}
+.bowsvg .arrow{transform-box:fill-box;transform-origin:50% 50%;transition:transform .7s cubic-bezier(.25,.1,.25,1)}
+.bowsvg.hit-ok .arrow{transform:translate(354px,0)}
+.bowsvg.hit-miss .arrow{transform:translate(330px,-128px) rotate(-12deg)}
+.bowsvg .shaft{transition:stroke .6s .7s}
+.bowsvg.hit-ok .shaft{stroke:#E2B04E!important}
+.bowsvg .tglow{opacity:0;transition:opacity .6s .6s}
+.bowsvg.hit-ok .tglow{opacity:1}
+.bowsvg .s-rest{opacity:0}
+.bowsvg.shot .s-rest{opacity:1}.bowsvg.shot .s-drawn{opacity:0}
+.bowsvg.reset *{transition:none!important}
+
+.birdsvg .lhead{transform-box:fill-box;transform-origin:93% 80%;transition:transform .7s}
+.birdsvg:not(.look) .lhead{animation:peck 1.6s ease-in-out infinite}
+.birdsvg.look .lhead{transform:rotate(26deg)}
+@keyframes peck{0%,40%,100%{transform:rotate(0)}55%{transform:rotate(-32deg)}70%{transform:rotate(0)}}
+.birdsvg .lbody{fill:#8C7A6B;transition:fill 1.2s .5s}
+.birdsvg.look .lbody{fill:#D9B25A}
+.birdsvg .lglow{opacity:0;transition:opacity 1s .6s}
+.birdsvg.look .lglow{opacity:.9}
+.birdsvg .beam{opacity:0;transition:opacity .8s .2s}
+.birdsvg.look .beam{opacity:.8}
+
+/* Kannada needs taller lines for its vowel signs, and letter-spacing breaks conjuncts */
+html[lang="kn"] body{line-height:1.75}
+html[lang="kn"] h1{line-height:1.4}
+html[lang="kn"] *{letter-spacing:0!important}
+html[lang="kn"] .tell{font-style:normal}
+footer{border-top:1px solid var(--line);padding-block:1.6rem 5rem;color:var(--muted);font-size:.95rem}
+footer p + p{margin-top:.6rem}
+@media (max-width:480px){.tools .wrap{font-size:.8rem}.seg button{padding:.15rem .55rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- shared by the stage and the widgets; kept out of the stage so the widgets still glow when pictures are off -->
+    <radialGradient id="warm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE3A0" stop-opacity=".95"/><stop offset="1" stop-color="#FFE3A0" stop-opacity="0"/></radialGradient>
+    <symbol id="av-s" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#F1ECE0"/><path d="M13 37L31 44H23L11 39Z" fill="#9C4A3C"/><circle cx="22" cy="24" r="11" fill="#A86F45"/><path d="M11 23C10 14 17 11 22 11C29 11 33 15 33 20C28 16 20 16 14 18C12 20 11 21 11 23Z" fill="#2A1E1A"/><circle cx="15" cy="11" r="4.5" fill="#2A1E1A"/><path d="M12 26C12 34 18 37 23 37C28 37 33 34 33 26C30 31 26 32 23 32C19 32 15 30 12 26Z" fill="#2A1E1A"/><ellipse cx="24" cy="23" rx="1.3" ry="1.6" fill="#1E1612"/><ellipse cx="29" cy="23" rx="1.2" ry="1.5" fill="#1E1612"/><path d="M24 28.5Q26.5 27 29 28.5" stroke="#2A1E1A" stroke-width="1.6" fill="none"/><circle cx="26.5" cy="18.5" r="1" fill="#C0392B"/></symbol>
+    <symbol id="av-a" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#EBC895"/><path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#C8692E"/><circle cx="21" cy="22" r="10" fill="#B07A55"/><ellipse cx="22" cy="9" rx="6" ry="6.5" fill="#E4DED3"/><path d="M11 20C11 13 16 11 21 11C27 11 31 14 31 20C26 16 16 16 11 20Z" fill="#E4DED3"/><path d="M11 24C11 34 17 41 21 41C25 41 31 34 31 24C27 30 15 30 11 24Z" fill="#F3F0EA"/><path d="M14 22Q16 23.5 18 22M21 22Q23 23.5 25 22" stroke="#2A1E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M13 19L18 19.5M21 19.5L26 19" stroke="#F3F0EA" stroke-width="1.4"/><circle cx="19.5" cy="16.5" r=".9" fill="#C0392B"/></symbol>
+    <!-- a bird facing left, drawn round (0,0); body and head are separate so the head can move. Uncoloured parts take the fill of the <use>. -->
+    <g id="bird-b">
+      <path d="M20 -4 L44 -14 L42 2Z"/>
+      <ellipse cx="0" cy="0" rx="24" ry="14"/>
+      <path d="M-6 -6 C6 -15 22 -9 27 0 C14 3 2 2 -6 -6Z" fill="#000" opacity=".16"/>
+      <path d="M-4 12 V21 M6 12 V21" stroke="#5A4630" stroke-width="2.2" fill="none"/>
+    </g>
+    <g id="bird-h">
+      <circle cx="-22" cy="-10" r="10"/>
+      <path d="M-31 -13 L-43 -8 L-31 -4Z" fill="#E2A33A"/>
+      <circle cx="-25" cy="-12" r="1.8" fill="#1E1612"/>
+    </g>
+  </defs>
+</svg>
+
+<header><div class="wrap">
+  <span class="label" data-i18n="label">From the Mundaka Upanishad</span>
+  <h1 data-i18n="h1">Shaunaka asks Angiras</h1>
+  <p class="lede" data-i18n="lede">A learned householder who had everything came to a forest sage with a single question: what is the one thing that, once known, makes everything known? This is their conversation, told simply.</p>
+  <div class="cast">
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-s"/></svg><span><b data-i18n="sh">Shaunaka</b><span data-i18n="sh-d">a learned, wealthy householder</span></span></div>
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-a"/></svg><span><b data-i18n="an">Angiras</b><span data-i18n="an-d">a forest sage, and a patient teacher</span></span></div>
+  </div>
+</div></header>
+
+<div class="tools" id="tools"><div class="wrap">
+  <div class="seg" role="group" aria-label="How to read" data-i18n-aria="how">
+    <button id="r-all" aria-pressed="false" data-i18n="all">Read all</button>
+    <button id="r-slow" aria-pressed="true" data-i18n="slow">One at a time</button>
+  </div>
+  <div class="seg" role="group" aria-label="Depth" data-i18n-aria="depth"><button id="d-deep" aria-pressed="true" data-i18n="deep">Going deeper</button><button id="d-story" aria-pressed="false" data-i18n="story">Story only</button></div>
+  <div class="seg" role="group" aria-label="Pictures" data-i18n-aria="pics">
+    <button id="s-on" aria-pressed="true" data-i18n="pics">Pictures</button>
+    <button id="s-off" aria-pressed="false" data-i18n="off">Off</button>
+  </div>
+  <div class="seg" role="group" aria-label="Language">
+    <button id="l-en" aria-pressed="true" lang="en">English</button>
+    <button id="l-kn" aria-pressed="false" lang="kn">ಕನ್ನಡ</button>
+  </div>
+</div><div class="prog" aria-hidden="true"><i id="prog"></i></div></div>
+
+<div class="stage-wrap"><div class="wrap"><div class="stage">
+<svg id="st" viewBox="0 0 800 260" data-scene="arrive" data-who="" role="img" aria-label="Shaunaka seated before the sage Angiras under a tree in the forest" data-i18n-aria="stage">
+  <defs>
+    <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
+    <radialGradient id="spotg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F6D27A" stop-opacity=".9"/><stop offset="1" stop-color="#F6D27A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="260" fill="url(#skyg)"/>
+
+  <!-- light of lights: a night sky where sun, moon and stars are dim beside the one light -->
+  <g class="p p-light fade">
+    <g style="fill:var(--star)" opacity=".5">
+      <circle class="twinkle" cx="60" cy="30" r="1.6"/><circle class="twinkle" cx="140" cy="70" r="1.2"/><circle class="twinkle" cx="250" cy="24" r="1.5"/><circle class="twinkle" cx="290" cy="120" r="1.1"/>
+      <circle class="twinkle" cx="520" cy="110" r="1.3"/><circle class="twinkle" cx="560" cy="30" r="1.6"/><circle class="twinkle" cx="470" cy="20" r="1.2"/><circle class="twinkle" cx="340" cy="40" r="1.3"/>
+    </g>
+    <circle cx="300" cy="70" r="12" fill="#F5BE4F" opacity=".35"/>
+    <path d="M500 56a14 14 0 1 0 12 22a11 11 0 1 1 -12 -22z" fill="#F3EAD2" opacity=".35"/>
+    <circle cx="400" cy="140" r="100" fill="url(#warm)" class="glow"/>
+    <g class="rays" style="stroke:#FFE08A;stroke-width:2.5;stroke-linecap:round;opacity:.8"><path d="M400 92V76M400 188V204M352 140H336M448 140H464M366 106L355 95M434 106L445 95M366 174L355 185M434 174L445 185"/></g>
+    <circle cx="400" cy="140" r="24" fill="#FFF3C4"/><circle cx="400" cy="140" r="12" fill="#FFFFFF" opacity=".9"/>
+  </g>
+
+  <!-- dawn sun, half under the ground -->
+  <g class="p p-dawn fade">
+    <circle cx="400" cy="226" r="74" fill="url(#warm)"/>
+    <g class="glow" style="stroke:#F2B544;stroke-width:3;stroke-linecap:round;opacity:.7"><path d="M400 172V156M362 188L351 177M438 188L449 177M346 222H330M454 222H470"/></g>
+    <circle cx="400" cy="226" r="34" fill="#F5BE4F"/>
+  </g>
+
+  <!-- mountains for the rivers -->
+  <g class="p p-ocean fade">
+    <path d="M268 200 L318 120 L350 160 L392 96 L440 160 L478 122 L532 200Z" style="fill:var(--hill2)"/>
+    <path d="M392 96 L380 115 L392 110 L404 115Z M318 120 L309 134 L318 130 L327 134Z M478 122 L470 134 L478 131 L486 134Z" fill="#F4F1EA"/>
+  </g>
+
+  <!-- the hermitage: a small tree on the left, Angiras's great tree on the right -->
+  <g class="sway">
+    <path d="M56 232 C60 200 54 170 60 140 L68 140 C72 170 68 200 72 232Z" style="fill:var(--trunk)"/>
+    <g style="fill:var(--leaf)"><circle cx="64" cy="122" r="34"/><circle cx="36" cy="140" r="24"/><circle cx="92" cy="142" r="24"/></g>
+    <circle cx="74" cy="110" r="18" style="fill:var(--leaf2)"/>
+  </g>
+  <path d="M706 232 C712 190 700 150 712 96 L734 96 C744 150 732 190 742 232Z" style="fill:var(--trunk)"/>
+  <path d="M716 120 C700 100 680 90 660 86 M730 110 C750 92 770 86 790 84" style="fill:none;stroke:var(--trunk);stroke-width:7;stroke-linecap:round"/>
+  <g class="sway" style="fill:var(--leaf)"><circle cx="690" cy="58" r="56"/><circle cx="752" cy="48" r="52"/><circle cx="640" cy="44" r="40"/><circle cx="792" cy="92" r="40"/><circle cx="724" cy="16" r="46"/></g>
+  <g style="fill:var(--leaf2)"><circle cx="706" cy="36" r="28"/><circle cx="770" cy="70" r="24"/></g>
+
+  <!-- ground -->
+  <path d="M0 226 H800 V260 H0Z" style="fill:var(--grass)"/>
+  <path d="M0 226 H800" style="stroke:var(--grass2);stroke-width:3"/>
+
+  <!-- arrival: the hut, and the bundle of firewood a student brings -->
+  <g class="p p-arrive fade">
+    <path d="M334 232 V172 H446 V232Z" fill="#C9B07E"/>
+    <path d="M318 176 L390 118 L462 176Z" fill="#A88A4E"/>
+    <path d="M318 176 L390 118 L462 176 M340 160 L390 124 M362 168 L390 136 M440 160 L390 124 M418 168 L390 136" stroke="#8C7038" stroke-width="1.6" fill="none"/>
+    <path d="M376 232 V196 Q390 184 404 196 V232Z" fill="#5A4426"/>
+    <g stroke="#7A5530" stroke-width="3.5" stroke-linecap="round"><path d="M266 228 L304 216"/><path d="M264 223 L306 221"/><path d="M268 216 L302 228"/></g>
+    <path d="M285 214 V230" stroke="#C9A35F" stroke-width="3"/>
+  </g>
+
+  <!-- two kinds of knowing: books on one side, a light on the other -->
+  <g class="p p-two fade">
+    <g stroke="#8C6A2E" stroke-width="1.5">
+      <rect x="292" y="216" width="92" height="12" rx="3" fill="#D9BF7F"/><rect x="298" y="203" width="86" height="12" rx="3" fill="#E3CB8E"/>
+      <rect x="294" y="190" width="90" height="12" rx="3" fill="#D9BF7F"/><rect x="300" y="177" width="82" height="12" rx="3" fill="#E3CB8E"/>
+    </g>
+    <path d="M316 175 V230 M360 175 V230" stroke="#8E2B2B" stroke-width="2"/>
+    <path d="M420 120 V230" style="stroke:var(--muted);stroke-width:2;stroke-dasharray:3 7;opacity:.6"/>
+    <circle cx="470" cy="176" r="48" fill="url(#warm)" class="glow"/>
+    <g class="rays" style="stroke:#F2B544;stroke-width:2.5;stroke-linecap:round;opacity:.8"><path d="M470 148V138M470 204V214M442 176H432M498 176H508M450 156L443 149M490 156L497 149M450 196L443 203M490 196L497 203"/></g>
+    <circle cx="470" cy="176" r="13" fill="#FFE08A"/><circle cx="470" cy="176" r="5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- spider and web, plants from the earth -->
+  <g class="p p-spider fade">
+    <g style="fill:none;stroke:#9AA0A6;stroke-width:1.1" opacity=".85">
+      <path d="M338 100H462M346.3 69L453.7 131M369 46.3L431 153.7M400 38V162M431 46.3L369 153.7M453.7 69L346.3 131"/>
+      <path d="M450 100L443.3 125L425 143.3L400 150L375 143.3L356.7 125L350 100L356.7 75L375 56.7L400 50L425 56.7L443.3 75Z"/>
+      <path d="M434 100L429.4 117L417 129.4L400 134L383 129.4L370.6 117L366 100L370.6 83L383 70.6L400 66L417 70.6L429.4 83Z"/>
+      <path d="M418 100L415.6 109L409 115.6L400 118L391 115.6L384.4 109L382 100L384.4 91L391 84.4L400 82L409 84.4L415.6 91Z"/>
+    </g>
+    <line class="thread" x1="400" y1="100" x2="400" y2="186" style="stroke:#9AA0A6;stroke-width:1.1"/>
+    <g class="spd" fill="#3A3346">
+      <path d="M393 196L382 188M393 200L380 200M393 204L382 212M407 196L418 188M407 200L420 200M407 204L418 212" stroke="#3A3346" stroke-width="1.6" fill="none"/>
+      <ellipse cx="400" cy="200" rx="7" ry="8"/><circle cx="400" cy="190" r="4.5"/>
+    </g>
+    <g stroke="#5E8A40" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M332 228 C330 216 334 208 338 202"/><path d="M352 228 C352 218 350 212 346 206"/><path d="M450 228 C448 216 452 208 456 202"/><path d="M470 228 C470 218 468 212 464 206"/></g>
+    <g fill="#6E9A4E"><ellipse cx="342" cy="203" rx="7" ry="3.5" transform="rotate(-30 342 203)"/><ellipse cx="342" cy="206" rx="6" ry="3" transform="rotate(-150 342 206)"/><ellipse cx="460" cy="203" rx="7" ry="3.5" transform="rotate(-30 460 203)"/><ellipse cx="460" cy="207" rx="6" ry="3" transform="rotate(-150 460 207)"/></g>
+  </g>
+
+  <!-- leaky boats -->
+  <g class="p p-boats fade">
+    <path d="M270 212 Q300 204 330 212 T390 212 T450 212 T528 212 V232 H270Z" fill="#7FA9C0" opacity=".9"/>
+    <g class="rock">
+      <path d="M306 198 H372 L362 216 H316Z" fill="#8A5A2B"/><path d="M306 198 H372" stroke="#5E3C1C" stroke-width="2"/>
+      <path d="M330 202 L334 208 L330 213" stroke="#2A1A0E" stroke-width="1.6" fill="none"/>
+      <path d="M336 196 L340 184 H352 L356 196Z" fill="#B3683C"/><path class="flame" d="M346 168 C352 176 353 182 346 186 C339 182 340 176 346 168Z" fill="#F2A23A"/>
+    </g>
+    <g class="rock rock2">
+      <path d="M430 204 H494 L484 222 H440Z" fill="#9C6A36"/><path d="M430 204 H494" stroke="#5E3C1C" stroke-width="2"/>
+      <path d="M440 206 H486 L482 212 H444Z" fill="#7FA9C0"/>
+      <path d="M470 208 L466 214 L470 220" stroke="#2A1A0E" stroke-width="1.6" fill="none"/>
+    </g>
+    <path d="M286 222 q8 -5 16 0 t16 0 M386 226 q8 -5 16 0 t16 0 M500 222 q8 -5 16 0" stroke="#D7E8F0" stroke-width="2" fill="none" opacity=".8"/>
+  </g>
+
+  <!-- fire and sparks -->
+  <g class="p p-fire fade">
+    <circle cx="400" cy="176" r="58" fill="url(#warm)" class="glow"/>
+    <path d="M364 232 L372 206 H428 L436 232Z" fill="#B3683C"/>
+    <path d="M372 206 H428" stroke="#8A4C2A" stroke-width="3"/>
+    <path d="M376 218 H424 M372 228 H428" stroke="#8A4C2A" stroke-width="1.5"/>
+    <path class="flame" d="M400 150 C416 170 420 190 400 206 C380 190 384 170 400 150Z" fill="#F2A23A"/>
+    <path class="flame" d="M400 170 C409 181 411 193 400 204 C389 193 391 181 400 170Z" fill="#FFE08A"/>
+    <g fill="#FFD27A">
+      <circle class="spark" cx="380" cy="120" r="2.4" style="--dx:-14px;animation-delay:0s"/>
+      <circle class="spark" cx="420" cy="110" r="2.2" style="--dx:12px;animation-delay:-.4s"/>
+      <circle class="spark" cx="395" cy="90" r="2" style="--dx:-6px;animation-delay:-.9s"/>
+      <circle class="spark" cx="410" cy="130" r="2.4" style="--dx:18px;animation-delay:-1.3s"/>
+      <circle class="spark" cx="370" cy="140" r="2" style="--dx:-20px;animation-delay:-1.7s"/>
+      <circle class="spark" cx="432" cy="142" r="2.2" style="--dx:22px;animation-delay:-2.1s"/>
+      <circle class="spark" cx="388" cy="104" r="1.8" style="--dx:-10px;animation-delay:-2.5s"/>
+      <circle class="spark" cx="414" cy="96" r="2" style="--dx:8px;animation-delay:-.2s"/>
+      <circle class="spark" cx="360" cy="118" r="1.8" style="--dx:-24px;animation-delay:-1.1s"/>
+      <circle class="spark" cx="440" cy="120" r="2" style="--dx:24px;animation-delay:-1.9s"/>
+      <circle class="spark" cx="400" cy="76" r="1.8" style="--dx:0px;animation-delay:-.6s"/>
+      <circle class="spark" cx="426" cy="82" r="1.8" style="--dx:14px;animation-delay:-2.3s"/>
+    </g>
+  </g>
+
+  <!-- bow, arrow and target -->
+  <g class="p p-bow fade">
+    <circle cx="474" cy="160" r="56" fill="url(#warm)" class="glow"/>
+    <path d="M460 232 L474 168 L488 232" stroke="#6B4430" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="474" cy="160" r="34" fill="#F3EBD8" stroke="#8E2B2B" stroke-width="2"/><circle cx="474" cy="160" r="24" fill="#B33A3A"/><circle cx="474" cy="160" r="14" fill="#F3EBD8"/><circle cx="474" cy="160" r="6" fill="#E2B04E"/>
+    <path d="M318 112 L300 160 L318 208" stroke="#9C927E" stroke-width="1.3" fill="none"/>
+    <path d="M318 112 C346 136 346 184 318 208" stroke="#6B4430" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M298 160 H394" stroke="#8A5A2B" stroke-width="3"/><path d="M394 154 L406 160 L394 166Z" fill="#7C8590"/>
+    <path d="M300 160 L292 154 M300 160 L292 166 M307 160 L299 154 M307 160 L299 166" stroke="#C0392B" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+
+  <!-- two birds on one tree -->
+  <g class="p p-birds fade">
+    <g style="fill:var(--leaf)"><circle cx="400" cy="96" r="44"/><circle cx="356" cy="112" r="32"/><circle cx="446" cy="112" r="34"/></g>
+    <path d="M392 232 C396 200 390 170 398 132 L408 132 C414 170 408 200 414 232Z" style="fill:var(--trunk)"/>
+    <path d="M404 180 C430 174 460 170 492 170 M400 146 C380 138 350 130 318 130" style="fill:none;stroke:var(--trunk);stroke-width:6;stroke-linecap:round"/>
+    <path d="M440 174 V180 M458 172 V178" stroke="#5E4426" stroke-width="1.5"/>
+    <circle cx="440" cy="184" r="5" fill="#C2455E"/><circle cx="458" cy="182" r="5" fill="#7E9A4A"/>
+    <circle class="halo" cx="332" cy="112" r="30" fill="url(#warm)"/>
+    <g transform="translate(332 116) scale(-.75 .75)" fill="#E2B04E"><use href="#bird-b"/><use href="#bird-h"/></g>
+    <g transform="translate(478 155) scale(.75)" fill="#8C7A6B"><g class="peck"><use href="#bird-b"/><use href="#bird-h"/></g></g>
+  </g>
+
+  <!-- the path of the gods toward the rising sun -->
+  <g class="p p-dawn fade">
+    <path d="M370 260 C380 246 392 236 400 226 C408 236 420 246 430 260Z" fill="#E2B04E" opacity=".7"/>
+  </g>
+
+  <!-- rivers into the ocean -->
+  <g class="p p-ocean fade">
+    <path d="M320 130 C312 160 336 176 330 202 M392 112 C386 140 404 160 396 202 M476 132 C488 160 466 178 474 202" stroke="#7FB2CF" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path class="flow" d="M320 130 C312 160 336 176 330 202 M392 112 C386 140 404 160 396 202 M476 132 C488 160 466 178 474 202" stroke="#E6F2F8" stroke-width="2" fill="none"/>
+    <path d="M262 232 C268 206 300 198 400 198 C500 198 532 206 538 232Z" fill="#5E8FB0"/>
+    <path d="M300 216 q8 -5 16 0 t16 0 M380 222 q8 -5 16 0 t16 0 M452 214 q8 -5 16 0 t16 0" stroke="#CFE3EC" stroke-width="2" fill="none" opacity=".8"/>
+  </g>
+
+  <!-- ========== SHAUNAKA ========== -->
+  <g id="sh" transform="translate(190 0)">
+    <ellipse class="spot" cx="0" cy="226" rx="100" ry="40" fill="url(#spotg)"/>
+    <ellipse cx="2" cy="232" rx="72" ry="7" fill="#C9B26F"/>
+    <path d="M-66 232 H70" stroke="#A8914F" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <g class="breathe">
+      <path d="M-62 230 C-64 206 -32 196 2 198 C34 196 64 206 62 230 Z" fill="#F1ECE0"/>
+      <path d="M-34 222 C-14 210 18 210 36 222" stroke="#D8D0BE" stroke-width="2" fill="none"/>
+      <path d="M-58 228 C-44 222 -30 222 -18 226" stroke="#C9963C" stroke-width="2.5" fill="none"/>
+      <ellipse cx="-44" cy="225" rx="11" ry="4.5" fill="#A86F45"/><ellipse cx="46" cy="225" rx="11" ry="4.5" fill="#A86F45"/>
+      <path d="M-28 204 C-30 168 -22 146 2 144 C26 146 32 168 30 204 Z" fill="#A86F45"/>
+      <path d="M-30 196 C-12 204 14 204 32 196 L32 210 C14 216 -12 216 -30 210 Z" fill="#F1ECE0"/>
+      <path d="M-30 198 C-12 206 14 206 32 198" stroke="#C9963C" stroke-width="2.5" fill="none"/>
+      <path d="M-26 150 C-10 160 14 182 30 198 L30 184 C16 170 0 156 -14 146 Z" fill="#9C4A3C"/>
+      <path d="M22 150 C14 166 2 182 -12 196" stroke="#F6EEDB" stroke-width="1.8" fill="none"/>
+      <g class="arms-listen">
+        <path d="M-24 152 C-34 172 -18 182 0 172" stroke="#A86F45" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M26 152 C36 172 18 182 4 172" stroke="#99633D" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M-2 176 C-6 166 -4 156 2 148 C8 156 10 166 6 176Z" fill="#B67C51"/>
+        <path d="M2 150 V174" stroke="#8E5A36" stroke-width="1"/>
+      </g>
+      <g class="arms-talk">
+        <path d="M-24 152 C-34 176 -38 194 -42 210" stroke="#A86F45" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M26 152 C42 166 52 160 58 146" stroke="#A86F45" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <ellipse cx="60" cy="140" rx="6.5" ry="8.5" fill="#B67C51"/>
+        <path d="M57 134 V131 M61 133 V129 M64 135 V132" stroke="#B67C51" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g class="head">
+      <rect x="-5" y="130" width="14" height="18" fill="#99633D"/>
+      <circle cx="4" cy="112" r="23" fill="#A86F45"/>
+      <ellipse cx="-13" cy="114" rx="4.5" ry="6.5" fill="#99633D"/>
+      <path d="M-20 112 C-24 90 -6 84 6 85 C20 86 28 94 27 104 C18 97 4 96 -6 100 C-12 104 -17 108 -20 112 Z" fill="#2A1E1A"/>
+      <circle cx="-8" cy="86" r="9" fill="#2A1E1A"/>
+      <path d="M-8 116 C-8 132 4 142 16 141 C25 140 29 132 28 122 C26 130 22 134 16 134 C8 134 0 128 -8 116 Z" fill="#2A1E1A"/>
+      <g class="eyes"><ellipse cx="12" cy="111" rx="2.4" ry="3" fill="#1E1612"/><ellipse cx="22" cy="111" rx="2.2" ry="2.8" fill="#1E1612"/><circle cx="13" cy="110" r=".8" fill="#FFF"/><circle cx="23" cy="110" r=".8" fill="#FFF"/></g>
+      <path d="M8 104 Q12 102 16 104 M19 104 Q22 102 25 104" stroke="#2A1E1A" stroke-width="1.6" fill="none"/>
+      <circle cx="17" cy="98" r="1.8" fill="#C0392B"/>
+      <path d="M24 112 Q28 116 24 118" stroke="#7E4E2C" stroke-width="1.4" fill="none"/>
+      <path d="M12 123 C16 120.5 22 120.5 26 123" stroke="#2A1E1A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path class="m-close" d="M15 127 Q19 129 23 127" stroke="#5A2E22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse class="m-open" cx="19" cy="127.5" rx="3" ry="2.2" fill="#5A2E22"/>
+    </g>
+  </g>
+
+  <!-- ========== ANGIRAS ========== -->
+  <g id="ang" transform="translate(612 0)">
+    <ellipse class="spot" cx="-4" cy="226" rx="110" ry="42" fill="url(#spotg)"/>
+    <!-- deerskin -->
+    <path d="M-80 234 C-72 222 -50 220 0 222 C50 220 72 222 82 234 C60 239 -60 239 -80 234Z" fill="#B98A57"/>
+    <g fill="#F2E4C8" opacity=".8"><circle cx="-46" cy="229" r="2.5"/><circle cx="-30" cy="233" r="2"/><circle cx="34" cy="230" r="2.5"/><circle cx="54" cy="233" r="2"/></g>
+    <!-- water pot -->
+    <g transform="translate(88 0)">
+      <path d="M-14 210 C-18 230 18 230 14 210 Z" fill="#8A5A2B"/>
+      <rect x="-5" y="200" width="10" height="11" fill="#7A4E24"/>
+      <path d="M5 204 C18 198 22 186 14 182" stroke="#7A4E24" stroke-width="3" fill="none"/>
+    </g>
+    <g class="breathe">
+      <path d="M-64 230 C-66 204 -34 194 0 196 C34 194 66 204 64 230 Z" fill="#C8692E"/>
+      <path d="M-36 222 C-16 210 16 210 36 222" stroke="#A8541F" stroke-width="2" fill="none"/>
+      <ellipse cx="-46" cy="225" rx="11" ry="4.5" fill="#B07A55"/><ellipse cx="46" cy="225" rx="11" ry="4.5" fill="#B07A55"/>
+      <path d="M-30 202 C-32 164 -24 140 0 138 C24 140 32 164 30 202 Z" fill="#B07A55"/>
+      <path d="M30 146 C12 160 -10 182 -30 196 L-30 210 L32 210 L32 150 Z" fill="#C8692E"/>
+      <path d="M-14 146 Q2 180 16 146" stroke="#6B3A1E" stroke-width="3.2" stroke-dasharray=".1 4.2" stroke-linecap="round" fill="none"/>
+      <path d="M24 150 C36 172 40 192 40 206" stroke="#A06A46" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="40" cy="209" r="6" fill="#C08A63"/>
+      <g class="arms-listen">
+        <path d="M-24 150 C-38 170 -46 190 -46 206" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <circle cx="-47" cy="209" r="6" fill="#C08A63"/>
+      </g>
+      <g class="arms-talk">
+        <path d="M-24 150 C-44 162 -54 156 -60 140" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <ellipse cx="-61" cy="134" rx="6.5" ry="8.5" fill="#C08A63"/>
+        <circle cx="-64" cy="130" r="2.6" fill="none" stroke="#8C5A3A" stroke-width="1.4"/>
+        <path d="M-58 128 V122 M-61 127 V121" stroke="#C08A63" stroke-width="2.6" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g class="head">
+      <rect x="-9" y="124" width="14" height="18" fill="#A06A46"/>
+      <circle cx="-4" cy="106" r="22" fill="#B07A55"/>
+      <ellipse cx="13" cy="108" rx="4.5" ry="6.5" fill="#A06A46"/>
+      <ellipse cx="2" cy="76" rx="11" ry="12" fill="#DCD6CA"/>
+      <path d="M-8 72 H12 M-9 78 H13" stroke="#BFB7A8" stroke-width="1.3"/>
+      <path d="M-24 100 C-24 84 -12 80 -2 80 C10 80 20 86 20 100 C12 92 -14 92 -24 100 Z" fill="#DCD6CA"/>
+      <path d="M-24 108 C-26 134 -16 158 -6 164 C2 158 12 134 12 112 C6 124 -2 126 -6 126 C-12 126 -20 120 -24 108 Z" fill="#EEEAE1"/>
+      <path d="M-18 116 C-14 112.5 -6 112.5 -2 116" stroke="#EEEAE1" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g class="eyes"><path d="M-21 105 Q-18 107.5 -15 105 M-10 105 Q-7 107.5 -4 105" stroke="#2A1E1A" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <path d="M-23 100 L-15 101 M-11 101 L-3 100" stroke="#EEEAE1" stroke-width="2.2"/>
+      <circle cx="-11" cy="95" r="1.6" fill="#C0392B"/>
+      <path d="M-24 107 Q-28 111 -24 113" stroke="#8C5A3A" stroke-width="1.4" fill="none"/>
+      <path class="m-close" d="M-15 120.5 Q-11 122.5 -7 120.5" stroke="#6B4A3A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse class="m-open" cx="-11" cy="121" rx="3" ry="2.2" fill="#5A2E22"/>
+    </g>
+  </g>
+</svg>
+<span class="caption" id="cap">The question</span>
+</div></div></div>
+
+<template id="two-tpl">
+<div class="widget two">
+  <span class="dl" data-i18n="t-dl">Two kinds of knowing · 1.1.4–5</span>
+  <div class="two-grid">
+    <div class="lo">
+      <h4 data-i18n="t-lo">Lower knowledge</h4><p class="sk" data-i18n="t-lo-s">aparā vidyā</p>
+      <ul><li data-i18n="t-rig">Rig Veda</li><li data-i18n="t-yaj">Yajur Veda</li><li data-i18n="t-sam">Sama Veda</li><li data-i18n="t-ath">Atharva Veda</li></ul>
+      <p class="sub" data-i18n="t-limbs">and the six helping skills:</p>
+      <ul><li data-i18n="t-1">Pronunciation</li><li data-i18n="t-2">Ritual</li><li data-i18n="t-3">Grammar</li><li data-i18n="t-4">Meaning of words</li><li data-i18n="t-5">Metre</li><li data-i18n="t-6">Astronomy</li></ul>
+      <p class="sum" data-i18n="t-lo-sum">Everything that can be studied, taught and put into words.</p>
+    </div>
+    <div class="hi">
+      <h4 data-i18n="t-hi">Higher knowledge</h4><p class="sk" data-i18n="t-hi-s">parā vidyā</p>
+      <p data-i18n="t-hi-d">That by which the Imperishable is known.</p>
+      <p class="sum" data-i18n="t-hi-sum">Not one more subject, but knowing the source of them all.</p>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="bow-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="b-try">Try it · tap the bow, the arrow, the target or the archer</span>
+  <svg viewBox="0 0 800 300" role="group" aria-label="The bow and arrow of the Mundaka Upanishad" data-i18n-aria="b-svg" class="csvg bowsvg wander">
+    <rect width="800" height="300" rx="14" style="fill:var(--bg)"/>
+    <path d="M0 262 H800 V286 Q800 300 786 300 H14 Q0 300 0 286Z" style="fill:var(--grass)"/>
+    <g class="hit" data-k="target" tabindex="0" role="button" aria-label="The target" data-i18n-aria="b-target">
+      <circle class="tglow" cx="680" cy="150" r="100" fill="url(#warm)"/>
+      <g class="shape">
+        <path d="M652 262 L680 160 L708 262" style="fill:none;stroke:#6B4430;stroke-width:6;stroke-linecap:round"/>
+        <circle cx="680" cy="150" r="62" fill="#F3EBD8" stroke="#8E2B2B" stroke-width="3"/>
+        <circle cx="680" cy="150" r="46" fill="#B33A3A"/>
+        <circle cx="680" cy="150" r="30" fill="#F3EBD8"/>
+        <circle cx="680" cy="150" r="14" fill="#E2B04E"/>
+      </g>
+    </g>
+    <g class="hit" data-k="archer" tabindex="0" role="button" aria-label="The archer" data-i18n-aria="b-archer">
+      <g class="shape">
+        <path d="M98 262 L106 194 H134 L142 262Z" fill="#F1ECE0"/>
+        <ellipse cx="104" cy="262" rx="9" ry="4" fill="#A86F45"/><ellipse cx="138" cy="262" rx="9" ry="4" fill="#A86F45"/>
+        <path d="M106 196 C104 160 110 124 122 120 C134 124 140 160 134 196Z" fill="#A86F45"/>
+        <path d="M105 188 H135 V199 H105Z" fill="#9C4A3C"/>
+        <circle cx="124" cy="100" r="15" fill="#A86F45"/>
+        <path d="M109 98 C108 84 118 80 126 81 C134 82 140 88 139 96 C132 90 120 90 109 98Z" fill="#2A1E1A"/>
+        <circle cx="114" cy="84" r="6" fill="#2A1E1A"/>
+        <circle cx="132" cy="99" r="1.7" fill="#1E1612"/>
+      </g>
+    </g>
+    <g class="aim">
+      <g class="hit" data-k="archer" aria-hidden="true">
+        <path d="M122 130 C112 146 128 156 150 150" style="fill:none;stroke:#99633D;stroke-width:9;stroke-linecap:round"/>
+      </g>
+      <g class="hit" data-k="bow" tabindex="0" role="button" aria-label="The bow" data-i18n-aria="b-bow">
+        <path class="s-drawn" d="M206 64 L150 150 L206 236" style="fill:none;stroke:#9C927E;stroke-width:1.6"/>
+        <path class="s-rest" d="M206 64 V236" style="fill:none;stroke:#9C927E;stroke-width:1.6"/>
+        <g class="shape">
+          <path d="M206 64 C250 100 250 200 206 236" style="fill:none;stroke:#6B4430;stroke-width:8;stroke-linecap:round"/>
+          <circle cx="231" cy="101" r="13" fill="#E2B04E"/>
+          <text class="om" x="231" y="107" text-anchor="middle" font-size="17">ॐ</text>
+        </g>
+        <path d="M206 64 C250 100 250 200 206 236" style="fill:none;stroke:transparent;stroke-width:26"/>
+      </g>
+      <g class="hit" data-k="arrow" tabindex="0" role="button" aria-label="The arrow" data-i18n-aria="b-arrow">
+        <g class="arrow"><g class="shape">
+          <path class="shaft" d="M144 150 H306" style="stroke:#8A5A2B;stroke-width:4"/>
+          <path d="M306 142 L326 150 L306 158Z" fill="#7C8590"/>
+          <path d="M144 150 L132 141 M144 150 L132 159 M154 150 L142 141 M154 150 L142 159" style="stroke:#C0392B;stroke-width:3;stroke-linecap:round"/>
+          <path d="M140 150 H326" style="stroke:transparent;stroke-width:22"/>
+        </g></g>
+      </g>
+      <g class="hit" data-k="archer" aria-hidden="true">
+        <path d="M126 128 L234 150" style="fill:none;stroke:#A86F45;stroke-width:9;stroke-linecap:round"/>
+        <circle cx="238" cy="150" r="7" fill="#B67C51"/>
+      </g>
+    </g>
+  </svg>
+  <div class="chips">
+    <button data-k="bow" data-i18n="ch-bow">Bow</button><button data-k="arrow" data-i18n="ch-arrow">Arrow</button><button data-k="target" data-i18n="ch-target">Target</button><button data-k="archer" data-i18n="ch-archer">Archer</button>
+  </div>
+  <div class="info" aria-live="polite"><h4 data-i18n="b-who">What is aimed at what?</h4><p data-i18n="b-each">Each part stands for something in you. Tap one to see what it means, then choose how the archer’s mind is and release the arrow.</p></div>
+  <div class="calm-row">
+    <p class="calmtext" aria-live="polite"></p>
+    <div class="ctl">
+      <div class="seg" role="group" aria-label="State of the mind" data-i18n-aria="b-state"><button class="b-dis" aria-pressed="true" data-i18n="b-dis">Distracted</button><button class="b-steady" aria-pressed="false" data-i18n="b-steady">Steady</button></div>
+      <button class="fire"></button>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="birds-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="w-try">Try it · tap a bird, the fruit or the tree</span>
+  <svg viewBox="0 0 800 300" role="group" aria-label="Two birds on one tree" data-i18n-aria="w-svg" class="csvg birdsvg">
+    <rect width="800" height="300" rx="14" style="fill:var(--bg)"/>
+    <path d="M0 270 H800 V286 Q800 300 786 300 H14 Q0 300 0 286Z" style="fill:var(--grass)"/>
+    <g class="hit" data-k="tree" tabindex="0" role="button" aria-label="The tree" data-i18n-aria="w-tree">
+      <g class="shape">
+        <g style="fill:var(--leaf)"><circle cx="400" cy="92" r="70"/><circle cx="310" cy="112" r="52"/><circle cx="490" cy="118" r="56"/><circle cx="566" cy="160" r="40"/><circle cx="246" cy="128" r="38"/></g>
+        <g style="fill:var(--leaf2)"><circle cx="440" cy="70" r="40"/><circle cx="350" cy="78" r="36"/></g>
+        <path d="M384 276 C392 236 382 200 394 150 L412 150 C422 200 414 236 422 276Z" style="fill:var(--trunk)"/>
+        <path d="M404 214 C450 204 520 198 600 196 M400 160 C360 146 300 132 226 128" style="fill:none;stroke:var(--trunk);stroke-width:10;stroke-linecap:round"/>
+      </g>
+    </g>
+    <path class="beam" d="M300 112 C380 120 470 150 528 168" style="fill:none;stroke:#E2B04E;stroke-width:2.5;stroke-dasharray:3 7;stroke-linecap:round"/>
+    <g class="hit" data-k="fruit" tabindex="0" role="button" aria-label="The fruit" data-i18n-aria="w-fruit">
+      <g class="shape">
+        <path d="M450 207 V216 M478 205 V214 M506 203 V212" stroke="#5E4426" stroke-width="2"/>
+        <circle cx="450" cy="223" r="8" fill="#C2455E"/><circle cx="478" cy="221" r="8" fill="#7E9A4A"/><circle cx="506" cy="219" r="8" fill="#C2455E"/>
+      </g>
+    </g>
+    <g class="hit" data-k="high" tabindex="0" role="button" aria-label="The bird that watches" data-i18n-aria="w-high">
+      <circle class="halo" cx="270" cy="104" r="48" fill="url(#warm)"/>
+      <g class="shape" transform="translate(270 108) scale(-1 1)" fill="#E2B04E"><use href="#bird-b"/><use href="#bird-h"/></g>
+    </g>
+    <g class="hit" data-k="low" tabindex="0" role="button" aria-label="The bird that eats" data-i18n-aria="w-low">
+      <circle class="lglow" cx="560" cy="176" r="46" fill="url(#warm)"/>
+      <g class="shape" transform="translate(560 182)"><use class="lbody" href="#bird-b"/><g class="lhead"><use class="lbody" href="#bird-h"/></g></g>
+    </g>
+  </svg>
+  <div class="chips">
+    <button data-k="low" data-i18n="ch-low">Eating bird</button><button data-k="high" data-i18n="ch-high">Watching bird</button><button data-k="fruit" data-i18n="ch-fruit">Fruit</button><button data-k="tree" data-i18n="ch-tree">Tree</button>
+  </div>
+  <div class="info" aria-live="polite"><h4 data-i18n="w-who">Two birds, one tree</h4><p data-i18n="w-each">Each part stands for something in you. Tap one to see what it means.</p></div>
+  <div class="calm-row">
+    <p class="calmtext" aria-live="polite"></p>
+    <div class="seg" role="group" aria-label="What the lower bird is doing" data-i18n-aria="w-state"><button class="b-eat" aria-pressed="true" data-i18n="w-eat">Eating</button><button class="b-look" aria-pressed="false" data-i18n="w-look">Looks up</button></div>
+  </div>
+</div>
+</template>
+
+<main class="wrap"><div class="chat" id="chat"></div></main>
+
+<footer class="wrap">
+  <p data-i18n="f1">The conversation follows the Mundaka Upanishad closely. Small verse numbers show where each idea comes from, so older readers can look them up. In the Upanishad Shaunaka asks only one question; his other questions are added here to carry the telling. The wording is a simple retelling, not a translation, and the explanations follow Adi Shankaracharya’s commentary.</p>
+  <p data-i18n="f2">Angiras is drawn the way tradition pictures a forest sage: white-bearded, hair tied up in a knot, in ochre cloth with a string of rudraksha beads, seated on a deerskin under a tree with his water pot beside him. The name Mundaka is often explained as “the shaven head,” a sign that the text was meant for those who had renounced the world.</p>
+  <p data-i18n="f3">For the full text with commentary, see Eight Upanishads, Volume 2, translated by Swami Gambhirananda (Advaita Ashrama, Ramakrishna Order).</p>
+  <p><a id="katha-link" href="../kathopanishad/" data-i18n="f4">Also told this way: Nachiketa talks with Yama, from the Katha Upanishad, which shares several verses with this one.</a></p>
+</footer>
+
+<div class="nextbar" id="nextbar" hidden><button class="next" id="next"><span id="next-label">Continue</span><span class="arr" aria-hidden="true">›</span></button><span class="tap-hint" id="tap-hint" hidden data-i18n="tap">or tap anywhere on the story</span></div>
+
+<script src="kn.js"></script>
+<script>
+/* who: s = Shaunaka, a = Angiras, t = storyteller, h = chapter heading [title, scene], q = think question, g = going-deeper card,
+   c = widget [name]. Optional 4th field on t = scene change. */
+const S=[
+["h","The question","arrive"],
+["t","Long ago, the knowledge of Brahman passed from teacher to student: from Brahma the creator to his eldest son Atharvan, then to Angir, then to Satyavaha, and then to the sage Angiras.","1.1.1–2"],
+["t","One day a great householder named Shaunaka came to Angiras’s forest home. He had a large house, great wealth and plenty of learning. Still, he came the proper way, humbly, as a student comes to a teacher."],
+["s","Revered sir, I have a question."],
+["s","What is that one thing which, once you know it, makes everything else known?","1.1.3"],
+["a","A good question, Shaunaka. Before I answer, know this: there are two kinds of knowing."],
+["g",{t:"Know one, know all",b:[
+  ["v","1.1.3","Shaunaka, the great householder, came to Angiras in the proper way and asked: Revered sir, what is that by knowing which all this becomes known?"],
+  ["p","Behind the question is an everyday idea that runs through the Upanishads. Know clay, and in a sense you know every pot, because a pot is only clay with a name and a shape. Know gold, and you know every bangle and ring. Shaunaka asks: is there one source of the whole world, so that knowing it, everything is known?"],
+  ["p","Shaunaka was no beginner. He was learned and wealthy, and still something was missing. “In the proper way” means as scripture lays down: by going to a teacher as a student, not by working it out alone."]]}],
+["q","Can you think of one thing that, if you understood it well, would help you understand many other things?"],
+
+["h","Two kinds of knowing","two"],
+["a","The first is the lower knowledge. It is all the learning in the world: the four Vedas, and the skills that go with them, like how to say the words, how to do the rituals, grammar, what words mean, poetic metre and the movement of the stars.","1.1.5"],
+["s","The Vedas themselves? You call even them lower?"],
+["a","Yes. They are precious, and they point the way. But knowing about something is not the same as knowing it."],
+["a","The higher knowledge is the one by which you know the Imperishable, the one thing that never wears away.","1.1.5"],
+["c","two"],
+["s","What is this Imperishable like?"],
+["a","It cannot be seen or grasped. It has no family and no colour, no eyes or ears, no hands or feet. It is everywhere, finer than the finest, never changing. All beings come from it, and the wise see it everywhere.","1.1.6"],
+["g",{t:"Why even the Vedas are lower",b:[
+  ["v","1.1.4–5","Two kinds of knowledge are to be known, say the knowers of Brahman: the higher and the lower. The lower is the Rig Veda, the Yajur Veda, the Sama Veda, the Atharva Veda, phonetics, ritual, grammar, etymology, metre and astronomy. The higher is that by which the Imperishable is reached."],
+  ["p","Shankara is careful here. By “the Rig Veda and the rest” the Upanishad means the words: the body of texts and whatever can be learned from them. The higher knowledge is not one more book. It is the direct knowing of the Imperishable that the Upanishads point to. The Upanishads too, taken as mere words, belong to the lower."],
+  ["p","Why name the lower at all? Shankara says it is named so that it can be set aside: within its own field nothing is known as it truly is. That does not make it worthless. It means no amount of it adds up to the higher."]]}],
+["q","What is the difference between knowing all about mangoes and tasting one?"],
+
+["h","The spider’s web","spider"],
+["s","If it has no hands, how can the whole world come from it?"],
+["a","Look at a spider. It spins its web out of its own body, and later draws it back in.","1.1.7"],
+["a","Look at the earth. Plants spring up from it by themselves. Look at a living person. Hair grows on them without any effort."],
+["a","In just that way, the whole universe comes out of the Imperishable."],
+["s","So it needs nothing else to make the world from?"],
+["a","Nothing. Like the spider, it uses only itself."],
+["g",{t:"Three pictures",b:[
+  ["v","1.1.7","As a spider sends out its thread and draws it in, as plants spring from the earth, as hair grows on the head and body of a living person, so from the Imperishable arises everything here."],
+  ["p","Each picture adds something. The spider needs no material from outside: the web is made of its own substance. Plants show that what comes forth is of the same stuff as its source, as plants are made of the earth they grow from. Hair shows that it happens with no effort at all."],
+  ["p","Commentators draw out one more point from the hair. Hair does not think or feel, yet it grows from a person who does. So a world full of things that do not know can come from That which is pure awareness."]]}],
+["q","Can you think of anything else that makes something out of itself, the way a spider makes its thread?"],
+
+["h","Leaky boats","boats"],
+["a","Many people think the best thing in life is to do the right rituals and good deeds, so that they reach heaven after they die.","1.2.10"],
+["a","Rituals have their place. But they are like boats that leak. They carry you for a while. Then they sink, and you are back where you began.","1.2.7"],
+["s","Even for people who do them perfectly?"],
+["a","Even for them. When the good results are used up, they come back down. Some think they are very wise and learned, yet they go round and round, like blind people led by someone who is also blind.","1.2.8–10"],
+["s","Then what should a person do?"],
+["a","Look carefully at everything that can be gained by doing. Then you will see: what was never made cannot be gained by making.","1.2.12"],
+["a","So whoever wants to know it should go humbly, with firewood in hand, to a teacher who knows the scriptures and lives in Brahman. Just as you came to me.","1.2.12"],
+["a","And to a student who comes with a calm mind, the teacher must give that knowledge fully and truly. So listen, dear one.","1.2.13"],
+["g",{t:"What was never made",b:[
+  ["v","1.2.12","Having examined the worlds won by action, let the seeker grow free of longing for them: the unmade is not won by what is made. To know That, let him go, fuel in hand, to a teacher learned in the scriptures and established in Brahman."],
+  ["p","Everything won by action has a beginning, so it has an end, heaven included. Freedom is not like that. In Shankara’s reading the Self is not produced or reached by any deed, however good, because it already is. Good works can make the mind clear, but they cannot create what was never missing."],
+  ["p","Firewood was the traditional gift a student carried for the teacher’s sacred fire, a sign of humility and readiness to serve. Shankara adds that even someone who knows the scriptures should not set out to find Brahman on their own, but should go to a teacher."]]}],
+["q","Is there anything you can get that never runs out?"],
+
+["h","Sparks from one fire","fire"],
+["a","Here is the truth. Think of a blazing fire. Thousands of sparks leap out of it, each one made of the same fire.","2.1.1"],
+["a","In the same way, dear one, beings of every kind come out of the Imperishable, and go back into it."],
+["s","So every creature is like a spark?"],
+["a","Yes. A spark is nothing but fire. It only looks separate while it flies."],
+["a","Fire is its head. The sun and moon are its eyes, the directions its ears, the Vedas its speech, the wind its breath. It is the inner Self of every being.","2.1.4"],
+["a","Whoever finds it hidden in the cave of the heart unties the knot of not-knowing, here, in this very life.","2.1.10"],
+["g",{t:"Sparks of one fire",b:[
+  ["v","2.1.1","This is the truth. As from a blazing fire thousands of sparks fly out, all of the same nature as the fire, so, dear one, from the Imperishable beings of many kinds come forth, and into it they return."],
+  ["p","A spark has the nature of fire and differs from it only while it flies. In Shankara’s reading, living beings are the Imperishable itself, seeming separate because of the bodies and minds it shines through, the way one space seems divided into the space inside many pots."],
+  ["p","The verses that follow describe the whole world as one cosmic body: fire its head, sun and moon its eyes, the earth its feet. They are not describing a giant somewhere. They are saying there is no corner of the world where That is not."]]}],
+["q","If you are a spark, what is the fire?"],
+
+["h","The bow and the arrow","bow"],
+["a","Now, Shaunaka, I will tell you how to reach it. It is right here, moving in the cave of the heart. Everything that moves and breathes and blinks rests on it. It is a target to be hit.","2.2.1–2"],
+["s","Hit it? With what?"],
+["a","With a bow and arrow. Take up the great bow of the Upanishads. Fit to it an arrow sharpened by meditation. Draw it back with your whole mind fixed on That, and strike the mark, dear one.","2.2.3"],
+["a","Om is the bow. The self is the arrow. Brahman is the target. Shoot without being distracted, and like the arrow, become one with it.","2.2.4"],
+["c","bow"],
+["s","And if my mind wanders?"],
+["a","Then the arrow misses. That is why the bow must be held steady. Know that One alone as your Self, and let all other talk go. This is the bridge to deathlessness.","2.2.5"],
+["g",{t:"The arrow and the target",b:[
+  ["v","2.2.4","Om is the bow; the self is the arrow; Brahman is called its target. It is to be struck by one who is undistracted. Then, like the arrow, one becomes one with it."],
+  ["p","Shankara explains: as the bow is what carries the arrow into the target, Om is what carries the self into Brahman. Held to with attention, Om gathers the mind, drops its outward pulls and lets it come to rest in Brahman. The arrow is the self in the body, the one that takes itself to be separate."],
+  ["p","“Undistracted” means free from the pull of outward things, the mind on one point. “Like the arrow” means that an arrow buried in its target is no longer seen apart from it. When the aim is complete, the idea “I am this body” falls away, and only the One remains."]]}],
+["q","When you really concentrate on something, what happens to everything else around you?"],
+
+["h","The knot of the heart","light"],
+["a","When that One is seen, both the highest and the lowest, the knot of the heart is cut. All doubts fall away. And the deeds that bind a person wear out.","2.2.8"],
+["s","What is it like?"],
+["a","There the sun does not shine, nor the moon and stars, nor lightning. What then of this little fire? Everything shines because it shines. By its light, all this is lit.","2.2.10"],
+["a","That Brahman is in front and behind, to the right and to the left, below and above. All this is Brahman alone.","2.2.11"],
+["g",{t:"The knot comes undone",b:[
+  ["v","2.2.8","The knot of the heart is cut, all doubts are cleared, and one’s deeds wear away, when That, the higher and the lower, is seen."],
+  ["p","Shankara takes the “knot” to be the mass of desires born of not-knowing, lodged in the mind, which ties the Self to the body. It is the knot of “I am this” and “this is mine.” Seeing the Self cuts it, and doubts end because nothing is left to doubt."],
+  ["p","Which deeds wear away? Shankara says: those that have not yet begun to bear fruit. The deeds that gave rise to this present body run their course, and the body lives on until they are spent. Tradition compares them to an arrow already in flight."],
+  ["p","The verse about the sun and moon appears in the Katha Upanishad too (2.2.15), where Yama says the same thing to Nachiketa."]]}],
+
+["h","Two birds","birds"],
+["a","Let me give you one more picture. Two birds, close friends who are always together, sit on the same tree.","3.1.1"],
+["a","One of them eats the fruit, sweet and bitter. The other eats nothing. It only watches."],
+["s","Which bird am I?"],
+["a","When you are lost in the fruit, you are the first bird. You feel weak and helpless, and you grieve.","3.1.2"],
+["a","But when that bird looks up and sees the other, its own Lord, and sees its glory, its sorrow is gone.","3.1.2"],
+["c","birds"],
+["s","So the watching bird was there all along?"],
+["a","All along, on the very same tree."],
+["g",{t:"Two birds",b:[
+  ["v","3.1.1–2","Two birds, inseparable companions, cling to the same tree. One of them eats the sweet fruit; the other looks on without eating. On that same tree the person, sunk and bewildered, grieves at his own helplessness. When he sees the other, the Lord whom all revere, and His glory, he is freed from sorrow."],
+  ["p","In Shankara’s reading the tree is the body. The bird that eats is the individual self, tasting the fruits of its own actions as pleasure and pain. The bird that watches is the Lord, ever pure and ever free, who does nothing but witness, simply by being there."],
+  ["p","The two are not finally two. When the eating bird sees the other as its own Self, and that glory as its own, its grief ends. The helplessness was never real. It came from looking only at the fruit."]]}],
+["q","When you are very sad or very excited, can you notice a quiet part of you that is only watching?"],
+
+["h","Truth alone wins","dawn"],
+["a","Truth alone wins, not untruth. Truth lays down the path of the gods, the road the sages walk to the highest treasure.","3.1.6"],
+["s","And how is the Self found?"],
+["a","By truthfulness, by self-discipline, by right understanding and by a pure life. It shines within the body, bright and spotless.","3.1.5"],
+["a","The eye cannot catch it, nor words, nor the other senses, nor penance, nor rituals. But when the mind grows clear and calm, then in meditation you see it, whole and without parts.","3.1.8"],
+["g",{t:"Satyameva jayate",b:[
+  ["v","3.1.6","Truth alone wins, not untruth. By truth is laid the path of the gods, on which the sages, their desires fulfilled, travel to where the supreme treasure of truth is."],
+  ["p","These words, satyameva jayate, are India’s national motto, written beneath the lion emblem. In the Upanishad they are not about winning arguments. Truthfulness here is a way of living: one who is true in word and deed walks a road that ends in what is truly real."],
+  ["v","3.1.8","It is not grasped by the eye, nor by speech, nor by the other senses, nor by penance or ritual. When the mind is made pure by the clearness of knowledge, then, meditating, one sees That, which has no parts."],
+  ["p","Shankara’s image here is a mirror. Clouded by desire and dislike, the mind cannot show the Self clearly. Wiped clean by truthfulness, restraint and the rest, it shows the Self, which was never anywhere else."]]}],
+["q","Why do you think truthfulness matters so much to someone looking for what is real?"],
+
+["h","Rivers into the ocean","ocean"],
+["s","Can I learn it by studying hard, the way I learned the Vedas?"],
+["a","This Self is not won by lectures, nor by cleverness, nor by much learning. It is reached by the one who wants it alone. To that one, the Self shows its own true nature.","3.2.3"],
+["g",{t:"Whom the Self chooses",b:[
+  ["v","3.2.3","This Self is not reached by discourses, nor by the intellect, nor by much learning. It is reached by the one whom it chooses. To that one, the Self reveals its own true nature."],
+  ["p","A striking thing to tell Shaunaka, who was rich in learning. In Shankara’s reading, “whom it chooses” means the seeker who chooses the Self alone: the one who prays for it and wants nothing else. This verse also appears, word for word, in the Katha Upanishad (1.2.23)."]]}],
+["a","Nor is it found by one without strength, the strength of a steady heart, or by the careless.","3.2.4"],
+["s","And what happens to the one who finds it?"],
+["a","Look at the rivers. They run down from the mountains, each with its own name. When they reach the ocean, their names and shapes are gone. They are simply ocean.","3.2.8"],
+["a","Just so, the wise one, free of name and form, reaches the shining Person, higher than the highest."],
+["a","Whoever knows that highest Brahman becomes Brahman. They cross beyond sorrow and beyond wrongdoing. Freed from the knots of the heart, they become deathless.","3.2.9"],
+["g",{t:"Knowing is being",b:[
+  ["v","3.2.8–9","As flowing rivers vanish into the ocean, giving up name and form, so the knower, freed from name and form, reaches the divine Person, higher than the high. One who knows that supreme Brahman becomes Brahman indeed."],
+  ["p","Shankara notes there is nowhere to travel. Because Brahman is one’s own Self, knowing it is not arriving at a distant place but ceasing to take oneself to be something else. That is why the Upanishad can say, simply: the knower of Brahman becomes Brahman."],
+  ["p","Name and form are what make one river the Ganga and another the Kaveri. They matter: people drink from them and bathe in them. But the water was always only water. So too with us: under every name and form there is the one Self."]]}],
+["s","Revered sir, I came asking for the one thing that makes everything known. It was never out there among the things. It is the Self of all of them, and my own Self."],
+["a","That is the truth, Shaunaka, as it was taught to me and to my teachers before me. Go in peace.","3.2.11"],
+["t","Shaunaka bowed and went home, carrying nothing new, yet knowing the one thing that makes everything known. The Upanishad closes with a salute to the sages who passed it on: “Salutations to the great seers! Salutations to the great seers!”","3.2.11"],
+["q","Which picture from this conversation would you like to remember: the spider, the sparks, the bow, the birds or the rivers?"]
+];
+
+
+const EN={S,js:{
+  names:{s:"Shaunaka",a:"Angiras"},
+  lead:{s:"Shaunaka asks",a:"Angiras replies",t:"Continue the story",q:"Think about it",g:"Go deeper"},
+  cont:{s:"Shaunaka continues",a:"Angiras continues"},
+  widget:{two:"See the two kinds",bow:"Try the bow",birds:"Watch the two birds"},
+  next:"Next: ",
+  think:"Think about it",
+  deep:"Going deeper · Shankara’s reading",
+  release:"Release",
+  again:"Again",
+  wander:"The mind keeps glancing at other things, so the aim keeps drifting.",
+  steady:"The mind is gathered on one point. The aim holds still.",
+  hitOk:"The arrow flies straight and is lost in the target. Like the arrow, become one with That.",
+  hitMiss:"The mind wandered at the moment of release, and the arrow flew wide. It is to be struck by one who is not distracted.",
+  eat:"The lower bird is busy with the fruit and has forgotten the other. Now it is happy, now it is sad.",
+  look:"It looks up and sees the other bird, its own Lord, shining. Its sorrow falls away."
+},bow:{
+  bow:["The bow","Om","The great bow of the Upanishads. Holding to Om and its meaning steadies the mind, the way a bow steadies an arrow and sends it on its way."],
+  arrow:["The arrow","Your self","The self you take yourself to be. The verse says it must first be sharpened by meditation: made fine and one-pointed, with nothing else on it."],
+  target:["The target","Brahman, the Imperishable","The one thing that, once known, makes everything known. It is not far away. It is the source the arrow came from."],
+  archer:["The archer","An undistracted mind","The archer draws the string with the whole mind turned toward the target. Nothing else is wanted, nothing else is looked at."]
+},birds:{
+  low:["The bird that eats","The self as we usually know it","It hops from fruit to fruit and feels happy or sad with each one. Busy with the fruit, it forgets the other bird and feels small and helpless."],
+  high:["The bird that watches","The Self, the Lord","It eats nothing and wants nothing. It simply shines and watches. It is no stranger: it is the eating bird’s own true nature."],
+  fruit:["The fruit","The results of our actions","Some are sweet and some are bitter: pleasure and pain, praise and blame, gain and loss."],
+  tree:["The tree","The body","Both birds live on the same tree. In one body are found the self that tastes life and the Self that only watches."]
+}};
+const LANGS={en:EN,kn:KN};
+let lang=(()=>{
+  let l=new URLSearchParams(location.search).get('lang');
+  // a reader who chose Kannada on the Katha page gets it here too
+  if(!l)try{l=localStorage.getItem('mundaka-lang')||localStorage.getItem('katha-lang')}catch(e){}
+  if(!l&&(navigator.languages||[]).some(x=>/^kn\b/i.test(x)))l='kn';
+  return LANGS[l]?l:'en';
+})();
+const L=()=>LANGS[lang].js;
+// swap fixed page text; the English stays in the HTML and is remembered on first swap
+function translate(root){
+  const ui=LANGS[lang].ui||{};
+  root.querySelectorAll('[data-i18n]').forEach(el=>{if(el.dataset.en==null)el.dataset.en=el.textContent;el.textContent=ui[el.dataset.i18n]??el.dataset.en});
+  root.querySelectorAll('[data-i18n-aria]').forEach(el=>{if(el.dataset.enAria==null)el.dataset.enAria=el.getAttribute('aria-label');el.setAttribute('aria-label',ui[el.dataset.i18nAria]??el.dataset.enAria)});
+}
+
+// tap a part of a picture (or its chip) to see what it stands for
+function parts(root,D){
+  const hits=[...root.querySelectorAll('.hit')],chips=[...root.querySelectorAll('.chips button')],info=root.querySelector('.info');
+  function show(k){const d=D[k];info.innerHTML='';const h=document.createElement('h4');h.textContent=d[0];const m=document.createElement('p');m.className='means';m.textContent=d[1];const p=document.createElement('p');p.textContent=d[2];info.append(h,m,p);
+    hits.forEach(x=>x.classList.toggle('on',x.dataset.k===k));chips.forEach(c=>c.classList.toggle('on',c.dataset.k===k))}
+  hits.forEach(x=>{x.addEventListener('click',()=>show(x.dataset.k));x.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(x.dataset.k)}})});
+  chips.forEach(c=>c.addEventListener('click',()=>show(c.dataset.k)));
+}
+const WIDGETS={
+  two(root){translate(root)},
+  bow(root){
+    parts(root,LANGS[lang].bow);
+    const svg=root.querySelector('.csvg'),note=root.querySelector('.calmtext'),fire=root.querySelector('.fire'),bd=root.querySelector('.b-dis'),bs=root.querySelector('.b-steady');
+    let steady=false;
+    // put the arrow back on the string at once, without flying it backwards
+    function reset(){svg.classList.add('reset');svg.classList.remove('shot','hit-ok','hit-miss');void svg.getBoundingClientRect();svg.classList.remove('reset');
+      fire.textContent=L().release;note.textContent=steady?L().steady:L().wander}
+    function setSteady(on){steady=on;svg.classList.toggle('wander',!on);bs.setAttribute('aria-pressed',on);bd.setAttribute('aria-pressed',!on);reset()}
+    fire.addEventListener('click',()=>{
+      if(svg.classList.contains('shot')){reset();return}
+      svg.classList.add('shot',steady?'hit-ok':'hit-miss');fire.textContent=L().again;note.textContent=steady?L().hitOk:L().hitMiss});
+    bd.addEventListener('click',()=>setSteady(false));bs.addEventListener('click',()=>setSteady(true));
+    translate(root);setSteady(false);
+  },
+  birds(root){
+    parts(root,LANGS[lang].birds);
+    const svg=root.querySelector('.csvg'),note=root.querySelector('.calmtext'),be=root.querySelector('.b-eat'),bl=root.querySelector('.b-look');
+    function look(on){svg.classList.toggle('look',on);bl.setAttribute('aria-pressed',on);be.setAttribute('aria-pressed',!on);note.textContent=on?L().look:L().eat}
+    be.addEventListener('click',()=>look(false));bl.addEventListener('click',()=>look(true));
+    translate(root);look(false);
+  }
+};
+
+const chat=document.getElementById('chat'), st=document.getElementById('st'), cap=document.getElementById('cap');
+let items=[];
+function build(){
+  chat.textContent='';
+  const J=L();
+  let prev=null, scene="arrive", title="";
+  LANGS[lang].S.forEach(([w,text,ref,sc])=>{
+  let el;
+  if(w==="h"){el=document.createElement('div');el.className='div';el.textContent=text;scene=ref;title=text;prev=null}
+  else if(w==="t"){el=document.createElement('p');el.className='tell';el.textContent=text;if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.append(r)}if(sc)scene=sc;prev=null}
+  else if(w==="q"){el=document.createElement('div');el.className='think';const b=document.createElement('b');b.textContent=J.think;el.append(b,text);prev=null}
+  else if(w==="g"){
+    const d=text;el=document.createElement('div');el.className='deep';
+    el.innerHTML='<span class="dl"></span>';el.firstChild.textContent=J.deep;
+    const h3=document.createElement('h3');h3.textContent=d.t;el.append(h3);
+    d.b.forEach(bl=>{
+      if(bl[0]==="v"){const q=document.createElement('blockquote');const r=document.createElement('span');r.className='vr';r.textContent=bl[1];q.append(r,bl[2]);el.append(q)}
+      else if(bl[0]==="p"){const p=document.createElement('p');p.textContent=bl[1];el.append(p)}
+    });prev=null}
+  else if(w==="c"){el=document.getElementById(text+'-tpl').content.firstElementChild.cloneNode(true);WIDGETS[text](el);el.dataset.w=text;prev=null}
+  else{
+    el=document.createElement('div');el.className='row '+w+(prev===w?' cont':'');
+    el.innerHTML='<svg class="av" aria-hidden="true"><use href="#av-'+w+'"/></svg><div class="bub"><div class="name">'+J.names[w]+'</div><p></p></div>';
+    el.querySelector('p').textContent=text;
+    if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.querySelector('.bub').append(r)}
+    el.dataset.who=w;prev=w;
+  }
+  el.dataset.kind=w;el.dataset.scene=scene;el.dataset.title=title;
+  chat.append(el);
+  });
+  items=[...chat.children];
+}
+build();
+
+/* stage */
+let talkT, lastEl=null;
+function setStage(el){
+  if(!el||el===lastEl)return;lastEl=el;
+  st.dataset.scene=el.dataset.scene;cap.textContent=el.dataset.title;
+  const w=el.dataset.who||"";
+  st.dataset.who=w;
+  st.classList.remove('talking');
+  if(w){void st.getBoundingClientRect();st.classList.add('talking');clearTimeout(talkT);talkT=setTimeout(()=>st.classList.remove('talking'),2300)}
+}
+function sizeTools(){document.documentElement.style.setProperty('--tools-h',document.getElementById('tools').offsetHeight+'px')}
+sizeTools();addEventListener('resize',sizeTools);
+
+const next=document.getElementById('next'), nextbar=document.getElementById('nextbar');
+const io=new IntersectionObserver(es=>{
+  if(document.body.classList.contains('slow'))return;
+  es.forEach(e=>{if(e.isIntersecting)setStage(e.target)});
+},{rootMargin:'-62% 0px -30% 0px'});
+items.forEach(el=>io.observe(el));
+
+const nextLabel=document.getElementById('next-label'), tapHint=document.getElementById('tap-hint'), prog=document.getElementById('prog');
+const typing=document.createElement('div');typing.setAttribute('aria-hidden','true');typing.hidden=true;
+typing.innerHTML='<svg class="av"><use href="#av-s"/></svg><div class="bub"><span class="dots"><i></i><i></i><i></i></span></div>';
+chat.append(typing);
+typing.addEventListener('click',()=>step());
+
+// what step() will reveal next: the first visible item, plus any chapter heading on the way
+function peek(){
+  let head=null;
+  for(let j=shown;j<items.length;j++){
+    const k=items[j].dataset.kind;
+    if(k==='h'){head=items[j].dataset.title;continue}
+    if(k==='g'&&document.body.classList.contains('story'))continue;
+    return {k,head,w:items[j].dataset.w};
+  }
+  return null;
+}
+function update(){
+  prog.style.width=(shown/items.length*100)+'%';
+  const p=peek();
+  if(!p){nextbar.hidden=true;typing.hidden=true;return}
+  const last=items[shown-1]&&items[shown-1].dataset.kind;
+  const J=L();
+  nextLabel.textContent=p.head?J.next+p.head:p.k==='c'?J.widget[p.w]:(J.cont[p.k]&&last===p.k?J.cont[p.k]:J.lead[p.k]);
+  const person=!p.head&&J.names[p.k];
+  typing.className='typing '+(person?'row '+p.k:'mid');
+  if(person)typing.querySelector('use').setAttribute('href','#av-'+p.k);
+  typing.hidden=false;nextbar.hidden=false;
+}
+
+let shown=items.length, steps=0, learned=false;
+try{learned=localStorage.getItem('mundaka-learned')==='1'}catch(e){}
+if(!learned){next.classList.add('hint');tapHint.hidden=false}
+function setSlow(on,noScroll){
+  document.body.classList.toggle('slow',on);
+  document.getElementById('r-slow').setAttribute('aria-pressed',on);
+  document.getElementById('r-all').setAttribute('aria-pressed',!on);
+  if(on){shown=3;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));lastEl=null;setStage(items[2]);update();if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
+  else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true;typing.hidden=true}
+}
+function step(){
+  if(shown>=items.length)return;
+  while(shown<items.length){
+    const el=items[shown];shown++;el.classList.remove('later');el.classList.add('pop');
+    if(getComputedStyle(el).display!=='none'&&!el.classList.contains('div'))break;
+  }
+  const el=items[shown-1];setStage(el);update();
+  (typing.hidden?el:typing).scrollIntoView({behavior:'smooth',block:'end'});
+  steps++;
+  if(steps===1)next.classList.remove('hint');
+  if(steps===3&&!learned){learned=true;tapHint.hidden=true;try{localStorage.setItem('mundaka-learned','1')}catch(e){}}
+}
+next.addEventListener('click',step);
+// tap anywhere on the conversation or the picture to move on, except on things that are themselves interactive
+function tapAdvance(e){
+  if(!document.body.classList.contains('slow'))return;
+  if(e.target.closest('button,a,input,select,textarea,[role="button"],.widget,.typing'))return;
+  if(String(getSelection()).length)return;
+  step();
+}
+chat.addEventListener('click',tapAdvance);
+document.querySelector('.stage-wrap').addEventListener('click',tapAdvance);
+document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' '||e.key==='Enter')&&e.target===document.body){e.preventDefault();step()}});
+document.getElementById('r-slow').addEventListener('click',()=>setSlow(true));
+document.getElementById('r-all').addEventListener('click',()=>setSlow(false));
+setSlow(true,true); // default: one at a time, without jumping past the intro
+
+function pair(a,b,cls,key){
+  const A=document.getElementById(a),B=document.getElementById(b);
+  function set(on){document.body.classList.toggle(cls,!on);A.setAttribute('aria-pressed',on);B.setAttribute('aria-pressed',!on);try{localStorage.setItem(key,on?'1':'0')}catch(e){}}
+  A.addEventListener('click',()=>set(true));B.addEventListener('click',()=>set(false));
+  try{if(localStorage.getItem(key)==='0')set(false)}catch(e){}
+}
+pair('d-deep','d-story','story','mundaka-depth');
+pair('s-on','s-off','no-stage','mundaka-stage');
+['d-deep','d-story'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{if(document.body.classList.contains('slow'))update()}));
+
+const TITLE_EN=document.title;
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=lang==='en'?TITLE_EN:LANGS[lang].ui.title;
+  translate(document);
+  document.getElementById('l-en').setAttribute('aria-pressed',lang==='en');
+  document.getElementById('l-kn').setAttribute('aria-pressed',lang==='kn');
+  document.getElementById('katha-link').href='../kathopanishad/'+(lang==='en'?'':'?lang='+lang);
+  sizeTools();
+}
+function setLang(l){
+  if(l===lang)return;
+  // keep the reader on the same line across the switch
+  const anchor=items.find(el=>getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().bottom>innerHeight*.4);
+  const ai=items.indexOf(anchor), top=anchor?anchor.getBoundingClientRect().top:0;
+  lang=l;applyLang();
+  io.disconnect();build();items.forEach(el=>io.observe(el));chat.append(typing);lastEl=null;
+  if(document.body.classList.contains('slow')){items.forEach((el,i)=>el.classList.toggle('later',i>=shown));setStage(items[shown-1]);update()}
+  if(anchor)scrollBy(0,items[ai].getBoundingClientRect().top-top);
+  try{localStorage.setItem('mundaka-lang',l)}catch(e){}
+  try{const u=new URL(location.href);if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);history.replaceState(null,'',u)}catch(e){}
+}
+document.getElementById('l-en').addEventListener('click',()=>setLang('en'));
+document.getElementById('l-kn').addEventListener('click',()=>setLang('kn'));
+applyLang();
+if(document.body.classList.contains('slow'))update();
+</script>
