@@ -5,7 +5,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Mukta:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Mukta:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;700&display=swap">
 <style>
 /* Layout: a picture-book stage pinned above one narrow chat column. Nachiketa sits on the left, Yama on his throne on the right; the scene and the speaker follow the conversation. */
 :root{
@@ -14,9 +14,9 @@
   --gold:#A8731F; --gold-soft:#EBCB8E; --lotus:#A9606E; --sil:#363B59; --sky:#C7D1E6;
   --hall1:#D5DBEB; --hall2:#F1E7D6; --night1:#2A3166; --night2:#62628F; --dawn1:#F4CFA6; --dawn2:#FCEBD2;
   --home1:#D7E3E2; --home2:#F5E8CF; --floor:#CDBFA2; --floor2:#BBAB8B; --pillar:#E6DECD; --deep:#E2E6EF; --hill:#C9D2CC; --hill2:#AEBCB5; --pillar-edge:#C5B696; --star:#FFFFFF;
-  --f-display:"Marcellus","Cormorant Garamond",Georgia,serif;
-  --f-body:"Gentium Book Plus","Gentium Plus",Georgia,"Times New Roman",serif;
-  --f-ui:"Mukta","Segoe UI",system-ui,sans-serif;
+  --f-display:"Marcellus","Noto Serif Kannada","Cormorant Garamond",Georgia,serif;
+  --f-body:"Gentium Book Plus","Gentium Plus","Noto Serif Kannada",Georgia,"Times New Roman",serif;
+  --f-ui:"Mukta","Noto Sans Kannada","Segoe UI",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#11132A; --surface:#171A35; --ink:#E9E5D9; --muted:#A3A6BF; --line:#2F3459;
@@ -142,12 +142,33 @@ body.no-stage .stage-wrap{display:none}
 .think b{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.15rem}
 body.no-think .think{display:none}
 body.slow .chat > .later{display:none}
-body.slow .chat{padding-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
-body.slow .chat > *{scroll-margin-bottom:calc(5.5rem + env(safe-area-inset-bottom,0px))}
-body.slow footer{padding-bottom:7rem}
-.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;justify-content:center;padding-top:.9rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
+body.slow .chat{padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px))}
+body.slow .chat > *{scroll-margin-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
+body.slow footer{padding-bottom:8.5rem}
+body.slow .chat, body.slow .stage{cursor:pointer}
+.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:1.4rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
 .nextbar[hidden]{display:none}
-.next{pointer-events:auto;font-family:var(--f-ui);font-size:1rem;background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:.65rem 1.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.next{pointer-events:auto;font-family:var(--f-ui);font-size:1.08rem;font-weight:600;background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:.8rem 1.9rem;min-width:min(16rem,100%);display:flex;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.next .arr{display:inline-block;font-size:1.3em;line-height:1;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.next.hint{animation:ring 2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 0 color-mix(in srgb,var(--gold) 70%,transparent)}70%,100%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 16px transparent}}
+.tap-hint{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.tap-hint[hidden]{display:none}
+/* "someone is about to speak" bubble at the end of the revealed chat */
+.typing{display:flex;gap:.55rem;align-items:flex-end;opacity:.85}
+.typing[hidden]{display:none}
+.typing.mid{align-self:center}
+.typing.mid .av{display:none}
+.typing.mid .bub{background:var(--surface);border:1px dashed var(--line);color:var(--muted)}
+.typing .bub{padding:.8rem 1rem}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:.9;transform:translateY(-3px)}}
+.prog{height:3px}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s ease}
+body:not(.slow) .prog{display:none}
 .pop{animation:pop .4s ease-out}
 @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -188,6 +209,11 @@ body.story .deep{display:none}
 @keyframes buck{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-9deg) translate(-3px,-4px)}60%{transform:rotate(7deg) translate(3px,2px)}}
 @keyframes trot{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 
+/* Kannada needs taller lines for its vowel signs, and letter-spacing breaks conjuncts */
+html[lang="kn"] body{line-height:1.75}
+html[lang="kn"] h1{line-height:1.4}
+html[lang="kn"] *{letter-spacing:0!important}
+html[lang="kn"] .tell{font-style:normal}
 footer{border-top:1px solid var(--line);padding-block:1.6rem 5rem;color:var(--muted);font-size:.95rem}
 footer p + p{margin-top:.6rem}
 @media (max-width:480px){.tools .wrap{font-size:.8rem}.seg button{padding:.15rem .55rem}}
@@ -203,29 +229,33 @@ footer p + p{margin-top:.6rem}
 </svg>
 
 <header><div class="wrap">
-  <span class="label">From the Katha Upanishad</span>
-  <h1>Nachiketa talks with Yama</h1>
-  <p class="lede">A boy goes to the house of Death and asks the biggest question of all. This is their conversation, told simply.</p>
+  <span class="label" data-i18n="label">From the Katha Upanishad</span>
+  <h1 data-i18n="h1">Nachiketa talks with Yama</h1>
+  <p class="lede" data-i18n="lede">A boy goes to the house of Death and asks the biggest question of all. This is their conversation, told simply.</p>
   <div class="cast">
-    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-n"/></svg><span><b>Nachiketa</b>a brave, curious boy</span></div>
-    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-y"/></svg><span><b>Yama</b>lord of death, and a kind teacher</span></div>
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-n"/></svg><span><b data-i18n="nach">Nachiketa</b><span data-i18n="nach-d">a brave, curious boy</span></span></div>
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-y"/></svg><span><b data-i18n="yama">Yama</b><span data-i18n="yama-d">lord of death, and a kind teacher</span></span></div>
   </div>
 </div></header>
 
 <div class="tools" id="tools"><div class="wrap">
-  <div class="seg" role="group" aria-label="How to read">
-    <button id="r-all" aria-pressed="false">Read all</button>
-    <button id="r-slow" aria-pressed="true">One at a time</button>
+  <div class="seg" role="group" aria-label="How to read" data-i18n-aria="how">
+    <button id="r-all" aria-pressed="false" data-i18n="all">Read all</button>
+    <button id="r-slow" aria-pressed="true" data-i18n="slow">One at a time</button>
   </div>
-  <div class="seg" role="group" aria-label="Depth"><button id="d-deep" aria-pressed="true">Going deeper</button><button id="d-story" aria-pressed="false">Story only</button></div>
-  <div class="seg" role="group" aria-label="Pictures">
-    <button id="s-on" aria-pressed="true">Pictures</button>
-    <button id="s-off" aria-pressed="false">Off</button>
+  <div class="seg" role="group" aria-label="Depth" data-i18n-aria="depth"><button id="d-deep" aria-pressed="true" data-i18n="deep">Going deeper</button><button id="d-story" aria-pressed="false" data-i18n="story">Story only</button></div>
+  <div class="seg" role="group" aria-label="Pictures" data-i18n-aria="pics">
+    <button id="s-on" aria-pressed="true" data-i18n="pics">Pictures</button>
+    <button id="s-off" aria-pressed="false" data-i18n="off">Off</button>
   </div>
-</div></div>
+  <div class="seg" role="group" aria-label="Language">
+    <button id="l-en" aria-pressed="true" lang="en">English</button>
+    <button id="l-kn" aria-pressed="false" lang="kn">ಕನ್ನಡ</button>
+  </div>
+</div><div class="prog" aria-hidden="true"><i id="prog"></i></div></div>
 
 <div class="stage-wrap"><div class="wrap"><div class="stage">
-<svg id="st" viewBox="0 0 800 260" data-scene="home" data-who="" role="img" aria-label="Nachiketa seated before Yama, the lord of death, on his throne">
+<svg id="st" viewBox="0 0 800 260" data-scene="home" data-who="" role="img" aria-label="Nachiketa seated before Yama, the lord of death, on his throne" data-i18n-aria="stage">
   <defs>
     <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
     <radialGradient id="spotg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F6D27A" stop-opacity=".9"/><stop offset="1" stop-color="#F6D27A" stop-opacity="0"/></radialGradient>
@@ -476,14 +506,14 @@ footer p + p{margin-top:.6rem}
 
 <template id="chariot-tpl">
 <div class="chariot">
-  <span class="dl">Try it · tap any part of the chariot</span>
-  <svg viewBox="0 0 800 300" role="group" aria-label="The chariot of the Katha Upanishad" class="csvg restless">
+  <span class="dl" data-i18n="c-try">Try it · tap any part of the chariot</span>
+  <svg viewBox="0 0 800 300" role="group" aria-label="The chariot of the Katha Upanishad" data-i18n-aria="c-svg" class="csvg restless">
     <rect width="800" height="300" rx="14" style="fill:var(--bg)"/>
-    <g class="hit" data-k="road" tabindex="0" role="button" aria-label="The roads">
+    <g class="hit" data-k="road" tabindex="0" role="button" aria-label="The roads" data-i18n-aria="c-road">
       <path class="shape" d="M0 262 C200 250 420 272 800 252 L800 300 L0 300Z" style="fill:var(--hill)"/>
       <path d="M30 278 C200 270 420 286 770 270" style="fill:none;stroke:var(--hill2);stroke-width:3;stroke-dasharray:14 12"/>
     </g>
-    <g class="hit" data-k="horses" tabindex="0" role="button" aria-label="The horses">
+    <g class="hit" data-k="horses" tabindex="0" role="button" aria-label="The horses" data-i18n-aria="c-horses">
       <g class="shape" style="fill:#F2EEE4;stroke:#8C8576;stroke-width:1.5">
         <g transform="translate(470 150)"><g class="horse" style="animation-delay:0s"><use href="#hz"/></g></g>
         <g transform="translate(530 166)"><g class="horse" style="animation-delay:-.3s"><use href="#hz"/></g></g>
@@ -492,14 +522,14 @@ footer p + p{margin-top:.6rem}
         <g transform="translate(710 150)"><g class="horse" style="animation-delay:-.8s"><use href="#hz"/></g></g>
       </g>
     </g>
-    <g class="hit" data-k="reins" tabindex="0" role="button" aria-label="The reins">
+    <g class="hit" data-k="reins" tabindex="0" role="button" aria-label="The reins" data-i18n-aria="c-reins">
       <g class="shape" style="fill:none;stroke:#C9963C;stroke-width:2.5">
         <path d="M268 118 C360 112 430 130 512 150"/><path d="M268 122 C380 128 500 150 632 158"/><path d="M268 126 C400 150 600 160 752 152"/>
         <path d="M268 122 C320 140 450 160 572 168"/><path d="M268 124 C360 150 560 172 692 170"/>
       </g>
       <path d="M268 118 C360 112 430 130 512 150 M268 126 C400 150 600 160 752 152" style="fill:none;stroke:transparent;stroke-width:18"/>
     </g>
-    <g class="hit" data-k="body" tabindex="0" role="button" aria-label="The chariot">
+    <g class="hit" data-k="body" tabindex="0" role="button" aria-label="The chariot" data-i18n-aria="c-body">
       <g class="shape">
         <path d="M120 150 H300 L290 220 H130Z" fill="#C9963C" stroke="#6B4430" stroke-width="3"/>
         <path d="M134 165 H286" stroke="#8E2B2B" stroke-width="4"/>
@@ -508,14 +538,14 @@ footer p + p{margin-top:.6rem}
         <path d="M300 200 H470" stroke="#6B4430" stroke-width="4"/>
       </g>
     </g>
-    <g class="hit" data-k="driver" tabindex="0" role="button" aria-label="The driver">
+    <g class="hit" data-k="driver" tabindex="0" role="button" aria-label="The driver" data-i18n-aria="c-driver">
       <g class="shape">
         <circle cx="262" cy="96" r="12" fill="#B97A4B"/>
         <path d="M250 88 C252 80 270 78 274 90 C266 86 258 86 250 88Z" fill="#2A1E1A"/>
         <path d="M246 150 C246 120 252 110 262 110 C274 110 280 120 280 150Z" fill="#A9606E"/>
       </g>
     </g>
-    <g class="hit" data-k="self" tabindex="0" role="button" aria-label="The master of the chariot">
+    <g class="hit" data-k="self" tabindex="0" role="button" aria-label="The master of the chariot" data-i18n-aria="c-self">
       <circle cx="168" cy="88" r="34" fill="#F0CF6E" opacity=".45"/>
       <g class="shape">
         <circle cx="168" cy="84" r="13" fill="#B97A4B"/>
@@ -525,13 +555,13 @@ footer p + p{margin-top:.6rem}
     </g>
   </svg>
   <div class="chips">
-    <button data-k="self">Master</button><button data-k="body">Chariot</button><button data-k="driver">Driver</button>
-    <button data-k="reins">Reins</button><button data-k="horses">Horses</button><button data-k="road">Roads</button>
+    <button data-k="self" data-i18n="ch-self">Master</button><button data-k="body" data-i18n="ch-body">Chariot</button><button data-k="driver" data-i18n="ch-driver">Driver</button>
+    <button data-k="reins" data-i18n="ch-reins">Reins</button><button data-k="horses" data-i18n="ch-horses">Horses</button><button data-k="road" data-i18n="ch-road">Roads</button>
   </div>
-  <div class="info" aria-live="polite"><h4>Who is travelling?</h4><p>Each part of the chariot stands for part of you. Tap one to see what it means.</p></div>
+  <div class="info" aria-live="polite"><h4 data-i18n="c-who">Who is travelling?</h4><p data-i18n="c-each">Each part of the chariot stands for part of you. Tap one to see what it means.</p></div>
   <div class="calm-row">
     <p class="calmtext">Right now the mind is loose, so the horses pull wherever they like.</p>
-    <div class="seg" role="group" aria-label="State of the horses"><button class="b-rest" aria-pressed="true">Untrained</button><button class="b-calm" aria-pressed="false">Trained</button></div>
+    <div class="seg" role="group" aria-label="State of the horses" data-i18n-aria="c-state"><button class="b-rest" aria-pressed="true" data-i18n="c-rest">Untrained</button><button class="b-calm" aria-pressed="false" data-i18n="c-calm">Trained</button></div>
   </div>
 </div>
 </template>
@@ -547,13 +577,14 @@ footer p + p{margin-top:.6rem}
 <main class="wrap"><div class="chat" id="chat"></div></main>
 
 <footer class="wrap">
-  <p>The conversation follows the Katha Upanishad closely. Small verse numbers show where each idea comes from, so older readers can look them up. The wording is a simple retelling, not a translation, and the explanations follow Adi Shankaracharya’s commentary.</p>
-  <p>Yama is drawn as tradition describes him: dark as a rain cloud, in red garments, crowned, holding the staff and the noose, with his buffalo resting nearby.</p>
-  <p>For the full text with commentary, see the Katha Upanishad translated by Swami Gambhirananda (Advaita Ashrama, Ramakrishna Order).</p>
+  <p data-i18n="f1">The conversation follows the Katha Upanishad closely. Small verse numbers show where each idea comes from, so older readers can look them up. The wording is a simple retelling, not a translation, and the explanations follow Adi Shankaracharya’s commentary.</p>
+  <p data-i18n="f2">Yama is drawn as tradition describes him: dark as a rain cloud, in red garments, crowned, holding the staff and the noose, with his buffalo resting nearby.</p>
+  <p data-i18n="f3">For the full text with commentary, see the Katha Upanishad translated by Swami Gambhirananda (Advaita Ashrama, Ramakrishna Order).</p>
 </footer>
 
-<div class="nextbar" id="nextbar" hidden><button class="next" id="next">Next ›</button></div>
+<div class="nextbar" id="nextbar" hidden><button class="next" id="next"><span id="next-label">Continue</span><span class="arr" aria-hidden="true">›</span></button><span class="tap-hint" id="tap-hint" hidden data-i18n="tap">or tap anywhere on the story</span></div>
 
+<script src="kn.js"></script>
 <script>
 /* who: n = Nachiketa, y = Yama, d = father, t = storyteller, h = chapter heading [title, scene], q = think question. Optional 4th field on t = scene change. */
 const S=[
@@ -709,15 +740,41 @@ const S=[
 ];
 
 
+const EN={S,js:{
+  names:{n:"Nachiketa",y:"Yama",d:"Father"},
+  lead:{n:"Nachiketa speaks",y:"Yama replies",d:"His father replies",t:"Continue the story",q:"Think about it",g:"Go deeper",c:"Try the chariot"},
+  cont:{n:"Nachiketa continues",y:"Yama continues",d:"Father continues"},
+  next:"Next: ",
+  think:"Think about it",
+  deep:"Going deeper · Shankara’s reading",
+  ladder:["From the outermost to the innermost",[["Outermost","The senses"],["","Their objects"],["","The mind"],["","The intellect"],["","The great self, the first stirring of the cosmos"],["","The unmanifest, the seed of all things"],["Innermost","The Person, the Self. Nothing beyond."]]],
+  calm:"The driver holds the reins steady, and the horses run calmly down the road he chooses.",
+  rest:"Right now the mind is loose, so the horses pull wherever they like."
+},chariot:{
+  self:["The master of the chariot","The Self","You, the one who is riding. The Self does not drive or pull. It simply is, and the whole journey happens for its sake. Every other part of the chariot is something you have. This is what you are."],
+  body:["The chariot","The body","It carries you through the world. A good chariot is worth caring for, but no one mistakes the chariot for the traveller."],
+  driver:["The driver","The intellect","The part of you that can tell right from wrong, the good from the merely pleasant. A wise driver knows where the journey should end."],
+  reins:["The reins","The mind","The mind connects the driver to the horses. Held steady, it lets the intellect guide the senses. Left slack, it hands the chariot over to them."],
+  horses:["The horses","The five senses","Seeing, hearing, smelling, tasting, touching. They are full of energy and love to run toward whatever looks attractive. Trained, they are a joy. Untrained, they run off the road."],
+  road:["The roads","The things of the world","Sights, sounds, tastes and all the rest. The roads are not bad. The question is who decides which road the chariot takes."]
+}};
+const LANGS={en:EN,kn:KN};
+let lang=(()=>{
+  let l=new URLSearchParams(location.search).get('lang');
+  if(!l)try{l=localStorage.getItem('katha-lang')}catch(e){}
+  if(!l&&(navigator.languages||[]).some(x=>/^kn\b/i.test(x)))l='kn';
+  return LANGS[l]?l:'en';
+})();
+const L=()=>LANGS[lang].js;
+// swap fixed page text; the English stays in the HTML and is remembered on first swap
+function translate(root){
+  const ui=LANGS[lang].ui||{};
+  root.querySelectorAll('[data-i18n]').forEach(el=>{if(el.dataset.en==null)el.dataset.en=el.textContent;el.textContent=ui[el.dataset.i18n]??el.dataset.en});
+  root.querySelectorAll('[data-i18n-aria]').forEach(el=>{if(el.dataset.enAria==null)el.dataset.enAria=el.getAttribute('aria-label');el.setAttribute('aria-label',ui[el.dataset.i18nAria]??el.dataset.enAria)});
+}
+
 function initChariot(root){
-  const D={
-    self:["The master of the chariot","The Self","You, the one who is riding. The Self does not drive or pull. It simply is, and the whole journey happens for its sake. Every other part of the chariot is something you have. This is what you are."],
-    body:["The chariot","The body","It carries you through the world. A good chariot is worth caring for, but no one mistakes the chariot for the traveller."],
-    driver:["The driver","The intellect","The part of you that can tell right from wrong, the good from the merely pleasant. A wise driver knows where the journey should end."],
-    reins:["The reins","The mind","The mind connects the driver to the horses. Held steady, it lets the intellect guide the senses. Left slack, it hands the chariot over to them."],
-    horses:["The horses","The five senses","Seeing, hearing, smelling, tasting, touching. They are full of energy and love to run toward whatever looks attractive. Trained, they are a joy. Untrained, they run off the road."],
-    road:["The roads","The things of the world","Sights, sounds, tastes and all the rest. The roads are not bad. The question is who decides which road the chariot takes."]
-  };
+  const D=LANGS[lang].chariot;
   const svg=root.querySelector('.csvg'),info=root.querySelector('.info'),hits=[...svg.querySelectorAll('.hit')],chips=[...root.querySelectorAll('.chips button')];
   function show(k){const d=D[k];info.innerHTML='';const h=document.createElement('h4');h.textContent=d[0];const m=document.createElement('p');m.className='means';m.textContent=d[1];const p=document.createElement('p');p.textContent=d[2];info.append(h,m,p);
     hits.forEach(x=>x.classList.toggle('on',x.dataset.k===k));chips.forEach(c=>c.classList.toggle('on',c.dataset.k===k))}
@@ -725,37 +782,44 @@ function initChariot(root){
   chips.forEach(c=>c.addEventListener('click',()=>show(c.dataset.k)));
   const br=root.querySelector('.b-rest'),bc=root.querySelector('.b-calm'),ct=root.querySelector('.calmtext');
   function calm(on){svg.classList.toggle('calm',on);svg.classList.toggle('restless',!on);bc.setAttribute('aria-pressed',on);br.setAttribute('aria-pressed',!on);
-    ct.textContent=on?'The driver holds the reins steady, and the horses run calmly down the road he chooses.':'Right now the mind is loose, so the horses pull wherever they like.'}
+    ct.textContent=on?L().calm:L().rest}
   br.addEventListener('click',()=>calm(false));bc.addEventListener('click',()=>calm(true));
+  translate(root);ct.textContent=L().rest;
 }
 const chat=document.getElementById('chat'), st=document.getElementById('st'), cap=document.getElementById('cap');
-const NAMES={n:"Nachiketa",y:"Yama",d:"Father"};
-let prev=null, scene="home", title="The gift";
-S.forEach(([w,text,ref,sc])=>{
+let items=[];
+function build(){
+  chat.textContent='';
+  const J=L();
+  let prev=null, scene="home", title="";
+  LANGS[lang].S.forEach(([w,text,ref,sc])=>{
   let el;
   if(w==="h"){el=document.createElement('div');el.className='div';el.textContent=text;scene=ref;title=text;prev=null}
   else if(w==="t"){el=document.createElement('p');el.className='tell';el.textContent=text;if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.append(r)}if(sc)scene=sc;prev=null}
-  else if(w==="q"){el=document.createElement('div');el.className='think';el.innerHTML='<b>Think about it</b>';el.append(text);prev=null}
+  else if(w==="q"){el=document.createElement('div');el.className='think';const b=document.createElement('b');b.textContent=J.think;el.append(b,text);prev=null}
   else if(w==="g"){
     const d=text;el=document.createElement('div');el.className='deep';
-    el.innerHTML='<span class="dl">Going deeper · Shankara’s reading</span>';
+    el.innerHTML='<span class="dl"></span>';el.firstChild.textContent=J.deep;
     const h3=document.createElement('h3');h3.textContent=d.t;el.append(h3);
     d.b.forEach(bl=>{
       if(bl[0]==="v"){const q=document.createElement('blockquote');const r=document.createElement('span');r.className='vr';r.textContent=bl[1];q.append(r,bl[2]);el.append(q)}
       else if(bl[0]==="p"){const p=document.createElement('p');p.textContent=bl[1];el.append(p)}
-      else if(bl[0]==="ladder"){el.insertAdjacentHTML('beforeend','<ol class="ladder" aria-label="From the outermost to the innermost"><li><span>Outermost</span><span>The senses</span></li><li><span></span><span>Their objects</span></li><li><span></span><span>The mind</span></li><li><span></span><span>The intellect</span></li><li><span></span><span>The great self, the first stirring of the cosmos</span></li><li><span></span><span>The unmanifest, the seed of all things</span></li><li><span>Innermost</span><span>The Person, the Self. Nothing beyond.</span></li></ol>')}
+      else if(bl[0]==="ladder"){el.insertAdjacentHTML('beforeend','<ol class="ladder" aria-label="'+J.ladder[0]+'">'+J.ladder[1].map(([a,b])=>'<li><span>'+a+'</span><span>'+b+'</span></li>').join('')+'</ol>')}
     });prev=null}
   else if(w==="c"){el=document.getElementById('chariot-tpl').content.firstElementChild.cloneNode(true);initChariot(el);prev=null}
   else{
     el=document.createElement('div');el.className='row '+w+(prev===w?' cont':'');
-    el.innerHTML='<svg class="av" aria-hidden="true"><use href="#av-'+w+'"/></svg><div class="bub"><div class="name">'+NAMES[w]+'</div><p></p></div>';
+    el.innerHTML='<svg class="av" aria-hidden="true"><use href="#av-'+w+'"/></svg><div class="bub"><div class="name">'+J.names[w]+'</div><p></p></div>';
     el.querySelector('p').textContent=text;
     if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.querySelector('.bub').append(r)}
     el.dataset.who=w;prev=w;
   }
-  el.dataset.scene=scene;el.dataset.title=title;
+  el.dataset.kind=w;el.dataset.scene=scene;el.dataset.title=title;
   chat.append(el);
-});
+  });
+  items=[...chat.children];
+}
+build();
 
 /* stage */
 let talkT, lastEl=null;
@@ -770,32 +834,76 @@ function setStage(el){
 function sizeTools(){document.documentElement.style.setProperty('--tools-h',document.getElementById('tools').offsetHeight+'px')}
 sizeTools();addEventListener('resize',sizeTools);
 
-const items=[...chat.children], next=document.getElementById('next'), nextbar=document.getElementById('nextbar');
+const next=document.getElementById('next'), nextbar=document.getElementById('nextbar');
 const io=new IntersectionObserver(es=>{
   if(document.body.classList.contains('slow'))return;
   es.forEach(e=>{if(e.isIntersecting)setStage(e.target)});
 },{rootMargin:'-62% 0px -30% 0px'});
 items.forEach(el=>io.observe(el));
 
-let shown=items.length;
+const nextLabel=document.getElementById('next-label'), tapHint=document.getElementById('tap-hint'), prog=document.getElementById('prog');
+const typing=document.createElement('div');typing.setAttribute('aria-hidden','true');typing.hidden=true;
+typing.innerHTML='<svg class="av"><use href="#av-n"/></svg><div class="bub"><span class="dots"><i></i><i></i><i></i></span></div>';
+chat.append(typing);
+typing.addEventListener('click',()=>step());
+
+// what step() will reveal next: the first visible item, plus any chapter heading on the way
+function peek(){
+  let head=null;
+  for(let j=shown;j<items.length;j++){
+    const k=items[j].dataset.kind;
+    if(k==='h'){head=items[j].dataset.title;continue}
+    if((k==='g'&&document.body.classList.contains('story'))||(k==='q'&&document.body.classList.contains('no-think')))continue;
+    return {k,head};
+  }
+  return null;
+}
+function update(){
+  prog.style.width=(shown/items.length*100)+'%';
+  const p=peek();
+  if(!p){nextbar.hidden=true;typing.hidden=true;return}
+  const last=items[shown-1]&&items[shown-1].dataset.kind;
+  const J=L();
+  nextLabel.textContent=p.head?J.next+p.head:(J.cont[p.k]&&last===p.k?J.cont[p.k]:J.lead[p.k]);
+  const person=!p.head&&J.names[p.k];
+  typing.className='typing '+(person?'row '+p.k:'mid');
+  if(person)typing.querySelector('use').setAttribute('href','#av-'+p.k);
+  typing.hidden=false;nextbar.hidden=false;
+}
+
+let shown=items.length, steps=0, learned=false;
+try{learned=localStorage.getItem('katha-learned')==='1'}catch(e){}
+if(!learned){next.classList.add('hint');tapHint.hidden=false}
 function setSlow(on,noScroll){
   document.body.classList.toggle('slow',on);
   document.getElementById('r-slow').setAttribute('aria-pressed',on);
   document.getElementById('r-all').setAttribute('aria-pressed',!on);
-  if(on){shown=2;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));nextbar.hidden=false;lastEl=null;setStage(items[1]);if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
-  else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true}
+  if(on){shown=2;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));lastEl=null;setStage(items[1]);update();if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
+  else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true;typing.hidden=true}
 }
 function step(){
+  if(shown>=items.length)return;
   while(shown<items.length){
     const el=items[shown];shown++;el.classList.remove('later');el.classList.add('pop');
     if(getComputedStyle(el).display!=='none'&&!el.classList.contains('div'))break;
   }
-  const el=items[shown-1];setStage(el);
-  el.scrollIntoView({behavior:'smooth',block:'end'});
-  if(shown>=items.length){nextbar.hidden=true}
+  const el=items[shown-1];setStage(el);update();
+  (typing.hidden?el:typing).scrollIntoView({behavior:'smooth',block:'end'});
+  steps++;
+  if(steps===1)next.classList.remove('hint');
+  if(steps===3&&!learned){learned=true;tapHint.hidden=true;try{localStorage.setItem('katha-learned','1')}catch(e){}}
 }
 next.addEventListener('click',step);
-document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' ')&&e.target===document.body){e.preventDefault();step()}});
+// tap anywhere on the conversation or the picture to move on, except on things that are themselves interactive
+function tapAdvance(e){
+  if(!document.body.classList.contains('slow'))return;
+  if(e.target.closest('button,a,input,select,textarea,[role="button"],.chariot,.typing'))return;
+  if(String(getSelection()).length)return;
+  step();
+}
+chat.addEventListener('click',tapAdvance);
+document.querySelector('.stage-wrap').addEventListener('click',tapAdvance);
+document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' '||e.key==='Enter')&&e.target===document.body){e.preventDefault();step()}});
 document.getElementById('r-slow').addEventListener('click',()=>setSlow(true));
 document.getElementById('r-all').addEventListener('click',()=>setSlow(false));
 setSlow(true,true); // default: one at a time, without jumping past the intro
@@ -808,4 +916,31 @@ function pair(a,b,cls,key,invert){
 }
 pair('d-deep','d-story','story','katha-depth');
 pair('s-on','s-off','no-stage','katha-stage');
+['d-deep','d-story'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{if(document.body.classList.contains('slow'))update()}));
+
+const TITLE_EN=document.title;
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=lang==='en'?TITLE_EN:LANGS[lang].ui.title;
+  translate(document);
+  document.getElementById('l-en').setAttribute('aria-pressed',lang==='en');
+  document.getElementById('l-kn').setAttribute('aria-pressed',lang==='kn');
+  sizeTools();
+}
+function setLang(l){
+  if(l===lang)return;
+  // keep the reader on the same line across the switch
+  const anchor=items.find(el=>getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().bottom>innerHeight*.4);
+  const ai=items.indexOf(anchor), top=anchor?anchor.getBoundingClientRect().top:0;
+  lang=l;applyLang();
+  io.disconnect();build();items.forEach(el=>io.observe(el));chat.append(typing);lastEl=null;
+  if(document.body.classList.contains('slow')){items.forEach((el,i)=>el.classList.toggle('later',i>=shown));setStage(items[shown-1]);update()}
+  if(anchor)scrollBy(0,items[ai].getBoundingClientRect().top-top);
+  try{localStorage.setItem('katha-lang',l)}catch(e){}
+  try{const u=new URL(location.href);if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);history.replaceState(null,'',u)}catch(e){}
+}
+document.getElementById('l-en').addEventListener('click',()=>setLang('en'));
+document.getElementById('l-kn').addEventListener('click',()=>setLang('kn'));
+applyLang();
+if(document.body.classList.contains('slow'))update();
 </script>
