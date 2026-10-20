@@ -1,0 +1,1031 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six Questions for Pippalada</title>
+<meta name="description" content="The Prashna Upanishad told simply as an illustrated conversation between six students and the sage Pippalada.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Mukta:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600&text=%E0%A5%90&display=swap">
+<style>
+/* Layout: a picture-book stage pinned above one narrow chat column. The six students sit in a row on the left, Pippalada under his fig tree on the right; the scene and the speaker follow the conversation. */
+:root{
+  --bg:#F1EFE6; --surface:#FAF8F1; --ink:#2A2A22; --muted:#626255; --line:#D6D2C2;
+  --sh:#E2ECD4; --sh-ink:#22301A; --ri:#F7E2C6; --ri-ink:#3F2410;
+  --gold:#94640F; --gold-soft:#EFD9A6; --deep:#E7E6DA;
+  --sky1:#DCE8DA; --sky2:#F6EBD3; --dawn1:#F2C9A0; --dawn2:#FBE8CF; --sea1:#CFE3EC; --sea2:#F2EBDA;
+  --grass:#C2CB9E; --grass2:#A9B585; --leaf:#9AB27E; --leaf2:#82A068; --trunk:#7A5530; --hill2:#B7C2B4;
+  --f-display:"Marcellus","Noto Serif Kannada","Cormorant Garamond",Georgia,serif;
+  --f-body:"Gentium Book Plus","Gentium Plus","Noto Serif Kannada",Georgia,"Times New Roman",serif;
+  --f-ui:"Mukta","Noto Sans Kannada","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --dawn1:#4A3A50; --dawn2:#86605E; --sea1:#1C2E3A; --sea2:#34382C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; --hill2:#2E3A36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --dawn1:#4A3A50; --dawn2:#86605E; --sea1:#1C2E3A; --sea2:#34382C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; --hill2:#2E3A36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.1rem;line-height:1.55}
+.wrap{max-width:40rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;line-height:1.2;font-size:clamp(2rem,6vw,2.9rem)}
+p{margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+header{padding-block:2.2rem 1rem}
+header .wrap{display:grid;gap:.9rem}
+.cast{display:flex;gap:1.4rem;flex-wrap:wrap}
+.who{display:flex;gap:.6rem;align-items:center;font-family:var(--f-ui);font-size:.95rem;color:var(--muted)}
+.who b{color:var(--ink);font-weight:600;display:block}
+.label{font-family:var(--f-ui);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted)}
+.av{width:44px;height:44px;flex:none;border-radius:50%;display:block}
+
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;padding-block:.45rem;font-family:var(--f-ui);font-size:.88rem}
+.seg{display:flex;border:1px solid var(--line);border-radius:99px;padding:2px}
+.seg button{border:0;background:none;color:var(--muted);font:inherit;padding:.15rem .75rem;border-radius:99px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* stage */
+.stage-wrap{position:sticky;z-index:5;top:calc(var(--tools-h,48px) + env(safe-area-inset-top,0px));background:var(--bg);padding-block:.6rem .4rem}
+body.no-stage .stage-wrap{display:none}
+.stage{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.stage svg{display:block;width:100%;height:auto}
+.caption{position:absolute;left:12px;top:10px;font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:color-mix(in srgb,var(--bg) 75%,transparent);padding:.1rem .6rem;border-radius:99px}
+
+#st .sky1{stop-color:var(--sky1);transition:stop-color 1.2s}
+#st .sky2{stop-color:var(--sky2);transition:stop-color 1.2s}
+#st[data-scene="dusk"] .sky1, #st[data-scene="shore"] .sky1{stop-color:var(--dawn1)}
+#st[data-scene="dusk"] .sky2, #st[data-scene="shore"] .sky2{stop-color:var(--dawn2)}
+#st[data-scene="ocean"] .sky1{stop-color:var(--sea1)} #st[data-scene="ocean"] .sky2{stop-color:var(--sea2)}
+
+.fade{transition:opacity .9s ease}
+.prop{opacity:0}
+#st[data-scene="arrive"] .sc-arrive, #st[data-scene="pair"] .sc-pair,
+#st[data-scene="bees"] .sc-bees, #st[data-scene="nadis"] .sc-nadis,
+#st[data-scene="dusk"] .sc-dusk, #st[data-scene="om"] .sc-om,
+#st[data-scene="ocean"] .sc-ocean, #st[data-scene="shore"] .sc-shore{opacity:1}
+
+/* speaker: the student who is talking gets the light and a small bob; Pippalada talks with his hands */
+.spot{opacity:0;transition:opacity .6s}
+#st[data-who="p"] #pip .spot{opacity:.75}
+#st[data-who="s"] #f-s .spot, #st[data-who="y"] #f-y .spot, #st[data-who="r"] #f-r .spot,
+#st[data-who="a"] #f-a .spot, #st[data-who="v"] #f-v .spot, #st[data-who="k"] #f-k .spot{opacity:1}
+#st[data-who="x"] .stu .spot{opacity:.6}
+.arms-talk{opacity:0;transition:opacity .5s}.arms-listen{opacity:1;transition:opacity .5s}
+#st[data-who="p"] #pip .arms-talk{opacity:1}
+#st[data-who="p"] #pip .arms-listen{opacity:0}
+.m-open{opacity:0}
+.head,.breathe,.fig,.eyes,.rays,.halo,.flame,.rock,.flap{transform-box:fill-box}
+.head{transform-origin:50% 100%}
+.fig{transform-origin:50% 100%}
+#st.talking[data-who="p"] #pip .m-open{animation:mouth .34s steps(1) infinite}
+#st.talking[data-who="p"] #pip .head{animation:nod 2.2s ease-in-out}
+#st.talking[data-who="s"] #f-s .fig, #st.talking[data-who="y"] #f-y .fig, #st.talking[data-who="r"] #f-r .fig,
+#st.talking[data-who="a"] #f-a .fig, #st.talking[data-who="v"] #f-v .fig, #st.talking[data-who="k"] #f-k .fig,
+#st.talking[data-who="x"] .fig{animation:bob 2.2s ease-in-out}
+@keyframes mouth{0%{opacity:1}50%{opacity:0}}
+@keyframes nod{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg) translateY(-1px)}65%{transform:rotate(2deg)}}
+@keyframes bob{0%,100%{transform:none}30%{transform:translateY(-4px) rotate(-2deg)}65%{transform:rotate(1.5deg)}}
+
+/* idle life */
+.breathe{transform-origin:50% 100%;animation:breathe 4.5s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1,1.018)}}
+.eyes{transform-origin:center;animation:blink 5.5s infinite}
+#pip .eyes{animation-delay:-2.3s}
+@keyframes blink{0%,95%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.flame{transform-origin:50% 100%;animation:flick 2.4s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1,1)}40%{transform:scale(.92,1.08)}70%{transform:scale(1.05,.96)}}
+.halo{transform-origin:center;animation:halo 6s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.08);opacity:.6}}
+.rays{transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{opacity:.45}}
+.twinkle{animation:tw 4s ease-in-out infinite}.twinkle:nth-child(2n){animation-delay:-1.4s}.twinkle:nth-child(3n){animation-delay:-2.6s}
+@keyframes tw{50%{opacity:.3}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(1.2deg)}}
+.rock{transform-origin:50% 100%;animation:rock 3s ease-in-out infinite}
+@keyframes rock{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+.flow{stroke-dasharray:6 10;animation:flow 1.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-16}}
+/* the swarm rises with its king and settles with him, circling all the while */
+.swarm{animation:rise 7s ease-in-out infinite}
+@keyframes rise{0%,25%,100%{transform:translateY(0)}45%,70%{transform:translateY(-38px)}}
+.orbit{transform-box:view-box;transform-origin:420px 140px;animation:spin 5s linear infinite}
+.orbit.o2{animation-duration:8s;animation-direction:reverse}
+/* the setting sun draws its rays in; birds come home to the tree */
+.gather{transform-box:view-box;transform-origin:380px 226px;animation:gather 4s ease-in infinite}
+@keyframes gather{0%{transform:scale(1.3);opacity:.9}100%{transform:scale(.55);opacity:0}}
+.home{animation:home 4.5s ease-out infinite}
+@keyframes home{0%{transform:translate(var(--fx),var(--fy));opacity:0}15%,80%{opacity:1}100%{transform:none;opacity:0}}
+.flap{transform-origin:center;animation:flap .45s ease-in-out infinite alternate}
+@keyframes flap{to{transform:scaleY(.3)}}
+
+/* chat */
+.chat{display:flex;flex-direction:column;gap:.55rem;padding-block:1rem 2rem}
+.row{display:flex;gap:.55rem;align-items:flex-end;max-width:88%;align-self:flex-start}
+.row.p{align-self:flex-end;flex-direction:row-reverse}
+.row .av{width:36px;height:36px}
+.row.cont .av{visibility:hidden}
+.bub{padding:.6rem .9rem;border-radius:18px;min-width:0;background:var(--sh);color:var(--sh-ink);border-bottom-left-radius:6px}
+.row.p .bub{background:var(--ri);color:var(--ri-ink);border-bottom-left-radius:18px;border-bottom-right-radius:6px}
+.name{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.06em;color:var(--muted);margin-bottom:.1rem}
+.row.p .name{text-align:right}
+.row.cont .name{display:none}
+.verse-ref{font-family:var(--f-ui);font-size:.72rem;color:var(--gold);letter-spacing:.06em;margin-top:.25rem;display:block}
+.row.p .verse-ref{text-align:right}
+.tell{align-self:center;text-align:center;max-width:34rem;color:var(--muted);font-style:italic;padding:.4rem .5rem;font-size:1.02rem}
+.div{align-self:stretch;display:flex;align-items:center;gap:.8rem;margin-block:1.4rem .4rem;font-family:var(--f-display);font-size:1.25rem;color:var(--ink)}
+.div::before,.div::after{content:"";flex:1;border-top:1px solid var(--line)}
+.think{align-self:center;max-width:32rem;background:var(--surface);border:1px dashed var(--gold);border-radius:14px;padding:.7rem 1rem;font-size:1rem}
+.think b{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.15rem}
+body.slow .chat > .later{display:none}
+body.slow .chat{padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px))}
+body.slow .chat > *{scroll-margin-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
+body.slow footer{padding-bottom:8.5rem}
+body.slow .chat, body.slow .stage{cursor:pointer}
+.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:1.4rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
+.nextbar[hidden]{display:none}
+.next{pointer-events:auto;font-family:var(--f-ui);font-size:1.08rem;font-weight:600;background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:.8rem 1.9rem;min-width:min(16rem,100%);display:flex;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.next .arr{display:inline-block;font-size:1.3em;line-height:1;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.next.hint{animation:ring 2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 0 color-mix(in srgb,var(--gold) 70%,transparent)}70%,100%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 16px transparent}}
+.tap-hint{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.tap-hint[hidden]{display:none}
+/* "someone is about to speak" bubble at the end of the revealed chat */
+.typing{display:flex;gap:.55rem;align-items:flex-end;opacity:.85}
+.typing[hidden]{display:none}
+.typing.mid{align-self:center}
+.typing.mid .av{display:none}
+.typing.mid .bub{background:var(--surface);border:1px dashed var(--line);color:var(--muted);border-radius:18px}
+.typing .bub{padding:.8rem 1rem}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:.9;transform:translateY(-3px)}}
+.prog{height:3px}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s ease}
+body:not(.slow) .prog{display:none}
+.pop{animation:pop .4s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* going deeper cards */
+.deep{align-self:stretch;background:var(--deep);border-radius:16px;padding:1.1rem clamp(.9rem,3.5vw,1.6rem);display:grid;gap:.85rem;margin-block:.4rem}
+.deep .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.deep h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem;margin:0;line-height:1.25}
+.deep blockquote{margin:0;font-family:var(--f-display);font-size:clamp(1.12rem,2.6vw,1.3rem);line-height:1.5}
+.deep .vr{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.15rem}
+.deep p{font-size:1.02rem;line-height:1.62}
+body.story .deep{display:none}
+
+/* widgets: the five breaths, the three sounds of Om, the sixteen parts */
+.widget{align-self:stretch;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;display:grid;gap:.8rem;margin-block:.4rem}
+.widget .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.widget svg{width:100%;height:auto;display:block}
+.widget .hit{cursor:pointer}
+.widget .hit:hover .shape,.widget .hit:focus .shape,.widget .hit.on .shape{filter:drop-shadow(0 0 6px var(--gold))}
+.widget .lab{font-family:var(--f-ui);font-size:22px;fill:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips button{font-family:var(--f-ui);font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:.2rem .8rem;cursor:pointer}
+.chips button.on{border-color:var(--gold);background:var(--gold-soft)}
+.info{min-height:5rem;font-size:1.02rem}
+.info h4{font-family:var(--f-display);font-weight:400;font-size:1.2rem;margin:0 0 .2rem}
+.info .means{font-family:var(--f-ui);color:var(--gold);font-size:.92rem;letter-spacing:.04em}
+.calm-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:.7rem}
+.calm-row p{font-size:.98rem;color:var(--muted);max-width:24rem}
+.calm-row .seg{font-family:var(--f-ui);font-size:.9rem}
+
+.brsvg .body{fill:var(--gold-soft);stroke:var(--line);stroke-width:1.5}
+.brsvg .limb{fill:none;stroke:var(--gold-soft);stroke-width:20;stroke-linecap:round}
+.brsvg .up{animation:flow 1.4s linear infinite reverse}
+
+.om{font-family:"Noto Sans Devanagari",sans-serif;font-weight:600;fill:#5A3A1E}
+.steplet{font-family:var(--f-display);font-size:20px;fill:#5A3A1E}
+.omsvg .omlet{font-family:var(--f-display);font-size:34px;fill:var(--gold)}
+.omsvg .trav{animation:none}
+.omsvg.go1 .trav{animation:go1 2.6s ease-in-out forwards}
+.omsvg.go2 .trav{animation:go2 4.2s ease-in-out forwards}
+.omsvg.go3 .trav{animation:go3 4s ease-in-out forwards}
+@keyframes go1{30%{transform:translateY(-36px)}60%,100%{transform:none}}
+@keyframes go2{40%,65%{transform:translateY(-80px)}100%{transform:none}}
+@keyframes go3{50%{transform:translateY(-162px)}100%{transform:translateY(-230px)}}
+.omsvg .dest{opacity:.35;transition:opacity .6s}
+.omsvg.go1 .d1,.omsvg.go2 .d2,.omsvg.go3 .d3{opacity:1;transition-delay:.8s}
+.omsvg .bglow{opacity:0;transition:opacity 1s}
+.omsvg.go3 .bglow{opacity:1;transition-delay:2.6s}
+
+.wheel .lab{transition:transform 1s ease-in,opacity .8s .2s}
+.wheel .lab text{font-family:var(--f-ui);font-size:21px;fill:var(--ink)}
+.wheel.home .lab{transform:translate(400px,170px) scale(.2)!important;opacity:0}
+.wheel .spokes,.wheel .rim{transform-box:view-box;transform-origin:400px 170px;transition:transform 1s ease-in,opacity 1s}
+.wheel.home .spokes{transform:scale(.4);opacity:.15}
+.wheel.home .rim{transform:scale(.4);opacity:0}
+.wheel .hubglow{opacity:.3;transform-box:view-box;transform-origin:400px 170px;transition:opacity 1s .4s,transform 1s .4s}
+.wheel.home .hubglow{opacity:1;transform:scale(1.4)}
+.wheel .hublab{font-family:var(--f-ui);font-size:15px;font-weight:600;fill:var(--ink)}
+
+/* Kannada needs taller lines for its vowel signs, and letter-spacing breaks conjuncts */
+html[lang="kn"] body{line-height:1.75}
+html[lang="kn"] h1{line-height:1.4}
+html[lang="kn"] *{letter-spacing:0!important}
+html[lang="kn"] .tell{font-style:normal}
+footer{border-top:1px solid var(--line);padding-block:1.6rem 5rem;color:var(--muted);font-size:.95rem}
+footer p + p{margin-top:.6rem}
+@media (max-width:480px){.tools .wrap{font-size:.8rem}.seg button{padding:.15rem .55rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- shared by the stage and the widgets; kept out of the stage so the widgets still glow when pictures are off -->
+    <radialGradient id="warm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE3A0" stop-opacity=".95"/><stop offset="1" stop-color="#FFE3A0" stop-opacity="0"/></radialGradient>
+    <clipPath id="avclip"><circle cx="22" cy="22" r="22"/></clipPath>
+    <!-- one student, seated and facing right, drawn round the middle of his mat at (0,0). Each student sets his own --skin, --hair, --cloth and --beard. -->
+    <g id="stu">
+      <ellipse cx="0" cy="0" rx="36" ry="4.5" fill="#C9B26F"/>
+      <path d="M-34 -1 C-35 -17 -18 -24 0 -23 C18 -24 35 -17 34 -1Z" fill="#F1ECE0"/>
+      <ellipse cx="-24" cy="-4" rx="8" ry="3.5" style="fill:var(--skin)"/><ellipse cx="25" cy="-4" rx="8" ry="3.5" style="fill:var(--skin)"/>
+      <path d="M-16 -19 C-17 -43 -12 -58 0 -59 C12 -58 17 -43 16 -19Z" style="fill:var(--skin)"/>
+      <path d="M-15 -26 C-5 -21 6 -21 16 -26 L16 -17 C6 -13 -5 -13 -15 -17Z" fill="#F1ECE0"/>
+      <path d="M-15 -25 C-5 -20 6 -20 16 -25" stroke="#C9963C" stroke-width="2" fill="none"/>
+      <path d="M-13 -55 C-4 -48 8 -34 16 -24 L16 -32 C8 -42 0 -50 -6 -57Z" style="fill:var(--cloth)"/>
+      <path d="M-13 -50 C-20 -36 -10 -28 2 -31 M13 -50 C20 -36 10 -28 2 -31" style="fill:none;stroke:var(--skin);stroke-width:7;stroke-linecap:round"/>
+      <rect x="-4" y="-66" width="9" height="10" style="fill:var(--skin)"/>
+      <circle cx="2" cy="-74" r="13" style="fill:var(--skin)"/>
+      <ellipse cx="-9" cy="-73" rx="2.6" ry="3.8" style="fill:var(--skin)"/>
+      <path d="M-11 -73 C-13 -86 -3 -90 3 -90 C11 -90 16 -84 15 -77 C10 -82 -2 -82 -11 -73Z" style="fill:var(--hair)"/>
+      <circle cx="-7" cy="-87" r="4.5" style="fill:var(--hair)"/>
+      <path d="M-10 -70 C-10 -60 -2 -57 6 -58 C12 -59 15 -63 15 -67 C12 -63 8 -62 4 -62 C-2 -62 -7 -65 -10 -70Z" style="fill:var(--hair);opacity:var(--beard,0)"/>
+      <g class="eyes"><ellipse cx="8" cy="-75" rx="1.4" ry="1.8" fill="#1E1612"/><ellipse cx="13" cy="-75" rx="1.3" ry="1.7" fill="#1E1612"/></g>
+      <path d="M8 -68.5 Q10.5 -67 13 -68.5" stroke="#5A2E22" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="10.5" cy="-81" r="1" fill="#C0392B"/>
+    </g>
+    <!-- the same student as a chat portrait, in a 44 × 44 box -->
+    <g id="stu-av">
+      <path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#F1ECE0"/>
+      <path d="M13 37L31 44H23L11 39Z" style="fill:var(--cloth)"/>
+      <circle cx="22" cy="24" r="11" style="fill:var(--skin)"/>
+      <path d="M11 23C10 14 17 11 22 11C29 11 33 15 33 20C28 16 20 16 14 18C12 20 11 21 11 23Z" style="fill:var(--hair)"/>
+      <circle cx="15" cy="11" r="4.5" style="fill:var(--hair)"/>
+      <path d="M12 26C12 34 18 37 23 37C28 37 33 34 33 26C30 31 26 32 23 32C19 32 15 30 12 26Z" style="fill:var(--hair);opacity:var(--beard,0)"/>
+      <ellipse cx="24" cy="23" rx="1.3" ry="1.6" fill="#1E1612"/><ellipse cx="29" cy="23" rx="1.2" ry="1.5" fill="#1E1612"/>
+      <path d="M24 28.5Q26.5 27 29 28.5" stroke="#5A2E22" stroke-width="1.4" fill="none"/>
+      <circle cx="26.5" cy="18.5" r="1" fill="#C0392B"/>
+    </g>
+    <symbol id="av-s" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#A86F45;--hair:#2A1E1A;--cloth:#5E7FA0"/></g></symbol>
+    <symbol id="av-y" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#8E5B3A;--hair:#1E1612;--cloth:#9C4A3C;--beard:1"/></g></symbol>
+    <symbol id="av-r" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#B98058;--hair:#2A1E1A;--cloth:#6E8B4E"/></g></symbol>
+    <symbol id="av-a" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#9A6440;--hair:#3A2A20;--cloth:#C9963C;--beard:1"/></g></symbol>
+    <symbol id="av-v" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#B07A55;--hair:#231914;--cloth:#7A5A9A"/></g></symbol>
+    <symbol id="av-k" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#A06A46;--hair:#2A1E1A;--cloth:#3F7F7A"/></g></symbol>
+    <symbol id="av-x" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/>
+      <g transform="translate(-2 8) scale(.6)"><use href="#stu-av" style="--skin:#8E5B3A;--hair:#1E1612;--cloth:#9C4A3C;--beard:1"/></g>
+      <g transform="translate(16 8) scale(.6)"><use href="#stu-av" style="--skin:#B07A55;--hair:#231914;--cloth:#7A5A9A"/></g>
+      <g transform="translate(7 14) scale(.62)"><use href="#stu-av" style="--skin:#A86F45;--hair:#2A1E1A;--cloth:#5E7FA0"/></g></g></symbol>
+    <symbol id="av-p" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#EBC895"/><path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#C8692E"/><circle cx="21" cy="22" r="10" fill="#B07A55"/><ellipse cx="22" cy="9" rx="6" ry="6.5" fill="#E4DED3"/><path d="M11 20C11 13 16 11 21 11C27 11 31 14 31 20C26 16 16 16 11 20Z" fill="#E4DED3"/><path d="M11 24C11 34 17 41 21 41C25 41 31 34 31 24C27 30 15 30 11 24Z" fill="#F3F0EA"/><path d="M14 22Q16 23.5 18 22M21 22Q23 23.5 25 22" stroke="#2A1E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M13 19L18 19.5M21 19.5L26 19" stroke="#F3F0EA" stroke-width="1.4"/><path d="M16 15.5H25M16 17H25" stroke="#F3F0EA" stroke-width=".9"/><circle cx="20.5" cy="16.3" r=".9" fill="#C0392B"/></symbol>
+    <!-- a bee, its wing up, centred on (0,0) -->
+    <g id="bee"><ellipse cx="0" cy="-3.6" rx="3.2" ry="2.2" fill="#FFFFFF" opacity=".75"/><ellipse rx="4.5" ry="3" fill="#E2A33A"/><path d="M-1.4 -2.8V2.8M1.6 -2.8V2.8" stroke="#3A2A1A" stroke-width="1.2"/></g>
+    <!-- a pippala leaf hanging from its stalk at (0,0): heart-shaped, with the long tip the tree is known for -->
+    <path id="leaf" d="M0 0 C-7 2 -9 10 -3 14 L0 22 L3 14 C9 10 7 2 0 0Z"/>
+    <g id="wood"><path d="M-14 4 L12 -4 M-15 0 L14 0 M-12 -5 L13 5" stroke="#7A5530" stroke-width="3" stroke-linecap="round"/><path d="M0 -6 V6" stroke="#C9A35F" stroke-width="2.4"/></g>
+  </defs>
+</svg>
+
+<header><div class="wrap">
+  <span class="label" data-i18n="label">From the Prashna Upanishad</span>
+  <h1 data-i18n="h1">Six questions for Pippalada</h1>
+  <p class="lede" data-i18n="lede">Six students who had studied the Vedas came to the sage Pippalada, each with a bundle of firewood and a question. He made them wait a year before they could ask. These are the six questions and his answers, told simply.</p>
+  <div class="cast">
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-x"/></svg><span><b data-i18n="six">Six students</b><span data-i18n="six-d">Kabandhi, Bhargava, Kausalya, Gargya, Satyakama, Sukesha</span></span></div>
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-p"/></svg><span><b data-i18n="pip">Pippalada</b><span data-i18n="pip-d">a forest sage who makes his students wait</span></span></div>
+  </div>
+</div></header>
+
+<div class="tools" id="tools"><div class="wrap">
+  <div class="seg" role="group" aria-label="How to read" data-i18n-aria="how">
+    <button id="r-all" aria-pressed="false" data-i18n="all">Read all</button>
+    <button id="r-slow" aria-pressed="true" data-i18n="slow">One at a time</button>
+  </div>
+  <div class="seg" role="group" aria-label="Depth" data-i18n-aria="depth"><button id="d-deep" aria-pressed="true" data-i18n="deep">Going deeper</button><button id="d-story" aria-pressed="false" data-i18n="story">Story only</button></div>
+  <div class="seg" role="group" aria-label="Pictures" data-i18n-aria="pics">
+    <button id="s-on" aria-pressed="true" data-i18n="pics">Pictures</button>
+    <button id="s-off" aria-pressed="false" data-i18n="off">Off</button>
+  </div>
+  <div class="seg" role="group" aria-label="Language">
+    <button id="l-en" aria-pressed="true" lang="en">English</button>
+    <button id="l-kn" aria-pressed="false" lang="kn">ಕನ್ನಡ</button>
+  </div>
+</div><div class="prog" aria-hidden="true"><i id="prog"></i></div></div>
+
+<div class="stage-wrap"><div class="wrap"><div class="stage">
+<svg id="st" viewBox="0 0 800 260" data-scene="arrive" data-who="" role="img" aria-label="Six students seated before the sage Pippalada under a sacred fig tree" data-i18n-aria="stage">
+  <defs>
+    <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
+    <radialGradient id="spotg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F6D27A" stop-opacity=".9"/><stop offset="1" stop-color="#F6D27A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="260" fill="url(#skyg)"/>
+
+  <!-- setting sun, half under the ground, drawing its rays back in -->
+  <g class="prop sc-dusk fade">
+    <circle cx="380" cy="226" r="70" fill="url(#warm)"/>
+    <g class="gather" style="stroke:#F2B544;stroke-width:3;stroke-linecap:round"><path d="M380 180V160M346 194L332 180M414 194L428 180M334 222H312M426 222H448"/></g>
+    <circle cx="380" cy="226" r="30" fill="#F08A3C"/>
+  </g>
+
+  <!-- dawn sun behind the river crossing -->
+  <g class="prop sc-shore fade">
+    <circle cx="430" cy="214" r="74" fill="url(#warm)"/>
+    <g class="glow" style="stroke:#F2B544;stroke-width:3;stroke-linecap:round;opacity:.7"><path d="M430 170V154M396 184L385 173M464 184L475 173"/></g>
+    <circle cx="430" cy="214" r="30" fill="#F5BE4F"/>
+  </g>
+
+  <!-- mountains for the rivers -->
+  <g class="prop sc-ocean fade">
+    <path d="M288 200 L338 120 L370 160 L412 96 L460 160 L498 122 L552 200Z" style="fill:var(--hill2)"/>
+    <path d="M412 96 L400 115 L412 110 L424 115Z M338 120 L329 134 L338 130 L347 134Z M498 122 L490 134 L498 131 L506 134Z" fill="#F4F1EA"/>
+  </g>
+
+  <!-- Pippalada's tree: a sacred fig, with heart-shaped leaves and the small figs his name comes from -->
+  <path d="M706 232 C712 190 700 150 712 96 L734 96 C744 150 732 190 742 232Z" style="fill:var(--trunk)"/>
+  <path d="M716 120 C700 100 680 90 660 86 M730 110 C750 92 770 86 790 84" style="fill:none;stroke:var(--trunk);stroke-width:7;stroke-linecap:round"/>
+  <g class="sway">
+    <g style="fill:var(--leaf)"><circle cx="690" cy="58" r="56"/><circle cx="752" cy="48" r="52"/><circle cx="640" cy="44" r="40"/><circle cx="792" cy="92" r="40"/><circle cx="724" cy="16" r="46"/></g>
+    <g style="fill:var(--leaf2)"><circle cx="706" cy="36" r="28"/><circle cx="770" cy="70" r="24"/>
+      <use href="#leaf" transform="translate(640 80) rotate(12)"/><use href="#leaf" transform="translate(664 106) rotate(-6)"/><use href="#leaf" transform="translate(700 110)"/>
+      <use href="#leaf" transform="translate(744 96) rotate(8)"/><use href="#leaf" transform="translate(782 128) rotate(-10)"/><use href="#leaf" transform="translate(612 66) rotate(20)"/></g>
+    <g fill="#8E3B5A"><circle cx="656" cy="92" r="3"/><circle cx="716" cy="104" r="3"/><circle cx="772" cy="116" r="3"/><circle cx="746" cy="84" r="2.6"/><circle cx="628" cy="70" r="2.6"/><circle cx="688" cy="100" r="2.6"/></g>
+  </g>
+
+  <!-- ground -->
+  <path d="M0 226 H800 V260 H0Z" style="fill:var(--grass)"/>
+  <path d="M0 226 H800" style="stroke:var(--grass2);stroke-width:3"/>
+
+  <!-- arrival: the hut, and the six bundles of firewood -->
+  <g class="prop sc-arrive fade">
+    <path d="M360 232 V172 H472 V232Z" fill="#C9B07E"/>
+    <path d="M344 176 L416 118 L488 176Z" fill="#A88A4E"/>
+    <path d="M344 176 L416 118 L488 176 M366 160 L416 124 M388 168 L416 136 M466 160 L416 124 M444 168 L416 136" stroke="#8C7038" stroke-width="1.6" fill="none"/>
+    <path d="M402 232 V196 Q416 184 430 196 V232Z" fill="#5A4426"/>
+    <use href="#wood" x="38" y="248"/><use href="#wood" x="90" y="248"/><use href="#wood" x="142" y="248"/>
+    <use href="#wood" x="194" y="248"/><use href="#wood" x="246" y="248"/><use href="#wood" x="298" y="248"/>
+  </g>
+
+  <!-- the pair: night and the moon on one side, day and the sun on the other -->
+  <g class="prop sc-pair fade">
+    <circle cx="420" cy="132" r="88" fill="url(#warm)" class="glow"/>
+    <path d="M420 62 A70 70 0 0 0 420 202Z" fill="#2B3166"/>
+    <path d="M420 62 A70 70 0 0 1 420 202Z" fill="#F6D98A"/>
+    <g fill="#FFFFFF"><circle class="twinkle" cx="372" cy="104" r="1.4"/><circle class="twinkle" cx="396" cy="174" r="1.2"/><circle class="twinkle" cx="368" cy="160" r="1.1"/><circle class="twinkle" cx="404" cy="86" r="1.2"/></g>
+    <path d="M392 116a16 16 0 1 0 14 26a12.5 12.5 0 1 1 -14 -26z" fill="#F3EAD2"/>
+    <g class="rays" style="stroke:#E2A33A;stroke-width:2.5;stroke-linecap:round"><path d="M454 116V108M454 148V156M438 132H430M470 132H478M443 121L437 115M465 121L471 115M443 143L437 149M465 143L471 149"/></g>
+    <circle cx="454" cy="132" r="12" fill="#F2A23A"/>
+    <circle cx="420" cy="132" r="70" fill="none" stroke="#C9963C" stroke-width="2"/>
+  </g>
+
+  <!-- the hive, and the bees that rise and settle with their king -->
+  <g class="prop sc-bees fade">
+    <path d="M376 230 H464" stroke="#8C7A5A" stroke-width="5" stroke-linecap="round"/>
+    <path d="M382 228 C382 176 458 176 458 228Z" fill="#C9A15A"/>
+    <path d="M384 214 H456 M387 200 H453 M397 189 H443" stroke="#A8823E" stroke-width="2.4" fill="none"/>
+    <path d="M412 228 V220 Q420 214 428 220 V228Z" fill="#4A3418"/>
+    <g class="swarm">
+      <g class="orbit"><use href="#bee" x="420" y="110"/><use href="#bee" x="420" y="170"/><use href="#bee" x="390" y="140"/></g>
+      <g class="orbit o2"><use href="#bee" x="470" y="140"/><use href="#bee" x="370" y="140"/><use href="#bee" x="445" y="98"/><use href="#bee" x="395" y="182"/></g>
+      <g transform="translate(420 140) scale(1.7)"><use href="#bee"/></g>
+    </g>
+  </g>
+
+  <!-- the heart, its channels, and the one channel that goes straight up -->
+  <g class="prop sc-nadis fade">
+    <circle cx="420" cy="150" r="70" fill="url(#warm)" class="glow"/>
+    <g style="fill:none;stroke:#C9963C;stroke-width:1.6;stroke-linecap:round" opacity=".55">
+      <path d="M420 150Q472 136 520 150M420 150Q455 120 507 114M420 150Q430 111 470 88M420 150Q378 124 370 88M420 150Q366 143 333 114M420 150Q368 164 320 150M420 150Q385 180 333 186M420 150Q410 189 370 212M420 150Q439 187 470 212M420 150Q462 175 507 186"/>
+    </g>
+    <path class="flow" d="M420 150Q472 136 520 150M420 150Q455 120 507 114M420 150Q430 111 470 88M420 150Q378 124 370 88M420 150Q366 143 333 114M420 150Q368 164 320 150M420 150Q385 180 333 186M420 150Q410 189 370 212M420 150Q439 187 470 212M420 150Q462 175 507 186" style="fill:none;stroke:#E2B04E;stroke-width:2"/>
+    <path d="M420 150V74" stroke="#E2B04E" stroke-width="3" stroke-linecap="round"/>
+    <path class="flow" d="M420 150V74" stroke="#FFF3C4" stroke-width="2"/>
+    <circle cx="420" cy="72" r="6" fill="#FFE08A" class="glow"/>
+    <g fill="#E9A3A8"><ellipse cx="420" cy="138" rx="5" ry="11"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(45 420 150)"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(90 420 150)"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(135 420 150)"/>
+      <ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(180 420 150)"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(225 420 150)"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(270 420 150)"/><ellipse cx="420" cy="138" rx="5" ry="11" transform="rotate(315 420 150)"/></g>
+    <circle cx="420" cy="150" r="6" fill="#FFE08A"/>
+  </g>
+
+  <!-- dusk: a tree, and birds coming home to roost -->
+  <g class="prop sc-dusk fade">
+    <path d="M482 228 C484 210 480 196 486 178 L494 178 C498 196 494 210 498 228Z" style="fill:var(--trunk)"/>
+    <g style="fill:var(--leaf2)"><circle cx="490" cy="160" r="26"/><circle cx="470" cy="172" r="16"/><circle cx="510" cy="170" r="17"/></g>
+    <g style="fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round">
+      <g transform="translate(476 158)"><g class="home" style="--fx:-170px;--fy:-70px"><path class="flap" d="M-7 0Q-3.5 -5 0 0Q3.5 -5 7 0"/></g></g>
+      <g transform="translate(498 150)"><g class="home" style="--fx:-120px;--fy:-100px;animation-delay:-1.2s"><path class="flap" d="M-7 0Q-3.5 -5 0 0Q3.5 -5 7 0"/></g></g>
+      <g transform="translate(508 166)"><g class="home" style="--fx:-200px;--fy:-40px;animation-delay:-2.4s"><path class="flap" d="M-7 0Q-3.5 -5 0 0Q3.5 -5 7 0"/></g></g>
+      <g transform="translate(486 172)"><g class="home" style="--fx:-150px;--fy:-90px;animation-delay:-3.3s"><path class="flap" d="M-7 0Q-3.5 -5 0 0Q3.5 -5 7 0"/></g></g>
+    </g>
+  </g>
+
+  <!-- Om: three steps for its three sounds, rising past the moon and the sun -->
+  <g class="prop sc-om fade">
+    <path d="M336 232 V206 H396 V182 H456 V158 H516 V232Z" fill="#B9A27A"/>
+    <path d="M336 206H396M396 182H456M456 158H516" stroke="#8C7A5A" stroke-width="2"/>
+    <text class="steplet" x="366" y="226" text-anchor="middle" data-i18n="om-a">A</text>
+    <text class="steplet" x="426" y="212" text-anchor="middle" data-i18n="om-u">U</text>
+    <text class="steplet" x="486" y="198" text-anchor="middle" data-i18n="om-m">M</text>
+    <path d="M420 138a13 13 0 1 0 12 20a10 10 0 1 1 -12 -20z" fill="#F3EAD2" stroke="#C9B98A" stroke-width="1.2"/>
+    <g class="rays" style="stroke:#E2A33A;stroke-width:2.5;stroke-linecap:round"><path d="M486 102V96M486 138V144M468 120H462M504 120H510M473 107L469 103M499 107L503 103M473 133L469 137M499 133L503 137"/></g>
+    <circle cx="486" cy="120" r="13" fill="#F2A23A"/>
+    <circle cx="536" cy="86" r="30" fill="url(#warm)" class="glow"/>
+    <text class="om" x="536" y="96" text-anchor="middle" font-size="28">ॐ</text>
+  </g>
+
+  <!-- rivers into the ocean -->
+  <g class="prop sc-ocean fade">
+    <path d="M340 130 C332 160 356 176 350 202 M412 112 C406 140 424 160 416 202 M496 132 C508 160 486 178 494 202" stroke="#7FB2CF" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path class="flow" d="M340 130 C332 160 356 176 350 202 M412 112 C406 140 424 160 416 202 M496 132 C508 160 486 178 494 202" stroke="#E6F2F8" stroke-width="2" fill="none"/>
+    <path d="M282 232 C288 206 320 198 420 198 C520 198 552 206 558 232Z" fill="#5E8FB0"/>
+    <path d="M320 216 q8 -5 16 0 t16 0 M400 222 q8 -5 16 0 t16 0 M472 214 q8 -5 16 0 t16 0" stroke="#CFE3EC" stroke-width="2" fill="none" opacity=".8"/>
+  </g>
+
+  <!-- the river between the students and their teacher, and a boat crossing it -->
+  <g class="prop sc-shore fade">
+    <path d="M318 214 Q358 206 398 214 T478 214 T540 214 V234 H318Z" fill="#7FA9C0"/>
+    <g class="rock">
+      <path d="M386 204 H448 L438 220 H396Z" fill="#8A5A2B"/><path d="M386 204 H448" stroke="#5E3C1C" stroke-width="2"/>
+      <path d="M432 206 L452 176" stroke="#6B4430" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <path d="M334 224 q8 -5 16 0 t16 0 M456 226 q8 -5 16 0 t16 0" stroke="#D7E8F0" stroke-width="2" fill="none" opacity=".8"/>
+  </g>
+
+  <!-- ========== THE SIX STUDENTS, in the order the Upanishad names them ========== -->
+  <g id="f-s" class="stu" transform="translate(38 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe"><use href="#stu" style="--skin:#A86F45;--hair:#2A1E1A;--cloth:#5E7FA0"/></g></g></g>
+  <g id="f-y" class="stu" transform="translate(90 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-.7s"><use href="#stu" style="--skin:#8E5B3A;--hair:#1E1612;--cloth:#9C4A3C;--beard:1"/></g></g></g>
+  <g id="f-r" class="stu" transform="translate(142 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-1.5s"><use href="#stu" style="--skin:#B98058;--hair:#2A1E1A;--cloth:#6E8B4E"/></g></g></g>
+  <g id="f-a" class="stu" transform="translate(194 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-2.2s"><use href="#stu" style="--skin:#9A6440;--hair:#3A2A20;--cloth:#C9963C;--beard:1"/></g></g></g>
+  <g id="f-v" class="stu" transform="translate(246 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-3s"><use href="#stu" style="--skin:#B07A55;--hair:#231914;--cloth:#7A5A9A"/></g></g></g>
+  <g id="f-k" class="stu" transform="translate(298 230) scale(.8)"><ellipse class="spot" cx="0" cy="-30" rx="44" ry="46" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-3.7s"><use href="#stu" style="--skin:#A06A46;--hair:#2A1E1A;--cloth:#3F7F7A"/></g></g></g>
+
+  <!-- ========== PIPPALADA ========== -->
+  <g id="pip" transform="translate(612 0)">
+    <ellipse class="spot" cx="-4" cy="226" rx="110" ry="42" fill="url(#spotg)"/>
+    <!-- deerskin -->
+    <path d="M-80 234 C-72 222 -50 220 0 222 C50 220 72 222 82 234 C60 239 -60 239 -80 234Z" fill="#B98A57"/>
+    <g fill="#F2E4C8" opacity=".8"><circle cx="-46" cy="229" r="2.5"/><circle cx="-30" cy="233" r="2"/><circle cx="34" cy="230" r="2.5"/><circle cx="54" cy="233" r="2"/></g>
+    <!-- water pot -->
+    <g transform="translate(88 0)">
+      <path d="M-14 210 C-18 230 18 230 14 210 Z" fill="#8A5A2B"/>
+      <rect x="-5" y="200" width="10" height="11" fill="#7A4E24"/>
+      <path d="M5 204 C18 198 22 186 14 182" stroke="#7A4E24" stroke-width="3" fill="none"/>
+    </g>
+    <g class="breathe">
+      <path d="M-64 230 C-66 204 -34 194 0 196 C34 194 66 204 64 230 Z" fill="#C8692E"/>
+      <path d="M-36 222 C-16 210 16 210 36 222" stroke="#A8541F" stroke-width="2" fill="none"/>
+      <ellipse cx="-46" cy="225" rx="11" ry="4.5" fill="#B07A55"/><ellipse cx="46" cy="225" rx="11" ry="4.5" fill="#B07A55"/>
+      <path d="M-30 202 C-32 164 -24 140 0 138 C24 140 32 164 30 202 Z" fill="#B07A55"/>
+      <path d="M30 146 C12 160 -10 182 -30 196 L-30 210 L32 210 L32 150 Z" fill="#C8692E"/>
+      <path d="M-14 146 Q2 180 16 146" stroke="#6B3A1E" stroke-width="3.2" stroke-dasharray=".1 4.2" stroke-linecap="round" fill="none"/>
+      <path d="M24 150 C36 172 40 192 40 206" stroke="#A06A46" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="40" cy="209" r="6" fill="#C08A63"/>
+      <g class="arms-listen">
+        <path d="M-24 150 C-38 170 -46 190 -46 206" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <circle cx="-47" cy="209" r="6" fill="#C08A63"/>
+      </g>
+      <g class="arms-talk">
+        <path d="M-24 150 C-44 162 -54 156 -60 140" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <ellipse cx="-61" cy="134" rx="6.5" ry="8.5" fill="#C08A63"/>
+        <circle cx="-64" cy="130" r="2.6" fill="none" stroke="#8C5A3A" stroke-width="1.4"/>
+        <path d="M-58 128 V122 M-61 127 V121" stroke="#C08A63" stroke-width="2.6" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g class="head">
+      <rect x="-9" y="124" width="14" height="18" fill="#A06A46"/>
+      <circle cx="-4" cy="106" r="22" fill="#B07A55"/>
+      <ellipse cx="13" cy="108" rx="4.5" ry="6.5" fill="#A06A46"/>
+      <ellipse cx="2" cy="76" rx="11" ry="12" fill="#DCD6CA"/>
+      <path d="M-8 72 H12 M-9 78 H13" stroke="#BFB7A8" stroke-width="1.3"/>
+      <path d="M-24 100 C-24 84 -12 80 -2 80 C10 80 20 86 20 100 C12 92 -14 92 -24 100 Z" fill="#DCD6CA"/>
+      <path d="M-24 108 C-26 134 -16 158 -6 164 C2 158 12 134 12 112 C6 124 -2 126 -6 126 C-12 126 -20 120 -24 108 Z" fill="#EEEAE1"/>
+      <path d="M-18 116 C-14 112.5 -6 112.5 -2 116" stroke="#EEEAE1" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g class="eyes"><path d="M-21 105 Q-18 107.5 -15 105 M-10 105 Q-7 107.5 -4 105" stroke="#2A1E1A" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <path d="M-23 100 L-15 101 M-11 101 L-3 100" stroke="#EEEAE1" stroke-width="2.2"/>
+      <!-- three lines of ash across the forehead, with a red dot -->
+      <path d="M-18 92 H-4 M-18 95 H-4" stroke="#F3F0EA" stroke-width="1.3"/>
+      <circle cx="-11" cy="93.5" r="1.4" fill="#C0392B"/>
+      <path d="M-24 107 Q-28 111 -24 113" stroke="#8C5A3A" stroke-width="1.4" fill="none"/>
+      <path class="m-close" d="M-15 120.5 Q-11 122.5 -7 120.5" stroke="#6B4A3A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse class="m-open" cx="-11" cy="121" rx="3" ry="2.2" fill="#5A2E22"/>
+    </g>
+  </g>
+</svg>
+<span class="caption" id="cap">Six students with firewood</span>
+</div></div></div>
+
+<template id="breaths-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="br-try">Try it · tap a breath to see where it works</span>
+  <svg viewBox="160 0 480 320" role="group" aria-label="The five breaths in the body" data-i18n-aria="br-svg" class="csvg brsvg">
+    <rect x="160" width="480" height="320" rx="14" style="fill:var(--bg)"/>
+    <path class="limb" d="M362 124 C336 160 330 220 346 262 M438 124 C464 160 470 220 454 262"/>
+    <path class="body" d="M290 304 C292 264 340 250 400 250 C460 250 508 264 510 304Z"/>
+    <path class="body" d="M350 254 C344 200 348 150 362 118 C376 108 424 108 438 118 C452 150 456 200 450 254Z"/>
+    <rect class="body" x="388" y="90" width="24" height="24" style="stroke:none"/>
+    <circle class="body" cx="400" cy="66" r="32"/>
+    <path class="up" d="M400 150 V14" style="fill:none;stroke:#C0392B;stroke-width:2.5;stroke-dasharray:4 6;opacity:.7"/>
+    <path d="M392 24 L400 12 L408 24" style="fill:none;stroke:#C0392B;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"/>
+    <g class="hit" data-k="prana" tabindex="0" role="button" aria-label="Prana" data-i18n-aria="br-prana">
+      <circle cx="400" cy="66" r="42" fill="transparent"/>
+      <g class="shape"><circle cx="400" cy="66" r="40" style="fill:none;stroke:#E2A33A;stroke-width:3;stroke-dasharray:5 6"/></g>
+      <path d="M440 56 L520 40" style="stroke:var(--muted);stroke-width:1.2"/>
+      <text class="lab" x="528" y="46" data-i18n="br-prana">Prana</text>
+    </g>
+    <g class="hit" data-k="udana" tabindex="0" role="button" aria-label="Udana" data-i18n-aria="br-udana">
+      <circle cx="400" cy="112" r="14" fill="transparent"/>
+      <g class="shape"><circle cx="400" cy="112" r="8" fill="#C0392B"/></g>
+      <path d="M388 112 L290 104" style="stroke:var(--muted);stroke-width:1.2"/>
+      <text class="lab" x="282" y="110" text-anchor="end" data-i18n="br-udana">Udana</text>
+    </g>
+    <g class="hit" data-k="vyana" tabindex="0" role="button" aria-label="Vyana" data-i18n-aria="br-vyana">
+      <g class="shape">
+        <path d="M400 150 C372 158 352 190 346 258 M400 150 C428 158 448 190 454 258 M400 150 C390 200 360 250 320 286 M400 150 C410 200 440 250 480 286" style="fill:none;stroke:#5E8A40;stroke-width:2;stroke-dasharray:3 5"/>
+        <circle cx="400" cy="150" r="9" fill="#5E8A40"/>
+      </g>
+      <circle cx="400" cy="150" r="16" fill="transparent"/>
+      <path d="M412 150 L520 150" style="stroke:var(--muted);stroke-width:1.2"/>
+      <text class="lab" x="528" y="156" data-i18n="br-vyana">Vyana</text>
+    </g>
+    <g class="hit" data-k="samana" tabindex="0" role="button" aria-label="Samana" data-i18n-aria="br-samana">
+      <circle cx="400" cy="200" r="30" fill="transparent"/>
+      <g class="shape">
+        <circle cx="400" cy="200" r="12" fill="#E2A33A"/>
+        <g fill="#F2A23A"><circle cx="400" cy="176" r="3.2"/><circle cx="418.8" cy="185" r="3.2"/><circle cx="423.4" cy="205.3" r="3.2"/><circle cx="410.4" cy="221.6" r="3.2"/><circle cx="389.6" cy="221.6" r="3.2"/><circle cx="376.6" cy="205.3" r="3.2"/><circle cx="381.2" cy="185" r="3.2"/></g>
+      </g>
+      <path d="M372 200 L290 200" style="stroke:var(--muted);stroke-width:1.2"/>
+      <text class="lab" x="282" y="206" text-anchor="end" data-i18n="br-samana">Samana</text>
+    </g>
+    <g class="hit" data-k="apana" tabindex="0" role="button" aria-label="Apana" data-i18n-aria="br-apana">
+      <circle cx="400" cy="270" r="26" fill="transparent"/>
+      <g class="shape"><path d="M386 254 V282 M378 274 L386 284 L394 274 M414 254 V282 M406 274 L414 284 L422 274" style="fill:none;stroke:#7A5A9A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"/></g>
+      <path d="M428 272 L520 280" style="stroke:var(--muted);stroke-width:1.2"/>
+      <text class="lab" x="528" y="286" data-i18n="br-apana">Apana</text>
+    </g>
+  </svg>
+  <div class="chips">
+    <button data-k="prana" data-i18n="br-prana">Prana</button><button data-k="apana" data-i18n="br-apana">Apana</button><button data-k="samana" data-i18n="br-samana">Samana</button><button data-k="vyana" data-i18n="br-vyana">Vyana</button><button data-k="udana" data-i18n="br-udana">Udana</button>
+  </div>
+  <div class="info" aria-live="polite"><h4 data-i18n="br-who">Five breaths, one life</h4><p data-i18n="br-each">Prana divides itself into five and gives each part its own work, the way a king sends officers to different villages. Tap one to see where it works.</p></div>
+</div>
+</template>
+
+<template id="om-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="om-try">Try it · follow the meditator</span>
+  <svg viewBox="40 0 600 320" role="img" aria-label="Where meditation on Om leads" data-i18n-aria="om-svg" class="csvg omsvg">
+    <rect x="40" width="600" height="320" rx="14" style="fill:var(--bg)"/>
+    <path d="M40 282 H640 V306 Q640 320 626 320 H54 Q40 320 40 306Z" style="fill:var(--grass)"/>
+    <path d="M330 266 V36" style="stroke:var(--line);stroke-width:2;stroke-dasharray:2 7;stroke-linecap:round"/>
+    <text class="omlet" x="164" y="168" text-anchor="middle">ॐ</text>
+    <g class="dest d1">
+      <path d="M244 282 V258 H276 V282Z M286 282 V262 H312 V282Z" fill="#C9B07E"/>
+      <path d="M238 260 L260 242 L282 260Z M282 264 L299 250 L316 264Z" fill="#A88A4E"/>
+      <text class="lab" x="380" y="278" data-i18n="om-earth">The human world</text>
+    </g>
+    <g class="dest d2">
+      <path d="M322 172a14 14 0 1 0 13 22a11 11 0 1 1 -13 -22z" fill="#F3EAD2" stroke="#C9B98A" stroke-width="1.2"/>
+      <text class="lab" x="380" y="192" data-i18n="om-moon">The world of the moon</text>
+    </g>
+    <g class="dest d3">
+      <circle cx="330" cy="104" r="15" fill="#F2A23A"/>
+      <g style="stroke:#E2A33A;stroke-width:2.5;stroke-linecap:round"><path d="M330 82V76M330 126V132M308 104H302M352 104H358"/></g>
+      <text class="lab" x="380" y="110" data-i18n="om-sun">The sun</text>
+      <circle class="bglow" cx="330" cy="36" r="40" fill="url(#warm)"/>
+      <text class="lab" x="380" y="42" data-i18n="om-brahma">The world of Brahman</text>
+    </g>
+    <g transform="translate(330 266)"><g class="trav"><circle r="16" fill="url(#warm)"/><circle r="7" fill="#FFE08A" stroke="#C9963C" stroke-width="1.5"/></g></g>
+  </svg>
+  <div class="info" aria-live="polite"><h4 data-i18n="om-who">Three sounds, three worlds</h4><p data-i18n="om-each">Choose one sound, two, or all three, and watch where the meditator goes.</p></div>
+  <div class="calm-row">
+    <p data-i18n="om-pick">How much of Om will you hold in mind?</p>
+    <div class="seg" role="group" aria-label="How many sounds" data-i18n-aria="om-state"><button aria-pressed="false" data-i18n="om-b1">A</button><button aria-pressed="false" data-i18n="om-b2">A + U</button><button aria-pressed="false" data-i18n="om-b3">A + U + M</button></div>
+  </div>
+</div>
+</template>
+
+<template id="sixteen-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="sx-try">Try it · send the sixteen parts home</span>
+  <svg viewBox="130 0 540 340" role="img" aria-label="The sixteen parts around the Person, like spokes around a hub" data-i18n-aria="sx-svg" class="csvg wheel">
+    <rect x="130" width="540" height="340" rx="14" style="fill:var(--bg)"/>
+    <circle class="hubglow" cx="400" cy="170" r="90" fill="url(#warm)"/>
+    <g class="spokes" style="stroke:var(--muted);stroke-width:2;stroke-linecap:round"></g>
+    <circle class="rim" cx="400" cy="170" r="104" style="fill:none;stroke:var(--muted);stroke-width:3"/>
+    <g class="labs"></g>
+    <circle cx="400" cy="170" r="40" style="fill:var(--gold-soft);stroke:var(--gold);stroke-width:2"/>
+    <text class="hublab" x="400" y="175" text-anchor="middle" data-i18n="sx-hub">The Person</text>
+  </svg>
+  <div class="calm-row">
+    <p class="calmtext" aria-live="polite"></p>
+    <div class="seg" role="group" aria-label="Where the parts are" data-i18n-aria="sx-state"><button class="x-out" aria-pressed="true" data-i18n="sx-out">Spread out</button><button class="x-home" aria-pressed="false" data-i18n="sx-home">Back in the Person</button></div>
+  </div>
+</div>
+</template>
+
+<main class="wrap"><div class="chat" id="chat"></div></main>
+
+<footer class="wrap">
+  <p data-i18n="f1">The conversation follows the Prashna Upanishad closely, and the small verse numbers show where each idea comes from. All six questions are in the Upanishad; the students’ short follow-up questions are added here to carry the telling. This is a simple retelling, some verses are shortened or left out, and the explanations follow Adi Shankaracharya’s commentary.</p>
+  <p data-i18n="f2">Pippalada’s name means “one who eats pippala figs”, the fruit of the sacred fig tree, so he is drawn under one, with its heart-shaped leaves and small figs above him. Like other forest sages in the tradition, he has a white beard and his hair tied up in a knot, with ochre cloth, rudraksha beads and a water pot.</p>
+  <p data-i18n="f3">For the full text with commentary, see Eight Upanishads, Volume 2, translated by Swami Gambhirananda (Advaita Ashrama, Ramakrishna Order).</p>
+  <p><a id="mundaka-link" href="../mundakopanishad/" data-i18n="f4">Also told this way: Shaunaka asks Angiras, from the Mundaka Upanishad, which belongs to the Atharva Veda like this one.</a></p>
+  <p><a id="katha-link" href="../kathopanishad/" data-i18n="f5">And Nachiketa talks with Yama, from the Katha Upanishad.</a></p>
+</footer>
+
+<div class="nextbar" id="nextbar" hidden><button class="next" id="next"><span id="next-label">Continue</span><span class="arr" aria-hidden="true">›</span></button><span class="tap-hint" id="tap-hint" hidden data-i18n="tap">or tap anywhere on the story</span></div>
+
+<script src="kn.js"></script>
+<script>
+/* who: p = Pippalada; the students are k = Kabandhi, v = Bhargava, a = Kausalya, r = Gargya, y = Satyakama, s = Sukesha,
+   and x = all six together. t = storyteller, h = chapter heading [title, scene], q = think question, g = going-deeper card,
+   c = widget [name]. Optional 4th field on t = scene change. */
+const S=[
+["h","Six students with firewood","arrive"],
+["t","Six students had studied the Vedas and were devoted to Brahman as the Vedas teach it. Now they wanted to know the highest Brahman. They were Sukesha, son of Bharadvaja; Satyakama, son of Shibi; Gargya, a descendant of Surya; Kausalya, son of Ashvala; Bhargava, from Vidarbha; and Kabandhi, son of Katya.","1.1"],
+["t","Each of them carried a bundle of firewood, the gift a student brings a teacher. They went together to the sage Pippalada, sure that he could tell them everything they wanted to know.","1.1"],
+["p","You are welcome here. First, though, stay with me one more year. Live with discipline, stay celibate and keep your faith. Then ask whatever you like. If I know the answer, I will tell you all of it.","1.2"],
+["t","So they stayed a full year. When it was over, Kabandhi came forward with the first question."],
+["g",{t:"A year of waiting",b:[
+  ["v","1.2","The sage said to them: Live here one more year with austerity, celibacy and faith. Then ask questions as you wish. If we know, we shall tell you all."],
+  ["p","These students had already studied for years, and Pippalada still asked them to wait. Shankara says the year was to make them ready for the teaching. He explains austerity here as control of the senses, and faith as a firm trust that what the scriptures teach is true."],
+  ["p","“If we know” could sound like doubt. Shankara says it is the sage’s modesty speaking."]]}],
+["q","Have you ever had to wait before you were allowed to learn something? Did the waiting change how much you wanted it?"],
+
+["h","Where do creatures come from?","pair"],
+["k","Revered sir, where do all these creatures come from?","1.3"],
+["p","In the beginning Prajapati, the lord of creatures, wished for children. He meditated deeply, and out of that he brought forth a pair: rayi, which is matter, and prana, which is life. These two together, he thought, would bring forth creatures of every kind.","1.4"],
+["p","The sun is life and the moon is matter. In fact everything here, the solid and the subtle alike, is matter.","1.5"],
+["k","So everything comes in pairs?"],
+["p","Look at the year. It too is Prajapati, and it has two paths, the southern and the northern. People who give their lives to rituals and good works take the southern path. It leads them to the world of the moon, and from there they come back to be born again.","1.9"],
+["p","Those who seek the Self through discipline, celibacy, faith and knowledge take the northern path. It leads them to the sun, the home of all life. That place is deathless and free of fear, and no one comes back from it.","1.10"],
+["p","The month is Prajapati too: its dark half is matter and its bright half is life. Day and night are Prajapati: the day is life and the night is matter. And food is Prajapati, because from food comes seed, and from seed these creatures are born.","1.12–14"],
+["k","And people like us, who want to go further?"],
+["p","The stainless world of Brahman belongs to those in whom there is no crookedness, no falsehood and no deceit.","1.16"],
+["g",{t:"Matter and life",b:[
+  ["v","1.4","Prajapati desired offspring. He performed austerity, and having done so he produced a pair, matter and life, thinking: these two will make creatures for me in many ways."],
+  ["p","Shankara reads the pair as the eater and the food. Prana, seen in the sun and in fire, is the eater. Rayi, seen in the moon, is the food. Everything that is born comes from the two working together."],
+  ["p","The answer also tells Kabandhi where each way of living leads. Rituals and good works lead to the moon and then back to birth. Discipline and knowledge lead to the sun, and from there no one returns."],
+  ["p","After all the talk of sun and moon, the first answer ends with what the seeker needs: a straight and honest life."]]}],
+["q","Can you think of two things in your own life that need each other to make something new?"],
+
+["h","The bees and their king","bees"],
+["v","Revered sir, how many powers hold up this body? Which of them make it shine, and which is the greatest?","2.1"],
+["p","Space is one such power, and so are air, fire, water and earth, and speech, mind, eye and ear. Once they all boasted: “We hold this body up. We keep it going.”","2.2"],
+["p","Then prana, the chief among them, said: “Don’t fool yourselves. I divide myself into five, and I am the one holding this body up.” They did not believe it.","2.3"],
+["v","What did prana do then?"],
+["p","It began to leave, as if in anger. The moment it rose, all the others had to rise with it. When it settled down again, they all settled too.","2.4"],
+["p","It was like a beehive. When the king bee flies out, every bee flies out after him, and when he settles, they settle. Speech, mind, eye and ear behaved the same way. Now they were convinced, and they praised prana.","2.4"],
+["p","They sang to it: “You burn as fire and shine as the sun. You are the rain, the wind and the earth. You are what is and what is not, and you are what never dies.”","2.5"],
+["p","Everything rests on prana the way the spokes of a wheel rest on its hub: the verses of the Vedas, the sacrifice, the warrior and the priest.","2.6"],
+["v","So prana is the greatest power in the body?"],
+["p","Among the powers of the body, yes. They ended their song with a prayer: “Protect us as a mother protects her children. Give us prosperity and wisdom.”","2.13"],
+["g",{t:"Why prana is the chief",b:[
+  ["v","2.4","Prana, offended, rose up as if to leave. When it rose, all the others rose; when it settled, all settled. As all the bees rise when the king of the bees rises and settle when he settles, so did speech, mind, eye and ear. Satisfied, they praised prana."],
+  ["p","The test is simple. A person who cannot speak or see is still alive. When prana leaves, speech, sight and hearing leave with it, and what remains is only a body."],
+  ["p","The Upanishad speaks of the king of the bees. Today we would say queen, and the picture works the same way: where she goes, the hive follows."],
+  ["p","Prana is the greatest of the powers in the body, and the next student asks where prana itself comes from."]]}],
+["q","You can go a whole day without speaking. How long can you go without breathing?"],
+
+["h","Where prana comes from","nadis"],
+["a","Revered sir, where is prana born? How does it come into this body? How does it divide itself and stay here? How does it leave? And how does it hold up the world outside and the world within?","3.1"],
+["p","These are hard questions, harder than the usual ones. But you love Brahman deeply, so I will answer them.","3.2"],
+["p","Prana is born from the Self. It falls on the Self the way a shadow falls from a person. It comes into this body because of what the mind has done.","3.3"],
+["p","Think of an emperor sending out his officers: “You govern these villages, and you govern those.” Prana works the same way, giving each of the other breaths its own place.","3.4"],
+["p","Apana works below, in the organs that let go. Prana itself stays above, in the eyes and ears, the mouth and nose. In the middle is samana, which spreads the food you eat evenly through the body.","3.5"],
+["c","breaths"],
+["p","The Self lives in the heart. From the heart run a hundred and one channels. Each has a hundred branches, and each of those has seventy-two thousand more. Vyana moves through all of them.","3.6"],
+["a","And the breath that leaves?"],
+["p","That is udana. It rises through the one channel that goes straight up. If a person has done good, it leads them to a good world; if they have done wrong, to a world of suffering; if both, back to the world of human beings.","3.7"],
+["p","Outside the body it is the same. The sun is prana for the whole world, and it rises to help the eye see. The power in the earth holds up apana. The space between earth and sky is samana, and the moving air is vyana.","3.8"],
+["p","Fire, the body’s warmth, is udana. That is why a body grows cold when life leaves it. The person then goes on to a new birth, with the senses gathered into the mind.","3.9"],
+["p","Whatever a person is thinking at that moment, with that thought they go to prana. Prana, joined with udana and with the Self, carries them to the world they have pictured.","3.10"],
+["g",{t:"A shadow of the Self",b:[
+  ["v","3.3","This prana is born of the Self. As a shadow is cast by a person, so prana is spread over the Self. It comes into this body through the doings of the mind."],
+  ["p","A shadow has a shape but no life of its own. Take the person away and the shadow goes too. Shankara uses the picture to show that prana depends entirely on the Self and has no being apart from it."],
+  ["p","Shankara takes “the doings of the mind” to mean past actions, the wishes and resolves a person has acted on. Because of them, prana comes into a new body."],
+  ["p","The questions are moving inward. Kabandhi asked about the world and Bhargava about the powers in the body. Now Kausalya asks where life itself comes from."]]}],
+["q","When you are fast asleep, who keeps your heart beating and your lungs breathing?"],
+
+["h","Who is awake in sleep?","dusk"],
+["r","Revered sir, when a person sleeps, what in them falls asleep? What stays awake? Which power sees the dreams? Whose is the happiness of deep sleep? And on what does all this rest?","4.1"],
+["p","Watch the sun as it sets, Gargya. As it goes down, all its rays gather back into its disc. When it rises, they spread out again.","4.2"],
+["p","The senses do the same. In sleep they gather into the mind, the highest of the powers. Then the person does not hear or see, smell, taste or touch. They do not speak, take hold of anything or walk. People say, “He is asleep.”","4.2"],
+["p","But the fires of prana stay awake in this city of the body. All night the breath goes in and out, like a priest tending the sacred fires. The mind is the one who offers the sacrifice, and every night udana carries the mind to Brahman.","4.3–4"],
+["r","And who sees the dreams?"],
+["p","The mind. In dreams it enjoys its own greatness. What it has seen, it sees again; what it has heard, it hears again. It sees what it has seen and what it has never seen, the real and the unreal. Being all of it, it sees all of it.","4.5"],
+["p","When the mind is overcome by light, it sees no more dreams. That is deep sleep, and then happiness arises in the body.","4.6"],
+["p","As birds fly home to a tree to roost, dear one, so all of this goes home to the highest Self: earth and water and the other elements, the eye and what it sees, the mind and what it thinks.","4.7–8"],
+["p","The one who sees and touches, hears and smells, tastes, thinks and knows, the knowing Self in a person, rests in the highest, imperishable Self.","4.9"],
+["p","Whoever knows that pure Imperishable, with no shadow, no body and no colour, reaches the Imperishable itself, dear one. Knowing everything, they become everything.","4.10"],
+["g",{t:"Waking, dream and deep sleep",b:[
+  ["v","4.2","As all the rays of the setting sun become one in its disc of light, and spread out again when it rises, so all of these become one in the mind, the highest god."],
+  ["p","Gargya’s questions walk through the three states we pass through every day. Awake, the senses are out in the world. In a dream they have gone back into the mind, and the mind builds its own world out of what it remembers. In deep sleep even the mind is still."],
+  ["p","Shankara explains the light that overcomes the mind as a light in the body’s channels, which shuts the ways by which the mind goes out. The happiness of deep sleep is the happiness of the Self, with no thought in the way."],
+  ["p","The birds and the tree answer Gargya’s last question. Every night everything in us goes home to the Self, and we go there each time we sleep deeply, without noticing."]]}],
+["q","When you wake from a deep, dreamless sleep, how do you know you slept well?"],
+
+["h","The three sounds of Om","om"],
+["y","Revered sir, suppose someone meditates on Om until the end of their life. What world do they win by it?","5.1"],
+["p","Satyakama, Om is both the higher and the lower Brahman. With Om as the support, whoever knows it reaches one or the other.","5.2"],
+["p","Om has three sounds: A, U and M. If someone meditates on the first sound alone, it lights their way and soon brings them back to earth. The verses of the Rig Veda lead them to the human world, where they live a great life of discipline, celibacy and faith.","5.3"],
+["p","If they meditate on two sounds, they become one with the mind, and the verses of the Yajur Veda lead them up to the world of the moon. They enjoy its greatness for a while, and then they return.","5.4"],
+["p","Whoever meditates on the highest Person with all three sounds of Om becomes one with the light of the sun. They come free of their wrongs the way a snake comes free of its old skin. The chants of the Sama Veda carry them up to the world of Brahman, and there they see the Person who lives in every body, higher than the highest.","5.5"],
+["c","om"],
+["y","Why do the three sounds have to be joined?"],
+["p","Taken one at a time, each sound is still within reach of death. Joined into one, and held rightly in everything you do, outside, inside and in between, they leave the knower steady.","5.6"],
+["p","With Om as the support, the wise reach what is peaceful, ageless, deathless and fearless, the highest of all.","5.7"],
+["g",{t:"Om as a support",b:[
+  ["v","5.2","Satyakama, this Om is the higher and the lower Brahman. So the knower reaches one of the two with this as the support."],
+  ["p","Shankara compares Om to the image of a god in a temple. The worshipper knows the image is not all of Vishnu, yet through it Vishnu is approached. Om is a sound, and through it the mind is led toward Brahman, which has no sound."],
+  ["p","Each sound has its Veda and its world: A goes with the Rig Veda and the earth, U with the Yajur Veda and the moon, and M with the Sama Veda and the world of Brahman beyond the sun."],
+  ["p","Shankara reads “outside, inside and in between” as the three states of waking, dream and deep sleep. Om held as one covers all three."]]}],
+["q","Say Om slowly, out loud. Can you hear the A, the U and the M? What is left when the sound stops?"],
+
+["h","The Person of sixteen parts","ocean"],
+["s","Revered sir, Hiranyanabha, a prince of Kosala, once came to me and asked: “Bharadvaja, do you know the Person of sixteen parts?”","6.1"],
+["s","I told him I did not know. If I knew, why would I not tell him? Whoever lies dries up to the root, so I could not invent an answer. He got into his chariot without a word and drove away.","6.1"],
+["s","Now I ask you. Where is that Person?"],
+["p","Right here inside the body, dear one. That is the Person in whom these sixteen parts arise.","6.2"],
+["p","In the beginning the Person asked himself: “What is it that, if it leaves, I will have left too? And if it stays, I will stay?”","6.3"],
+["p","So he brought forth prana. From prana came faith, then space, air, light, water and earth, then the senses, the mind and food. From food came strength and discipline, the sacred verses and the rites, the worlds, and in the worlds, name. Those are the sixteen.","6.4"],
+["c","sixteen"],
+["s","And what becomes of the sixteen?"],
+["p","Look at the rivers. They run toward the ocean, and when they reach it they disappear. Their names and shapes are gone, and people simply call it the ocean.","6.5"],
+["p","In the same way, the sixteen parts of the one who sees go back into the Person and disappear. Their names and shapes are gone, and people simply call it the Person. That one is then without parts, and deathless.","6.5"],
+["p","The parts rest in the Person like spokes in the hub of a wheel. Know that Person, the one to be known, so that death does not trouble you.","6.6"],
+["g",{t:"Why Sukesha could not lie",b:[
+  ["v","6.1","One who speaks untruth dries up to the root. Therefore I cannot speak untruth. He mounted his chariot in silence and went away."],
+  ["p","Sukesha could have made up a clever answer. He told a prince plainly that he did not know, and the prince left without a word. The Upanishad keeps this short story so we can see who is ready for the last teaching."],
+  ["v","6.5","As these flowing rivers, going toward the ocean, disappear on reaching it, their names and forms destroyed, and are called simply the ocean, so these sixteen parts of the seer, going toward the Person, disappear on reaching him; their names and forms are destroyed, and they are called simply the Person. He becomes partless and immortal."],
+  ["p","Shankara says the parts were never really added to the Person. Through not-knowing they seem to be there, the way a rope in poor light seems to be a snake. When the Person is known, the parts go back into it, as the snake goes back into the rope."],
+  ["p","The Mundaka Upanishad uses the same rivers and ocean (3.2.8). Both Upanishads belong to the Atharva Veda."]]}],
+
+["h","The other shore","shore"],
+["p","This is all I know of the highest Brahman. There is nothing beyond it.","6.7"],
+["x","You are our father. You have carried us across our ignorance to the other shore.","6.8"],
+["t","The six students bowed to their teacher, and the Upanishad closes with a salute to the sages who passed this knowledge on: “Salutations to the great seers! Salutations to the great seers!”","6.8"],
+["q","The six students asked six different questions, and every answer led to the same place. Which question would you have asked?"]
+];
+
+
+const EN={S,js:{
+  names:{p:"Pippalada",k:"Kabandhi",v:"Bhargava",a:"Kausalya",r:"Gargya",y:"Satyakama",s:"Sukesha",x:"The six students"},
+  lead:{p:"Pippalada answers",k:"Kabandhi asks",v:"Bhargava asks",a:"Kausalya asks",r:"Gargya asks",y:"Satyakama asks",s:"Sukesha asks",x:"The students speak",
+    t:"Continue the story",q:"Think about it",g:"Go deeper"},
+  cont:{p:"Pippalada continues",k:"Kabandhi continues",v:"Bhargava continues",a:"Kausalya continues",r:"Gargya continues",y:"Satyakama continues",s:"Sukesha continues"},
+  widget:{breaths:"See the five breaths",om:"Try the three sounds",sixteen:"See the sixteen parts"},
+  next:"Next: ",
+  think:"Think about it",
+  deep:"Going deeper · Shankara’s reading",
+  sixteen:["Prana","Faith","Space","Air","Light","Water","Earth","Senses","Mind","Food","Strength","Discipline","Mantras","Rites","Worlds","Name"],
+  sxOut:"The sixteen parts come out of the Person one after another, like spokes from a hub.",
+  sxHome:"The parts go back into the Person like rivers into the ocean. Their names and shapes are gone, and only the Person is left."
+},breaths:{
+  prana:["Prana","Above: the eyes, ears, mouth and nose","Prana keeps this part of the body for itself, the way a king keeps his capital. It moves as breath through the mouth and nose, and it works in seeing and hearing. Outside the body, the sun is its partner."],
+  apana:["Apana","Below: the organs that let go","Apana works downward. It carries waste out of the body and helps in giving birth. Outside the body, the power of the earth holds it up."],
+  samana:["Samana","In the middle, at the navel","Samana spreads the food you eat evenly through the body. The Upanishad says seven flames rise from it. Shankara takes them as the seven openings of the head: two eyes, two ears, two nostrils and the mouth."],
+  vyana:["Vyana","Everywhere, through the channels from the heart","From the heart run a hundred and one main channels. Each has a hundred branches, and each of those has seventy-two thousand more. Vyana moves through all of them and reaches every part of the body. Outside, it is the moving air."],
+  udana:["Udana","Rising through one channel","Udana goes up through a single channel. At death it carries a person on to the next world, good or bad, according to what they have done. Its sign is the body’s warmth, which leaves when udana leaves."]
+},om:{
+  1:["A","The first sound alone","Whoever meditates on A alone soon comes back to earth. The verses of the Rig Veda lead them to a human birth, a good one, full of discipline and faith."],
+  2:["A + U","Two sounds","With two sounds, the verses of the Yajur Veda carry the meditator up to the world of the moon. They enjoy it for a while and then come back."],
+  3:["A + U + M","All three, joined as Om","With all three joined, the meditator becomes one with the sun and sheds their wrongs as a snake sheds its skin. The Sama Veda chants carry them to the world of Brahman, where they see the highest Person. They do not come back."]
+}};
+const LANGS={en:EN,kn:KN};
+let lang=(()=>{
+  let l=new URLSearchParams(location.search).get('lang');
+  // a reader who chose Kannada on the Mundaka or Katha page gets it here too
+  if(!l)try{l=localStorage.getItem('prashna-lang')||localStorage.getItem('mundaka-lang')||localStorage.getItem('katha-lang')}catch(e){}
+  if(!l&&(navigator.languages||[]).some(x=>/^kn\b/i.test(x)))l='kn';
+  return LANGS[l]?l:'en';
+})();
+const L=()=>LANGS[lang].js;
+// swap fixed page text; the English stays in the HTML and is remembered on first swap
+function translate(root){
+  const ui=LANGS[lang].ui||{};
+  root.querySelectorAll('[data-i18n]').forEach(el=>{if(el.dataset.en==null)el.dataset.en=el.textContent;el.textContent=ui[el.dataset.i18n]??el.dataset.en});
+  root.querySelectorAll('[data-i18n-aria]').forEach(el=>{if(el.dataset.enAria==null)el.dataset.enAria=el.getAttribute('aria-label');el.setAttribute('aria-label',ui[el.dataset.i18nAria]??el.dataset.enAria)});
+}
+
+// fill a widget's info panel with [title, what it stands for, explanation]
+function card(info,d){
+  info.innerHTML='';const h=document.createElement('h4');h.textContent=d[0];const m=document.createElement('p');m.className='means';m.textContent=d[1];const p=document.createElement('p');p.textContent=d[2];info.append(h,m,p);
+}
+// tap a part of a picture (or its chip) to see what it stands for
+function parts(root,D){
+  const hits=[...root.querySelectorAll('.hit')],chips=[...root.querySelectorAll('.chips button')],info=root.querySelector('.info');
+  function show(k){card(info,D[k]);hits.forEach(x=>x.classList.toggle('on',x.dataset.k===k));chips.forEach(c=>c.classList.toggle('on',c.dataset.k===k))}
+  hits.forEach(x=>{x.addEventListener('click',()=>show(x.dataset.k));x.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(x.dataset.k)}})});
+  chips.forEach(c=>c.addEventListener('click',()=>show(c.dataset.k)));
+}
+const NS='http://www.w3.org/2000/svg';
+const WIDGETS={
+  breaths(root){parts(root,LANGS[lang].breaths);translate(root)},
+  om(root){
+    const svg=root.querySelector('.csvg'),letters=root.querySelector('.omlet'),info=root.querySelector('.info'),bs=[...root.querySelectorAll('.calm-row .seg button')];
+    bs.forEach((b,i)=>b.addEventListener('click',()=>{
+      const n=i+1,d=LANGS[lang].om[n];
+      bs.forEach((x,j)=>x.setAttribute('aria-pressed',j===i));
+      // restart the climb from the ground each time
+      svg.classList.remove('go1','go2','go3');void svg.getBoundingClientRect();svg.classList.add('go'+n);
+      letters.textContent=d[0];card(info,d);
+    }));
+    translate(root);
+  },
+  sixteen(root){
+    const svg=root.querySelector('.csvg'),sp=root.querySelector('.spokes'),labs=root.querySelector('.labs'),note=root.querySelector('.calmtext'),bo=root.querySelector('.x-out'),bh=root.querySelector('.x-home');
+    // sixteen spokes from the hub, starting at the top and going clockwise in the order of 6.4
+    L().sixteen.forEach((name,i)=>{
+      const a=i/16*2*Math.PI-Math.PI/2,c=Math.cos(a),s=Math.sin(a);
+      const ln=document.createElementNS(NS,'line');
+      ln.setAttribute('x1',400+40*c);ln.setAttribute('y1',170+40*s);ln.setAttribute('x2',400+104*c);ln.setAttribute('y2',170+104*s);sp.append(ln);
+      const g=document.createElementNS(NS,'g'),t=document.createElementNS(NS,'text');
+      // labels near the top and bottom sit a little further out so tall Kannada letters clear the rim
+      const r=126+12*Math.abs(s);
+      g.setAttribute('class','lab');g.style.transform=`translate(${400+r*c}px,${170+r*s}px)`;g.style.transitionDelay=(i*.04)+'s';
+      t.setAttribute('text-anchor',c>.3?'start':c<-.3?'end':'middle');t.setAttribute('dy','.35em');t.textContent=name;
+      g.append(t);labs.append(g);
+    });
+    function set(home){svg.classList.toggle('home',home);bh.setAttribute('aria-pressed',home);bo.setAttribute('aria-pressed',!home);note.textContent=home?L().sxHome:L().sxOut}
+    bo.addEventListener('click',()=>set(false));bh.addEventListener('click',()=>set(true));
+    translate(root);set(false);
+  }
+};
+
+const chat=document.getElementById('chat'), st=document.getElementById('st'), cap=document.getElementById('cap');
+let items=[];
+function build(){
+  chat.textContent='';
+  const J=L();
+  let prev=null, scene="arrive", title="";
+  LANGS[lang].S.forEach(([w,text,ref,sc])=>{
+  let el;
+  if(w==="h"){el=document.createElement('div');el.className='div';el.textContent=text;scene=ref;title=text;prev=null}
+  else if(w==="t"){el=document.createElement('p');el.className='tell';el.textContent=text;if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.append(r)}if(sc)scene=sc;prev=null}
+  else if(w==="q"){el=document.createElement('div');el.className='think';const b=document.createElement('b');b.textContent=J.think;el.append(b,text);prev=null}
+  else if(w==="g"){
+    const d=text;el=document.createElement('div');el.className='deep';
+    el.innerHTML='<span class="dl"></span>';el.firstChild.textContent=J.deep;
+    const h3=document.createElement('h3');h3.textContent=d.t;el.append(h3);
+    d.b.forEach(bl=>{
+      if(bl[0]==="v"){const q=document.createElement('blockquote');const r=document.createElement('span');r.className='vr';r.textContent=bl[1];q.append(r,bl[2]);el.append(q)}
+      else if(bl[0]==="p"){const p=document.createElement('p');p.textContent=bl[1];el.append(p)}
+    });prev=null}
+  else if(w==="c"){el=document.getElementById(text+'-tpl').content.firstElementChild.cloneNode(true);WIDGETS[text](el);el.dataset.w=text;prev=null}
+  else{
+    el=document.createElement('div');el.className='row '+w+(prev===w?' cont':'');
+    el.innerHTML='<svg class="av" aria-hidden="true"><use href="#av-'+w+'"/></svg><div class="bub"><div class="name">'+J.names[w]+'</div><p></p></div>';
+    el.querySelector('p').textContent=text;
+    if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.querySelector('.bub').append(r)}
+    el.dataset.who=w;prev=w;
+  }
+  el.dataset.kind=w;el.dataset.scene=scene;el.dataset.title=title;
+  chat.append(el);
+  });
+  items=[...chat.children];
+}
+build();
+
+/* stage */
+let talkT, lastEl=null;
+function setStage(el){
+  if(!el||el===lastEl)return;lastEl=el;
+  st.dataset.scene=el.dataset.scene;cap.textContent=el.dataset.title;
+  const w=el.dataset.who||"";
+  st.dataset.who=w;
+  st.classList.remove('talking');
+  if(w){void st.getBoundingClientRect();st.classList.add('talking');clearTimeout(talkT);talkT=setTimeout(()=>st.classList.remove('talking'),2300)}
+}
+function sizeTools(){document.documentElement.style.setProperty('--tools-h',document.getElementById('tools').offsetHeight+'px')}
+sizeTools();addEventListener('resize',sizeTools);
+
+const next=document.getElementById('next'), nextbar=document.getElementById('nextbar');
+const io=new IntersectionObserver(es=>{
+  if(document.body.classList.contains('slow'))return;
+  es.forEach(e=>{if(e.isIntersecting)setStage(e.target)});
+},{rootMargin:'-62% 0px -30% 0px'});
+items.forEach(el=>io.observe(el));
+
+const nextLabel=document.getElementById('next-label'), tapHint=document.getElementById('tap-hint'), prog=document.getElementById('prog');
+const typing=document.createElement('div');typing.setAttribute('aria-hidden','true');typing.hidden=true;
+typing.innerHTML='<svg class="av"><use href="#av-k"/></svg><div class="bub"><span class="dots"><i></i><i></i><i></i></span></div>';
+chat.append(typing);
+typing.addEventListener('click',()=>step());
+
+// what step() will reveal next: the first visible item, plus any chapter heading on the way
+function peek(){
+  let head=null;
+  for(let j=shown;j<items.length;j++){
+    const k=items[j].dataset.kind;
+    if(k==='h'){head=items[j].dataset.title;continue}
+    if(k==='g'&&document.body.classList.contains('story'))continue;
+    return {k,head,w:items[j].dataset.w};
+  }
+  return null;
+}
+function update(){
+  prog.style.width=(shown/items.length*100)+'%';
+  const p=peek();
+  if(!p){nextbar.hidden=true;typing.hidden=true;return}
+  const last=items[shown-1]&&items[shown-1].dataset.kind;
+  const J=L();
+  nextLabel.textContent=p.head?J.next+p.head:p.k==='c'?J.widget[p.w]:(J.cont[p.k]&&last===p.k?J.cont[p.k]:J.lead[p.k]);
+  const person=!p.head&&J.names[p.k];
+  typing.className='typing '+(person?'row '+p.k:'mid');
+  if(person)typing.querySelector('use').setAttribute('href','#av-'+p.k);
+  typing.hidden=false;nextbar.hidden=false;
+}
+
+let shown=items.length, steps=0, learned=false;
+try{learned=localStorage.getItem('prashna-learned')==='1'}catch(e){}
+if(!learned){next.classList.add('hint');tapHint.hidden=false}
+function setSlow(on,noScroll){
+  document.body.classList.toggle('slow',on);
+  document.getElementById('r-slow').setAttribute('aria-pressed',on);
+  document.getElementById('r-all').setAttribute('aria-pressed',!on);
+  if(on){shown=3;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));lastEl=null;setStage(items[2]);update();if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
+  else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true;typing.hidden=true}
+}
+function step(){
+  if(shown>=items.length)return;
+  while(shown<items.length){
+    const el=items[shown];shown++;el.classList.remove('later');el.classList.add('pop');
+    if(getComputedStyle(el).display!=='none'&&!el.classList.contains('div'))break;
+  }
+  const el=items[shown-1];setStage(el);update();
+  (typing.hidden?el:typing).scrollIntoView({behavior:'smooth',block:'end'});
+  steps++;
+  if(steps===1)next.classList.remove('hint');
+  if(steps===3&&!learned){learned=true;tapHint.hidden=true;try{localStorage.setItem('prashna-learned','1')}catch(e){}}
+}
+next.addEventListener('click',step);
+// tap anywhere on the conversation or the picture to move on, except on things that are themselves interactive
+function tapAdvance(e){
+  if(!document.body.classList.contains('slow'))return;
+  if(e.target.closest('button,a,input,select,textarea,[role="button"],.widget,.typing'))return;
+  if(String(getSelection()).length)return;
+  step();
+}
+chat.addEventListener('click',tapAdvance);
+document.querySelector('.stage-wrap').addEventListener('click',tapAdvance);
+document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' '||e.key==='Enter')&&e.target===document.body){e.preventDefault();step()}});
+document.getElementById('r-slow').addEventListener('click',()=>setSlow(true));
+document.getElementById('r-all').addEventListener('click',()=>setSlow(false));
+setSlow(true,true); // default: one at a time, without jumping past the intro
+
+function pair(a,b,cls,key){
+  const A=document.getElementById(a),B=document.getElementById(b);
+  function set(on){document.body.classList.toggle(cls,!on);A.setAttribute('aria-pressed',on);B.setAttribute('aria-pressed',!on);try{localStorage.setItem(key,on?'1':'0')}catch(e){}}
+  A.addEventListener('click',()=>set(true));B.addEventListener('click',()=>set(false));
+  try{if(localStorage.getItem(key)==='0')set(false)}catch(e){}
+}
+pair('d-deep','d-story','story','prashna-depth');
+pair('s-on','s-off','no-stage','prashna-stage');
+['d-deep','d-story'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{if(document.body.classList.contains('slow'))update()}));
+
+const TITLE_EN=document.title;
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=lang==='en'?TITLE_EN:LANGS[lang].ui.title;
+  translate(document);
+  document.getElementById('l-en').setAttribute('aria-pressed',lang==='en');
+  document.getElementById('l-kn').setAttribute('aria-pressed',lang==='kn');
+  const q=lang==='en'?'':'?lang='+lang;
+  document.getElementById('mundaka-link').href='../mundakopanishad/'+q;
+  document.getElementById('katha-link').href='../kathopanishad/'+q;
+  sizeTools();
+}
+function setLang(l){
+  if(l===lang)return;
+  // keep the reader on the same line across the switch
+  const anchor=items.find(el=>getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().bottom>innerHeight*.4);
+  const ai=items.indexOf(anchor), top=anchor?anchor.getBoundingClientRect().top:0;
+  lang=l;applyLang();
+  io.disconnect();build();items.forEach(el=>io.observe(el));chat.append(typing);lastEl=null;
+  if(document.body.classList.contains('slow')){items.forEach((el,i)=>el.classList.toggle('later',i>=shown));setStage(items[shown-1]);update()}
+  if(anchor)scrollBy(0,items[ai].getBoundingClientRect().top-top);
+  try{localStorage.setItem('prashna-lang',l)}catch(e){}
+  try{const u=new URL(location.href);if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);history.replaceState(null,'',u)}catch(e){}
+}
+document.getElementById('l-en').addEventListener('click',()=>setLang('en'));
+document.getElementById('l-kn').addEventListener('click',()=>setLang('kn'));
+applyLang();
+if(document.body.classList.contains('slow'))update();
+</script>
