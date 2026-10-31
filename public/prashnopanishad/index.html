@@ -154,7 +154,9 @@ body.no-stage .stage-wrap{display:none}
 body.slow .chat > .later{display:none}
 body.slow .chat{padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px))}
 body.slow .chat > *{scroll-margin-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
-body.slow footer{padding-bottom:8.5rem}
+/* while reading one at a time, the notes at the bottom wait until the conversation is over, so they never sit between the reader and the Continue button */
+body.slow:not(.done) footer{display:none}
+body.slow.done .chat{padding-bottom:2rem}
 body.slow .chat, body.slow .stage{cursor:pointer}
 .nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:1.4rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
 .nextbar[hidden]{display:none}
@@ -943,6 +945,7 @@ function peek(){
 function update(){
   prog.style.width=(shown/items.length*100)+'%';
   const p=peek();
+  document.body.classList.toggle('done',!p);
   if(!p){nextbar.hidden=true;typing.hidden=true;return}
   const last=items[shown-1]&&items[shown-1].dataset.kind;
   const J=L();
