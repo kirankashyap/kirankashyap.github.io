@@ -382,8 +382,9 @@ export const contributions: LinkItem[] = [
 
 /**
  * Standalone pages hosted on this domain. Most are separate repos with GitHub
- * Pages turned on; /kathopanishad, /mundakopanishad and /prashnopanishad live in
- * public/ of this repo. Listed in the sitemap and llms.txt but not on the home page.
+ * Pages turned on; /kathopanishad, /mundakopanishad, /prashnopanishad and
+ * /kenopanishad live in public/ of this repo. Listed in the sitemap and llms.txt
+ * but not on the home page.
  */
 export const projects: LinkItem[] = [
 	{
@@ -403,6 +404,12 @@ export const projects: LinkItem[] = [
 		description:
 			'The Prashna Upanishad told simply as an illustrated conversation between six students and the sage Pippalada: prana and the bees, the five breaths, sleep, the three sounds of Om, and the Person of sixteen parts.',
 		href: `${SITE_URL}/prashnopanishad/`,
+	},
+	{
+		title: 'By whom?',
+		description:
+			'The Kena Upanishad told simply as an illustrated conversation between a student and a teacher: the ear of the ear, “I know and I do not know”, and the gods who could not name the wonder in front of them.',
+		href: `${SITE_URL}/kenopanishad/`,
 	},
 	{
 		title: 'momonaku: Tokyo Lines',

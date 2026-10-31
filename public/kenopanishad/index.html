@@ -1,0 +1,997 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>By whom?</title>
+<meta name="description" content="The Kena Upanishad told simply as an illustrated conversation between a student and a teacher, with the story of the gods and the wonder they could not name.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Mukta:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;700&display=swap">
+<style>
+/* Layout: a picture-book stage pinned above one narrow chat column. The student sits on the left, the teacher under his banyan on the right;
+   in the story of the wonder, the gods, the yaksha and Uma appear between them. The scene and the speaker follow the conversation. */
+:root{
+  --bg:#F1EFE6; --surface:#FAF8F1; --ink:#2A2A22; --muted:#626255; --line:#D6D2C2;
+  --sh:#E2ECD4; --sh-ink:#22301A; --ri:#F7E2C6; --ri-ink:#3F2410; --gd:#DCE5EE; --gd-ink:#1C2833;
+  --gold:#94640F; --gold-soft:#EFD9A6; --deep:#E7E6DA;
+  --sky1:#DCE8DA; --sky2:#F6EBD3; --dawn1:#F2C9A0; --dawn2:#FBE8CF; --night1:#2E3A5C; --night2:#6A6488; --gl1:#F4D98E; --gl2:#FBF0D6;
+  --grass:#C2CB9E; --grass2:#A9B585; --leaf:#9AB27E; --leaf2:#82A068; --trunk:#7A5530;
+  --f-display:"Marcellus","Noto Serif Kannada","Cormorant Garamond",Georgia,serif;
+  --f-body:"Gentium Book Plus","Gentium Plus","Noto Serif Kannada",Georgia,"Times New Roman",serif;
+  --f-ui:"Mukta","Noto Sans Kannada","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8; --gd:#1F2B36; --gd-ink:#DCE7F0;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --dawn1:#4A3A50; --dawn2:#86605E; --night1:#0D1324; --night2:#2A2840; --gl1:#4A3B1E; --gl2:#2E2A1C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131912; --surface:#1A2219; --ink:#ECE8DA; --muted:#A9AD9C; --line:#2F3B2E;
+  --sh:#26331F; --sh-ink:#E3EDD5; --ri:#3E2C1A; --ri-ink:#F6E3C8; --gd:#1F2B36; --gd-ink:#DCE7F0;
+  --gold:#E2B45E; --gold-soft:#55421F; --deep:#1F281E;
+  --sky1:#1E2B22; --sky2:#38392A; --dawn1:#4A3A50; --dawn2:#86605E; --night1:#0D1324; --night2:#2A2840; --gl1:#4A3B1E; --gl2:#2E2A1C;
+  --grass:#2A3626; --grass2:#22301F; --leaf:#34503A; --leaf2:#2A4230; --trunk:#5A3F26; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.1rem;line-height:1.55}
+.wrap{max-width:40rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;line-height:1.2;font-size:clamp(2rem,6vw,2.9rem)}
+p{margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+header{padding-block:2.2rem 1rem}
+header .wrap{display:grid;gap:.9rem}
+.cast{display:flex;gap:1.4rem;flex-wrap:wrap}
+.who{display:flex;gap:.6rem;align-items:center;font-family:var(--f-ui);font-size:.95rem;color:var(--muted)}
+.who b{color:var(--ink);font-weight:600;display:block}
+.label{font-family:var(--f-ui);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted)}
+.av{width:44px;height:44px;flex:none;border-radius:50%;display:block}
+
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;padding-block:.45rem;font-family:var(--f-ui);font-size:.88rem}
+.seg{display:flex;border:1px solid var(--line);border-radius:99px;padding:2px}
+.seg button{border:0;background:none;color:var(--muted);font:inherit;padding:.15rem .75rem;border-radius:99px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* stage */
+.stage-wrap{position:sticky;z-index:5;top:calc(var(--tools-h,48px) + env(safe-area-inset-top,0px));background:var(--bg);padding-block:.6rem .4rem}
+body.no-stage .stage-wrap{display:none}
+.stage{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.stage svg{display:block;width:100%;height:auto}
+.caption{position:absolute;left:12px;top:10px;font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:color-mix(in srgb,var(--bg) 75%,transparent);padding:.1rem .6rem;border-radius:99px}
+
+#st .sky1{stop-color:var(--sky1);transition:stop-color 1.2s}
+#st .sky2{stop-color:var(--sky2);transition:stop-color 1.2s}
+#st[data-scene="ask"] .sky1, #st[data-scene="close"] .sky1{stop-color:var(--dawn1)}
+#st[data-scene="ask"] .sky2, #st[data-scene="close"] .sky2{stop-color:var(--dawn2)}
+#st[data-scene="seer"] .sky1, #st[data-scene="lightning"] .sky1{stop-color:var(--night1)}
+#st[data-scene="seer"] .sky2, #st[data-scene="lightning"] .sky2{stop-color:var(--night2)}
+#st[data-scene="yaksha"] .sky1, #st[data-scene="agni"] .sky1, #st[data-scene="vayu"] .sky1, #st[data-scene="indra"] .sky1, #st[data-scene="uma"] .sky1{stop-color:var(--gl1)}
+#st[data-scene="yaksha"] .sky2, #st[data-scene="agni"] .sky2, #st[data-scene="vayu"] .sky2, #st[data-scene="indra"] .sky2, #st[data-scene="uma"] .sky2{stop-color:var(--gl2)}
+
+.fade{transition:opacity .9s ease}
+.prop{opacity:0}
+#st[data-scene="ask"] .sc-ask, #st[data-scene="beyond"] .sc-beyond, #st[data-scene="seer"] .sc-seer,
+#st[data-scene="yaksha"] .sc-yaksha, #st[data-scene="agni"] .sc-agni, #st[data-scene="vayu"] .sc-vayu,
+#st[data-scene="indra"] .sc-indra, #st[data-scene="uma"] .sc-uma,
+#st[data-scene="lightning"] .sc-lightning, #st[data-scene="close"] .sc-close{opacity:1}
+
+/* speaker: whoever is talking gets the light and a small bob; the teacher talks with his hands */
+.spot{opacity:0;transition:opacity .6s}
+#st[data-who="p"] #guru .spot{opacity:.75}
+#st[data-who="s"] #stu1 .spot, #st[data-who="f"] #g-f .spot, #st[data-who="w"] #g-w .spot, #st[data-who="i"] #g-i .spot,
+#st[data-who="y"] #yk .spot, #st[data-who="u"] #uma .spot{opacity:1}
+#st[data-who="x"] .deva .spot{opacity:.6}
+.arms-talk{opacity:0;transition:opacity .5s}.arms-listen{opacity:1;transition:opacity .5s}
+#st[data-who="p"] #guru .arms-talk{opacity:1}
+#st[data-who="p"] #guru .arms-listen{opacity:0}
+.m-open{opacity:0}
+.head,.breathe,.fig,.eyes,.rays,.halo,.flame{transform-box:fill-box}
+.head{transform-origin:50% 100%}
+.fig{transform-origin:50% 100%}
+#st.talking[data-who="p"] #guru .m-open{animation:mouth .34s steps(1) infinite}
+#st.talking[data-who="p"] #guru .head{animation:nod 2.2s ease-in-out}
+#st.talking[data-who="s"] #stu1 .fig, #st.talking[data-who="f"] #g-f .fig, #st.talking[data-who="w"] #g-w .fig,
+#st.talking[data-who="i"] #g-i .fig, #st.talking[data-who="x"] .deva .fig, #st.talking[data-who="u"] #uma .fig{animation:bob 2.2s ease-in-out}
+@keyframes mouth{0%{opacity:1}50%{opacity:0}}
+@keyframes nod{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg) translateY(-1px)}65%{transform:rotate(2deg)}}
+@keyframes bob{0%,100%{transform:none}30%{transform:translateY(-4px) rotate(-2deg)}65%{transform:rotate(1.5deg)}}
+
+/* idle life */
+.breathe{transform-origin:50% 100%;animation:breathe 4.5s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1,1.018)}}
+.eyes{transform-origin:center;animation:blink 5.5s infinite}
+#guru .eyes{animation-delay:-2.3s}
+@keyframes blink{0%,95%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.flame{transform-origin:50% 100%;animation:flick 2.4s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1,1)}40%{transform:scale(.92,1.08)}70%{transform:scale(1.05,.96)}}
+.halo{transform-origin:center;animation:halo 6s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.08);opacity:.6}}
+.rays{transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{opacity:.45}}
+.twinkle{animation:tw 4s ease-in-out infinite}.twinkle:nth-child(2n){animation-delay:-1.4s}.twinkle:nth-child(3n){animation-delay:-2.6s}
+@keyframes tw{50%{opacity:.3}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(1.2deg)}}
+.flow{stroke-dasharray:6 10;animation:flow 1.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-16}}
+/* lightning: a flash, a quick flicker, then dark again */
+.bolt{animation:bolt 3.4s infinite}
+@keyframes bolt{0%,8%,15%,100%{opacity:0}9%,10.5%,13%{opacity:1}11.5%{opacity:.25}}
+.flash{opacity:0;animation:flash 3.4s infinite}
+@keyframes flash{0%,8%,16%,100%{opacity:0}9%{opacity:.4}11.5%{opacity:.05}13%{opacity:.2}}
+
+/* chat */
+.chat{display:flex;flex-direction:column;gap:.55rem;padding-block:1rem 2rem}
+.row{display:flex;gap:.55rem;align-items:flex-end;max-width:88%;align-self:flex-start}
+.row.rt{align-self:flex-end;flex-direction:row-reverse}
+.row .av{width:36px;height:36px}
+.row.cont .av{visibility:hidden}
+.bub{padding:.6rem .9rem;border-radius:18px;min-width:0;background:var(--sh);color:var(--sh-ink);border-bottom-left-radius:6px}
+.row.rt .bub{background:var(--ri);color:var(--ri-ink);border-bottom-left-radius:18px;border-bottom-right-radius:6px}
+.row.f .bub, .row.w .bub, .row.i .bub, .row.x .bub{background:var(--gd);color:var(--gd-ink)}
+.row.y .bub, .row.u .bub{background:var(--gold-soft);color:var(--ink)}
+.name{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.06em;color:var(--muted);margin-bottom:.1rem}
+.row.rt .name{text-align:right}
+.row.cont .name{display:none}
+.verse-ref{font-family:var(--f-ui);font-size:.72rem;color:var(--gold);letter-spacing:.06em;margin-top:.25rem;display:block}
+.row.rt .verse-ref{text-align:right}
+.tell{align-self:center;text-align:center;max-width:34rem;color:var(--muted);font-style:italic;padding:.4rem .5rem;font-size:1.02rem}
+.div{align-self:stretch;display:flex;align-items:center;gap:.8rem;margin-block:1.4rem .4rem;font-family:var(--f-display);font-size:1.25rem;color:var(--ink)}
+.div::before,.div::after{content:"";flex:1;border-top:1px solid var(--line)}
+.think{align-self:center;max-width:32rem;background:var(--surface);border:1px dashed var(--gold);border-radius:14px;padding:.7rem 1rem;font-size:1rem}
+.think b{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.15rem}
+body.slow .chat > .later{display:none}
+body.slow .chat{padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px))}
+body.slow .chat > *{scroll-margin-bottom:calc(7rem + env(safe-area-inset-bottom,0px))}
+/* while reading one at a time, the notes at the bottom wait until the conversation is over, so they never sit between the reader and the Continue button */
+body.slow:not(.done) footer{display:none}
+body.slow.done .chat{padding-bottom:2rem}
+body.slow .chat, body.slow .stage{cursor:pointer}
+.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:7;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding-top:1.4rem;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to bottom,transparent,var(--bg) 45%);pointer-events:none}
+.nextbar[hidden]{display:none}
+.next{pointer-events:auto;font-family:var(--f-ui);font-size:1.08rem;font-weight:600;background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:.8rem 1.9rem;min-width:min(16rem,100%);display:flex;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.next .arr{display:inline-block;font-size:1.3em;line-height:1;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.next.hint{animation:ring 2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 0 color-mix(in srgb,var(--gold) 70%,transparent)}70%,100%{box-shadow:0 4px 16px rgba(0,0,0,.18),0 0 0 16px transparent}}
+.tap-hint{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.tap-hint[hidden]{display:none}
+/* "someone is about to speak" bubble at the end of the revealed chat */
+.typing{display:flex;gap:.55rem;align-items:flex-end;opacity:.85}
+.typing[hidden]{display:none}
+.typing.mid{align-self:center}
+.typing.mid .av{display:none}
+.typing.mid .bub{background:var(--surface);border:1px dashed var(--line);color:var(--muted);border-radius:18px}
+.typing .bub{padding:.8rem 1rem}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:.9;transform:translateY(-3px)}}
+.prog{height:3px}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s ease}
+body:not(.slow) .prog{display:none}
+.pop{animation:pop .4s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* going deeper cards */
+.deep{align-self:stretch;background:var(--deep);border-radius:16px;padding:1.1rem clamp(.9rem,3.5vw,1.6rem);display:grid;gap:.85rem;margin-block:.4rem}
+.deep .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.deep h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem;margin:0;line-height:1.25}
+.deep blockquote{margin:0;font-family:var(--f-display);font-size:clamp(1.12rem,2.6vw,1.3rem);line-height:1.5}
+.deep .vr{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.15rem}
+.deep p{font-size:1.02rem;line-height:1.62}
+body.story .deep{display:none}
+
+/* widgets: the powers and the awareness behind them, and the blade of grass */
+.widget{align-self:stretch;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;display:grid;gap:.8rem;margin-block:.4rem}
+.widget .dl{font-family:var(--f-ui);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.widget svg{width:100%;height:auto;display:block}
+.widget .hit{cursor:pointer}
+.widget .hit:hover .shape,.widget .hit:focus .shape,.widget .hit.on .shape{filter:drop-shadow(0 0 6px var(--gold))}
+.widget .lab{font-family:var(--f-ui);font-size:22px;fill:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips button{font-family:var(--f-ui);font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:.2rem .8rem;cursor:pointer}
+.chips button.on{border-color:var(--gold);background:var(--gold-soft)}
+.info{min-height:5rem;font-size:1.02rem}
+.info h4{font-family:var(--f-display);font-weight:400;font-size:1.2rem;margin:0 0 .2rem}
+.info .means{font-family:var(--f-ui);color:var(--gold);font-size:.92rem;letter-spacing:.04em}
+.calm-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:.7rem}
+.calm-row p{font-size:.98rem;color:var(--muted);max-width:24rem}
+.calm-row .seg{font-family:var(--f-ui);font-size:.9rem}
+
+.sensvg .body{fill:var(--gold-soft);stroke:var(--line);stroke-width:1.5}
+.sensvg .inner,.sensvg .ray,.sensvg .out{transition:opacity .8s}
+.sensvg .ray{stroke-dasharray:3 6;animation:flow 1.4s linear infinite}
+.sensvg.off .inner{opacity:.06}
+.sensvg.off .ray{opacity:0}
+.sensvg.off .out{opacity:.12}
+
+/* the chosen god walks up to the grass; Agni's fire and Vayu's wind come and go; when Indra comes near, the wonder gives way to Uma */
+.grsvg .mover{transition:transform 1.1s ease-in-out,opacity .6s}
+.grsvg[class*="gs-"] .mover{opacity:.35}
+.grsvg.gs-agni .ga,.grsvg.gs-vayu .gv,.grsvg.gs-indra .gi{opacity:1}
+.grsvg.gs-agni .ga{transform:translateX(92px)}
+.grsvg.gs-vayu .gv{transform:translateX(150px)}
+.grsvg.gs-indra .gi{transform:translateX(242px)}
+.grsvg .burn,.grsvg .blow{opacity:0;transition:opacity .4s}
+.grsvg.gs-agni .burn{opacity:1;transition-delay:1s}
+.grsvg.gs-vayu .blow{opacity:1;transition-delay:1s}
+.grsvg .blade{transform-box:fill-box;transform-origin:50% 100%}
+.grsvg.gs-vayu .blade{animation:bend 1.2s ease-in-out 1s 3}
+@keyframes bend{50%{transform:rotate(4deg)}}
+.grsvg .yk{transition:opacity 1s .9s}
+.grsvg.gs-indra .yk{opacity:0}
+.grsvg .uma{opacity:0;transition:opacity 1s}
+.grsvg.gs-indra .uma{opacity:1;transition-delay:1.8s}
+
+/* Kannada needs taller lines for its vowel signs, and letter-spacing breaks conjuncts */
+html[lang="kn"] body{line-height:1.75}
+html[lang="kn"] h1{line-height:1.4}
+html[lang="kn"] *{letter-spacing:0!important}
+html[lang="kn"] .tell{font-style:normal}
+footer{border-top:1px solid var(--line);padding-block:1.6rem 5rem;color:var(--muted);font-size:.95rem}
+footer p + p{margin-top:.6rem}
+@media (max-width:480px){.tools .wrap{font-size:.8rem}.seg button{padding:.15rem .55rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- shared by the stage and the widgets; kept out of the stage so the widgets still glow when pictures are off -->
+    <radialGradient id="warm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE3A0" stop-opacity=".95"/><stop offset="1" stop-color="#FFE3A0" stop-opacity="0"/></radialGradient>
+    <clipPath id="avclip"><circle cx="22" cy="22" r="22"/></clipPath>
+    <!-- the student, seated and facing right, drawn round the middle of his mat at (0,0) -->
+    <g id="stu">
+      <ellipse cx="0" cy="0" rx="36" ry="4.5" fill="#C9B26F"/>
+      <path d="M-34 -1 C-35 -17 -18 -24 0 -23 C18 -24 35 -17 34 -1Z" fill="#F1ECE0"/>
+      <ellipse cx="-24" cy="-4" rx="8" ry="3.5" style="fill:var(--skin)"/><ellipse cx="25" cy="-4" rx="8" ry="3.5" style="fill:var(--skin)"/>
+      <path d="M-16 -19 C-17 -43 -12 -58 0 -59 C12 -58 17 -43 16 -19Z" style="fill:var(--skin)"/>
+      <path d="M-15 -26 C-5 -21 6 -21 16 -26 L16 -17 C6 -13 -5 -13 -15 -17Z" fill="#F1ECE0"/>
+      <path d="M-15 -25 C-5 -20 6 -20 16 -25" stroke="#C9963C" stroke-width="2" fill="none"/>
+      <path d="M-13 -55 C-4 -48 8 -34 16 -24 L16 -32 C8 -42 0 -50 -6 -57Z" style="fill:var(--cloth)"/>
+      <path d="M-13 -50 C-20 -36 -10 -28 2 -31 M13 -50 C20 -36 10 -28 2 -31" style="fill:none;stroke:var(--skin);stroke-width:7;stroke-linecap:round"/>
+      <rect x="-4" y="-66" width="9" height="10" style="fill:var(--skin)"/>
+      <circle cx="2" cy="-74" r="13" style="fill:var(--skin)"/>
+      <ellipse cx="-9" cy="-73" rx="2.6" ry="3.8" style="fill:var(--skin)"/>
+      <path d="M-11 -73 C-13 -86 -3 -90 3 -90 C11 -90 16 -84 15 -77 C10 -82 -2 -82 -11 -73Z" style="fill:var(--hair)"/>
+      <circle cx="-7" cy="-87" r="4.5" style="fill:var(--hair)"/>
+      <g class="eyes"><ellipse cx="8" cy="-75" rx="1.4" ry="1.8" fill="#1E1612"/><ellipse cx="13" cy="-75" rx="1.3" ry="1.7" fill="#1E1612"/></g>
+      <path d="M8 -68.5 Q10.5 -67 13 -68.5" stroke="#5A2E22" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="10.5" cy="-81" r="1" fill="#C0392B"/>
+    </g>
+    <!-- the same student as a chat portrait, in a 44 × 44 box -->
+    <g id="stu-av">
+      <path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#F1ECE0"/>
+      <path d="M13 37L31 44H23L11 39Z" style="fill:var(--cloth)"/>
+      <circle cx="22" cy="24" r="11" style="fill:var(--skin)"/>
+      <path d="M11 23C10 14 17 11 22 11C29 11 33 15 33 20C28 16 20 16 14 18C12 20 11 21 11 23Z" style="fill:var(--hair)"/>
+      <circle cx="15" cy="11" r="4.5" style="fill:var(--hair)"/>
+      <ellipse cx="24" cy="23" rx="1.3" ry="1.6" fill="#1E1612"/><ellipse cx="29" cy="23" rx="1.2" ry="1.5" fill="#1E1612"/>
+      <path d="M24 28.5Q26.5 27 29 28.5" stroke="#5A2E22" stroke-width="1.4" fill="none"/>
+      <circle cx="26.5" cy="18.5" r="1" fill="#C0392B"/>
+    </g>
+    <!-- a god, standing and facing us, feet at (0,0). Each sets his own --skin, --cloth, --sash and --crown. -->
+    <g id="deva">
+      <ellipse cx="0" cy="0" rx="18" ry="3" fill="#000000" opacity=".12"/>
+      <path d="M-11 0 L-9 -32 H9 L11 0Z" style="fill:var(--cloth)"/>
+      <path d="M-10 -2 H10" stroke="#E2B04E" stroke-width="2"/>
+      <path d="M-12 -30 C-13 -48 -9 -56 0 -56 C9 -56 13 -48 12 -30Z" style="fill:var(--skin)"/>
+      <path d="M-11 -53 C-4 -46 6 -38 12 -32" style="fill:none;stroke:var(--sash);stroke-width:4"/>
+      <path d="M-11 -52 C-18 -44 -19 -36 -17 -28 M11 -52 C18 -44 19 -36 17 -28" style="fill:none;stroke:var(--skin);stroke-width:5.5;stroke-linecap:round"/>
+      <path d="M-7 -54 Q0 -48 7 -54" stroke="#E2B04E" stroke-width="1.6" fill="none"/>
+      <rect x="-3" y="-61" width="6" height="7" style="fill:var(--skin)"/>
+      <circle cx="0" cy="-68" r="9" style="fill:var(--skin)"/>
+      <path d="M-8 -73 L-7 -82 L-3.5 -77 L0 -85 L3.5 -77 L7 -82 L8 -73Z" style="fill:var(--crown)"/>
+      <g class="eyes"><ellipse cx="-3" cy="-68" rx="1" ry="1.3" fill="#1E1612"/><ellipse cx="3" cy="-68" rx="1" ry="1.3" fill="#1E1612"/></g>
+      <path d="M-2 -63.5 Q0 -62.3 2 -63.5" stroke="#5A2E22" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <circle cx="-9" cy="-66" r="1.3" fill="#E2B04E"/><circle cx="9" cy="-66" r="1.3" fill="#E2B04E"/>
+    </g>
+    <!-- Agni with a flame for a crown, Vayu with the wind about him, Indra with his thunderbolt -->
+    <g id="agni"><use href="#deva" style="--skin:#C8502E;--cloth:#E2A33A;--sash:#F5BE4F;--crown:#F08A3C"/>
+      <path class="flame" d="M-7 -78 C-10 -88 -4 -94 -2 -102 C0 -96 4 -94 3 -88 C6 -92 8 -90 7 -84 C10 -86 9 -80 7 -77Z" fill="#F5BE4F" opacity=".9"/></g>
+    <g id="vayu"><use href="#deva" style="--skin:#7F98AC;--cloth:#E6EEF2;--sash:#9FB8C8;--crown:#C9D6DE"/>
+      <path class="flow" d="M-30 -44 q8 -5 16 0 M14 -68 q8 -5 16 0 M16 -22 q8 -5 16 0" style="fill:none;stroke:#9FB8C8;stroke-width:2;stroke-linecap:round"/></g>
+    <g id="indra"><use href="#deva" style="--skin:#C9945C;--cloth:#3F5FA0;--sash:#E2B04E;--crown:#E2B04E"/>
+      <path d="M17 -40 V-20 M13 -40 L17 -36 L21 -40 M13 -20 L17 -24 L21 -20" style="fill:none;stroke:#C9963C;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"/></g>
+    <!-- Uma, standing, feet at (0,0): a red sari with a gold border, long hair, a crown and a lotus -->
+    <g id="devi">
+      <ellipse cx="0" cy="0" rx="20" ry="3" fill="#000000" opacity=".12"/>
+      <path d="M-10 -64 C-14 -50 -13 -38 -10 -30 L10 -30 C13 -38 14 -50 10 -64Z" fill="#1E1612"/>
+      <path d="M-15 0 C-13 -14 -11 -26 -10 -32 H10 C11 -26 13 -14 15 0Z" fill="#B8323E"/>
+      <path d="M-15 -1.5 H15" stroke="#E2B04E" stroke-width="2.5"/>
+      <path d="M-10 -31 C-11 -46 -8 -54 0 -54 C8 -54 11 -46 10 -31Z" fill="#B07A55"/>
+      <path d="M-9 -52 C-2 -44 6 -36 10 -31 L10 -38 C5 -44 0 -50 -5 -54Z" fill="#B8323E"/>
+      <path d="M-9 -52 C-2 -44 6 -36 10 -31" stroke="#E2B04E" stroke-width="1.4" fill="none"/>
+      <path d="M-9 -50 C-15 -42 -15 -36 -10 -32 M9 -50 C15 -45 16 -42 14 -40" stroke="#B07A55" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g transform="translate(15 -42)"><path d="M0 0 C-5 -2 -6 -8 -2 -10 C-1 -6 1 -6 2 -10 C6 -8 5 -2 0 0Z" fill="#E9A3A8"/><path d="M0 0 V8" stroke="#5E8A40" stroke-width="1.4"/></g>
+      <path d="M-6 -53 Q0 -47 6 -53" stroke="#E2B04E" stroke-width="1.6" fill="none"/>
+      <rect x="-3" y="-60" width="6" height="7" fill="#B07A55"/>
+      <circle cx="0" cy="-66" r="8.5" fill="#B07A55"/>
+      <path d="M-9 -66 C-9 -74 -4 -76 0 -76 C4 -76 9 -74 9 -66 C5 -71 -5 -71 -9 -66Z" fill="#1E1612"/>
+      <path d="M-7 -73 L-5.5 -80 L-2.5 -76 L0 -82 L2.5 -76 L5.5 -80 L7 -73Z" fill="#E2B04E"/>
+      <g class="eyes"><ellipse cx="-3" cy="-66" rx="1" ry="1.2" fill="#1E1612"/><ellipse cx="3" cy="-66" rx="1" ry="1.2" fill="#1E1612"/></g>
+      <path d="M-2 -61.8 Q0 -60.6 2 -61.8" stroke="#8C3A2A" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <circle cx="0" cy="-70" r=".9" fill="#C0392B"/>
+      <circle cx="-8.5" cy="-64" r="1.3" fill="#E2B04E"/><circle cx="8.5" cy="-64" r="1.3" fill="#E2B04E"/>
+    </g>
+    <!-- one blade of grass, rooted at (0,0) -->
+    <path id="grass" d="M-2 0 C-2 -14 2 -26 9 -38 C4 -25 2 -13 2 0Z" fill="#6E9A3E"/>
+    <g id="wood"><path d="M-14 4 L12 -4 M-15 0 L14 0 M-12 -5 L13 5" stroke="#7A5530" stroke-width="3" stroke-linecap="round"/><path d="M0 -6 V6" stroke="#C9A35F" stroke-width="2.4"/></g>
+    <!-- a god as a chat portrait -->
+    <g id="deva-av">
+      <path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" style="fill:var(--cloth)"/>
+      <path d="M14 37 Q22 42 30 37" stroke="#E2B04E" stroke-width="1.6" fill="none"/>
+      <rect x="19" y="31" width="6" height="5" style="fill:var(--skin)"/>
+      <circle cx="22" cy="24" r="10" style="fill:var(--skin)"/>
+      <path d="M13 18L14.5 9L18 14L22 6L26 14L29.5 9L31 18Z" style="fill:var(--crown)"/>
+      <ellipse cx="18.5" cy="24" rx="1.2" ry="1.5" fill="#1E1612"/><ellipse cx="25.5" cy="24" rx="1.2" ry="1.5" fill="#1E1612"/>
+      <path d="M19.5 28.5Q22 30 24.5 28.5" stroke="#5A2E22" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="12.2" cy="26.5" r="1.5" fill="#E2B04E"/><circle cx="31.8" cy="26.5" r="1.5" fill="#E2B04E"/>
+    </g>
+    <symbol id="av-s" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#C9DDB8"/><use href="#stu-av" style="--skin:#A86F45;--hair:#2A1E1A;--cloth:#5E7FA0"/></g></symbol>
+    <symbol id="av-p" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#EBC895"/><path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#C8692E"/><circle cx="21" cy="22" r="10" fill="#B07A55"/><ellipse cx="22" cy="9" rx="6" ry="6.5" fill="#7A7368"/><path d="M11 20C11 13 16 11 21 11C27 11 31 14 31 20C26 16 16 16 11 20Z" fill="#7A7368"/><path d="M11 24C11 34 17 41 21 41C25 41 31 34 31 24C27 30 15 30 11 24Z" fill="#8E877C"/><path d="M14 22Q16 23.5 18 22M21 22Q23 23.5 25 22" stroke="#2A1E1A" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M13 19L18 19.5M21 19.5L26 19" stroke="#7A7368" stroke-width="1.4"/><path d="M16 15.5H25M16 17H25" stroke="#F3F0EA" stroke-width=".9"/><circle cx="20.5" cy="16.3" r=".9" fill="#C0392B"/></symbol>
+    <symbol id="av-f" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#F6C79A"/><path d="M15 13C13 8 17 4 18 1C20 5 22 3 22 0C26 4 30 7 28 13Z" fill="#F5BE4F"/><use href="#deva-av" style="--skin:#C8502E;--cloth:#E2A33A;--crown:#F08A3C"/></g></symbol>
+    <symbol id="av-w" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#CFE3EC"/><path d="M3 18q4-3 8 0M33 14q4-3 8 0M2 31q5-3 9 0" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round"/><use href="#deva-av" style="--skin:#7F98AC;--cloth:#E6EEF2;--crown:#C9D6DE"/></g></symbol>
+    <symbol id="av-i" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#F3E2A8"/><use href="#deva-av" style="--skin:#C9945C;--cloth:#3F5FA0;--crown:#E2B04E"/></g></symbol>
+    <symbol id="av-x" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#DCE4EC"/>
+      <g transform="translate(-2 8) scale(.6)"><use href="#deva-av" style="--skin:#C8502E;--cloth:#E2A33A;--crown:#F08A3C"/></g>
+      <g transform="translate(16 8) scale(.6)"><use href="#deva-av" style="--skin:#7F98AC;--cloth:#E6EEF2;--crown:#C9D6DE"/></g>
+      <g transform="translate(7 14) scale(.62)"><use href="#deva-av" style="--skin:#C9945C;--cloth:#3F5FA0;--crown:#E2B04E"/></g></g></symbol>
+    <symbol id="av-y" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#3A3020"/><circle cx="22" cy="22" r="20" fill="url(#warm)"/>
+      <path d="M22 4V9M22 35V40M4 22H9M35 22H40M9.5 9.5L13 13M34.5 9.5L31 13M9.5 34.5L13 31M34.5 34.5L31 31" stroke="#F2C94C" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="22" cy="22" rx="7" ry="10" fill="#FFF3C4"/><ellipse cx="22" cy="22" rx="3.5" ry="5.5" fill="#FFFFFF"/></g></symbol>
+    <symbol id="av-u" viewBox="0 0 44 44"><g clip-path="url(#avclip)"><circle cx="22" cy="22" r="22" fill="#F2D3D8"/>
+      <path d="M11 26C10 15 15 11 22 11C29 11 34 15 33 26C33 32 34 36 36 40H8C10 36 11 32 11 26Z" fill="#1E1612"/>
+      <path d="M8 44C9 37 14 35 22 35S35 37 36 44Z" fill="#B8323E"/><path d="M14 37 Q22 42 30 37" stroke="#E2B04E" stroke-width="1.6" fill="none"/>
+      <rect x="19" y="31" width="6" height="5" fill="#B07A55"/><circle cx="22" cy="24" r="9.5" fill="#B07A55"/>
+      <path d="M12.5 22C13 15 17 13 22 13C27 13 31 15 31.5 22C28 17 16 17 12.5 22Z" fill="#1E1612"/>
+      <path d="M15 14L16 8L19 11L22 5L25 11L28 8L29 14Z" fill="#E2B04E"/>
+      <ellipse cx="18.5" cy="24" rx="1.1" ry="1.4" fill="#1E1612"/><ellipse cx="25.5" cy="24" rx="1.1" ry="1.4" fill="#1E1612"/>
+      <path d="M19.5 28.3Q22 29.8 24.5 28.3" stroke="#8C3A2A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="22" cy="19.5" r="1.1" fill="#C0392B"/><circle cx="12.6" cy="26.5" r="1.4" fill="#E2B04E"/><circle cx="31.4" cy="26.5" r="1.4" fill="#E2B04E"/></g></symbol>
+  </defs>
+</svg>
+
+<header><div class="wrap">
+  <span class="label" data-i18n="label">From the Kena Upanishad</span>
+  <h1 data-i18n="h1">By whom?</h1>
+  <p class="lede" data-i18n="lede">A student asks his teacher what moves the mind, the breath and the senses. The answer points to something none of them can reach. Then the teacher tells a story about the gods, a blade of grass and a wonder none of them could name. This is the Kena Upanishad, told simply.</p>
+  <div class="cast">
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-s"/></svg><span><b data-i18n="stu">The student</b><span data-i18n="stu-d">who wants to know what moves the mind</span></span></div>
+    <div class="who"><svg class="av" aria-hidden="true"><use href="#av-p"/></svg><span><b data-i18n="guru">The teacher</b><span data-i18n="guru-d">a forest teacher the Upanishad does not name</span></span></div>
+  </div>
+</div></header>
+
+<div class="tools" id="tools"><div class="wrap">
+  <div class="seg" role="group" aria-label="How to read" data-i18n-aria="how">
+    <button id="r-all" aria-pressed="false" data-i18n="all">Read all</button>
+    <button id="r-slow" aria-pressed="true" data-i18n="slow">One at a time</button>
+  </div>
+  <div class="seg" role="group" aria-label="Depth" data-i18n-aria="depth"><button id="d-deep" aria-pressed="true" data-i18n="deep">Going deeper</button><button id="d-story" aria-pressed="false" data-i18n="story">Story only</button></div>
+  <div class="seg" role="group" aria-label="Pictures" data-i18n-aria="pics">
+    <button id="s-on" aria-pressed="true" data-i18n="pics">Pictures</button>
+    <button id="s-off" aria-pressed="false" data-i18n="off">Off</button>
+  </div>
+  <div class="seg" role="group" aria-label="Language">
+    <button id="l-en" aria-pressed="true" lang="en">English</button>
+    <button id="l-kn" aria-pressed="false" lang="kn">ಕನ್ನಡ</button>
+  </div>
+</div><div class="prog" aria-hidden="true"><i id="prog"></i></div></div>
+
+<div class="stage-wrap"><div class="wrap"><div class="stage">
+<svg id="st" viewBox="0 0 800 260" data-scene="ask" data-who="" role="img" aria-label="A student seated before his teacher under a banyan tree" data-i18n-aria="stage">
+  <defs>
+    <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
+    <radialGradient id="spotg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F6D27A" stop-opacity=".9"/><stop offset="1" stop-color="#F6D27A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="260" fill="url(#skyg)"/>
+
+  <!-- night: stars, for the seer and the lightning -->
+  <g class="prop sc-seer sc-lightning fade" fill="#FFFFFF">
+    <circle class="twinkle" cx="60" cy="30" r="1.4"/><circle class="twinkle" cx="122" cy="62" r="1.1"/><circle class="twinkle" cx="200" cy="24" r="1.3"/>
+    <circle class="twinkle" cx="262" cy="72" r="1.2"/><circle class="twinkle" cx="330" cy="20" r="1.4"/><circle class="twinkle" cx="392" cy="54" r="1.1"/>
+    <circle class="twinkle" cx="470" cy="26" r="1.3"/><circle class="twinkle" cx="548" cy="58" r="1.2"/><circle class="twinkle" cx="240" cy="122" r="1"/><circle class="twinkle" cx="92" cy="112" r="1.2"/>
+  </g>
+
+  <!-- lightning: the sky flashes and a bolt comes and goes -->
+  <g class="prop sc-lightning fade">
+    <rect class="flash" width="800" height="226" fill="#FFFFFF"/>
+    <path class="bolt" d="M446 16 L414 104 L438 104 L404 206 L470 88 L444 88 L470 16Z" fill="#FFF3C4" stroke="#F2C94C" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- the dawn sun, for the first question and the last -->
+  <g class="prop sc-close fade">
+    <circle cx="420" cy="214" r="74" fill="url(#warm)"/>
+    <g class="glow" style="stroke:#F2B544;stroke-width:3;stroke-linecap:round;opacity:.7"><path d="M420 170V154M386 184L375 173M454 184L465 173M372 212H356M468 212H484"/></g>
+    <circle cx="420" cy="214" r="30" fill="#F5BE4F"/>
+  </g>
+
+  <!-- the teacher's tree: a banyan, with roots hanging from its branches -->
+  <path d="M706 232 C712 190 700 150 712 96 L734 96 C744 150 732 190 742 232Z" style="fill:var(--trunk)"/>
+  <path d="M716 120 C700 100 680 90 660 86 M730 110 C750 92 770 86 790 84" style="fill:none;stroke:var(--trunk);stroke-width:7;stroke-linecap:round"/>
+  <g style="fill:none;stroke:var(--trunk);stroke-width:2.5;stroke-linecap:round;opacity:.85"><path d="M666 90 V176 M680 94 V146 M772 90 V164 M786 88 V136"/></g>
+  <g class="sway">
+    <g style="fill:var(--leaf)"><circle cx="690" cy="58" r="56"/><circle cx="752" cy="48" r="52"/><circle cx="640" cy="44" r="40"/><circle cx="792" cy="92" r="40"/><circle cx="724" cy="16" r="46"/></g>
+    <g style="fill:var(--leaf2)"><circle cx="706" cy="36" r="28"/><circle cx="770" cy="70" r="24"/><circle cx="652" cy="70" r="18"/><circle cx="740" cy="88" r="16"/></g>
+    <g fill="#B8452E"><circle cx="656" cy="88" r="2.6"/><circle cx="716" cy="98" r="2.6"/><circle cx="772" cy="110" r="2.6"/><circle cx="628" cy="66" r="2.4"/><circle cx="688" cy="96" r="2.4"/></g>
+  </g>
+
+  <!-- the senses, each reaching toward a light it cannot reach -->
+  <g class="prop sc-beyond fade">
+    <circle cx="420" cy="128" r="46" fill="url(#warm)" class="glow"/>
+    <circle cx="420" cy="128" r="52" style="fill:none;stroke:#C9963C;stroke-width:1.6;stroke-dasharray:4 6"/>
+    <circle cx="420" cy="128" r="10" fill="#FFE08A"/>
+    <path class="flow" d="M343 128 H366 M366 74 L383 91 M420 50 V74 M474 74 L457 91 M497 128 H474" style="fill:none;stroke:var(--gold);stroke-width:2.4;stroke-linecap:round"/>
+    <path d="M331 116 C331 106 315 106 315 118 C315 126 323 128 321 136 C320 140 316 141 316 141 M325 116 C325 112 320 112 320 117" style="fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/>
+    <path d="M339 61 Q353 51 367 61 Q353 71 339 61Z" fill="#F3EAD2" stroke="#5A4A3A" stroke-width="1.6"/><circle cx="353" cy="61" r="4" fill="#3A2A20"/>
+    <path d="M408 40 a7 7 0 0 1 4 -12 a8 8 0 0 1 15 -2 a7 7 0 0 1 6 13 Z" fill="#F3EAD2" stroke="#5A4A3A" stroke-width="1.6"/>
+    <ellipse cx="482" cy="61" rx="6" ry="3.4" fill="#8C3A2A"/><path d="M492 55 q4 6 0 12 M498 51 q7 10 0 20" style="fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round"/>
+    <path d="M504 122 q6 -4 12 0 t12 0 M504 134 q6 -4 12 0 t12 0" style="fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round"/>
+  </g>
+
+  <!-- an eye that sees the moon and a tree, and cannot turn round to see itself -->
+  <g class="prop sc-seer fade">
+    <path d="M512 52a16 16 0 1 0 14 26a12.5 12.5 0 1 1 -14 -26z" fill="#F3EAD2"/>
+    <path d="M497 222 C498 210 496 200 499 190 L505 190 C507 200 505 210 507 222Z" style="fill:var(--trunk)"/><circle cx="502" cy="178" r="17" style="fill:var(--leaf2)"/>
+    <path d="M310 140 Q360 102 410 140 Q360 178 310 140Z" fill="#F3EAD2" stroke="#8C7A5A" stroke-width="2"/>
+    <circle cx="362" cy="140" r="15" fill="#6B4A2A"/><circle cx="362" cy="140" r="6.5" fill="#1E1612"/><circle cx="366" cy="136" r="2.5" fill="#FFFFFF"/>
+    <path class="flow" d="M414 134 L494 80 M414 146 L484 176" style="fill:none;stroke:#F2C94C;stroke-width:2"/>
+    <path d="M394 120 C416 70 338 58 330 100" style="fill:none;stroke:#F2C94C;stroke-width:2;stroke-dasharray:3 6;stroke-linecap:round"/>
+    <text x="320" y="124" font-size="26" fill="#F2C94C" style="font-family:var(--f-display)">?</text>
+  </g>
+
+  <!-- the wonder: a light the gods cannot name -->
+  <g id="yk" class="prop sc-yaksha sc-agni sc-vayu sc-indra fade">
+    <ellipse class="spot" cx="484" cy="122" rx="64" ry="76" fill="url(#spotg)"/>
+    <circle cx="484" cy="122" r="74" fill="url(#warm)" class="halo"/>
+    <g class="rays" style="stroke:#E2B04E;stroke-width:2.5;stroke-linecap:round"><path d="M484 68V58M484 176V186M430 122H420M538 122H548M446 84L439 77M522 84L529 77M446 160L439 167M522 160L529 167"/></g>
+    <ellipse cx="484" cy="122" rx="24" ry="36" fill="#FFF3C4"/><ellipse cx="484" cy="122" rx="12" ry="20" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Uma, where the wonder was -->
+  <g id="uma" class="prop sc-uma fade">
+    <ellipse class="spot" cx="484" cy="180" rx="50" ry="60" fill="url(#spotg)"/>
+    <circle cx="484" cy="170" r="66" fill="url(#warm)" class="glow"/>
+    <g transform="translate(484 228) scale(1.1)"><g class="fig"><g class="breathe"><use href="#devi"/></g></g></g>
+  </g>
+
+  <!-- ground -->
+  <path d="M0 226 H800 V260 H0Z" style="fill:var(--grass)"/>
+  <path d="M0 226 H800" style="stroke:var(--grass2);stroke-width:3"/>
+
+  <!-- the first question: the teacher's hut, and the student's firewood -->
+  <g class="prop sc-ask fade">
+    <path d="M360 232 V172 H472 V232Z" fill="#C9B07E"/>
+    <path d="M344 176 L416 118 L488 176Z" fill="#A88A4E"/>
+    <path d="M344 176 L416 118 L488 176 M366 160 L416 124 M388 168 L416 136 M466 160 L416 124 M444 168 L416 136" stroke="#8C7038" stroke-width="1.6" fill="none"/>
+    <path d="M402 232 V196 Q416 184 430 196 V232Z" fill="#5A4426"/>
+    <use href="#wood" x="228" y="246"/>
+  </g>
+
+  <!-- Agni's fire at the grass, and Vayu's wind across it; the blade itself does not move -->
+  <g class="prop sc-agni fade" transform="translate(432 228)">
+    <path class="flame" d="M-16 0 C-22 -12 -13 -21 -9 -32 C-5 -21 2 -19 -2 -9 C3 -16 7 -19 5 -28 C14 -18 16 -7 11 0Z" fill="#F08A3C"/>
+    <path class="flame" style="animation-delay:-1.1s" d="M-9 0 C-11 -7 -5 -12 -4 -18 C-2 -11 4 -9 2 -4 C5 -7 5 -10 5 -12 C9 -7 9 -3 7 0Z" fill="#F5BE4F"/>
+  </g>
+  <g class="prop sc-vayu fade" style="fill:none;stroke:var(--muted);stroke-width:2.4;stroke-linecap:round">
+    <path class="flow" d="M396 208 q14 -6 28 0 t28 0 M404 188 q14 -6 28 0 t20 0 M392 220 q14 -6 28 0 t28 0"/>
+  </g>
+  <g class="prop sc-agni sc-vayu fade"><use href="#grass" transform="translate(432 228) scale(1.3)"/></g>
+
+  <!-- ========== THE GODS: Indra, Vayu and Agni ========== -->
+  <g class="prop sc-yaksha sc-agni sc-vayu sc-indra sc-uma fade">
+    <g id="g-i" class="deva" transform="translate(292 228)"><ellipse class="spot" cx="0" cy="-48" rx="32" ry="56" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-1s"><use href="#indra"/></g></g></g>
+    <g id="g-w" class="deva" transform="translate(338 228)"><ellipse class="spot" cx="0" cy="-48" rx="32" ry="56" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-2s"><use href="#vayu"/></g></g></g>
+    <g id="g-f" class="deva" transform="translate(384 228)"><ellipse class="spot" cx="0" cy="-48" rx="32" ry="56" fill="url(#spotg)"/><g class="fig"><g class="breathe" style="animation-delay:-3s"><use href="#agni"/></g></g></g>
+  </g>
+
+  <!-- ========== THE STUDENT ========== -->
+  <g id="stu1" transform="translate(160 230)"><ellipse class="spot" cx="0" cy="-36" rx="54" ry="56" fill="url(#spotg)"/><g class="fig"><g class="breathe"><use href="#stu" style="--skin:#A86F45;--hair:#2A1E1A;--cloth:#5E7FA0"/></g></g></g>
+
+  <!-- ========== THE TEACHER ========== -->
+  <g id="guru" transform="translate(612 0)">
+    <ellipse class="spot" cx="-4" cy="226" rx="110" ry="42" fill="url(#spotg)"/>
+    <!-- deerskin -->
+    <path d="M-80 234 C-72 222 -50 220 0 222 C50 220 72 222 82 234 C60 239 -60 239 -80 234Z" fill="#B98A57"/>
+    <g fill="#F2E4C8" opacity=".8"><circle cx="-46" cy="229" r="2.5"/><circle cx="-30" cy="233" r="2"/><circle cx="34" cy="230" r="2.5"/><circle cx="54" cy="233" r="2"/></g>
+    <!-- water pot -->
+    <g transform="translate(88 0)">
+      <path d="M-14 210 C-18 230 18 230 14 210 Z" fill="#8A5A2B"/>
+      <rect x="-5" y="200" width="10" height="11" fill="#7A4E24"/>
+      <path d="M5 204 C18 198 22 186 14 182" stroke="#7A4E24" stroke-width="3" fill="none"/>
+    </g>
+    <g class="breathe">
+      <path d="M-64 230 C-66 204 -34 194 0 196 C34 194 66 204 64 230 Z" fill="#C8692E"/>
+      <path d="M-36 222 C-16 210 16 210 36 222" stroke="#A8541F" stroke-width="2" fill="none"/>
+      <ellipse cx="-46" cy="225" rx="11" ry="4.5" fill="#B07A55"/><ellipse cx="46" cy="225" rx="11" ry="4.5" fill="#B07A55"/>
+      <path d="M-30 202 C-32 164 -24 140 0 138 C24 140 32 164 30 202 Z" fill="#B07A55"/>
+      <path d="M30 146 C12 160 -10 182 -30 196 L-30 210 L32 210 L32 150 Z" fill="#C8692E"/>
+      <path d="M-14 146 Q2 180 16 146" stroke="#6B3A1E" stroke-width="3.2" stroke-dasharray=".1 4.2" stroke-linecap="round" fill="none"/>
+      <path d="M24 150 C36 172 40 192 40 206" stroke="#A06A46" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="40" cy="209" r="6" fill="#C08A63"/>
+      <g class="arms-listen">
+        <path d="M-24 150 C-38 170 -46 190 -46 206" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <circle cx="-47" cy="209" r="6" fill="#C08A63"/>
+      </g>
+      <g class="arms-talk">
+        <path d="M-24 150 C-44 162 -54 156 -60 140" stroke="#B07A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <ellipse cx="-61" cy="134" rx="6.5" ry="8.5" fill="#C08A63"/>
+        <circle cx="-64" cy="130" r="2.6" fill="none" stroke="#8C5A3A" stroke-width="1.4"/>
+        <path d="M-58 128 V122 M-61 127 V121" stroke="#C08A63" stroke-width="2.6" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g class="head">
+      <rect x="-9" y="124" width="14" height="18" fill="#A06A46"/>
+      <circle cx="-4" cy="106" r="22" fill="#B07A55"/>
+      <ellipse cx="13" cy="108" rx="4.5" ry="6.5" fill="#A06A46"/>
+      <ellipse cx="2" cy="76" rx="11" ry="12" fill="#7A7368"/>
+      <path d="M-8 72 H12 M-9 78 H13" stroke="#625C52" stroke-width="1.3"/>
+      <path d="M-24 100 C-24 84 -12 80 -2 80 C10 80 20 86 20 100 C12 92 -14 92 -24 100 Z" fill="#7A7368"/>
+      <path d="M-24 108 C-26 134 -16 158 -6 164 C2 158 12 134 12 112 C6 124 -2 126 -6 126 C-12 126 -20 120 -24 108 Z" fill="#8E877C"/>
+      <path d="M-18 116 C-14 112.5 -6 112.5 -2 116" stroke="#8E877C" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g class="eyes"><path d="M-21 105 Q-18 107.5 -15 105 M-10 105 Q-7 107.5 -4 105" stroke="#2A1E1A" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <path d="M-23 100 L-15 101 M-11 101 L-3 100" stroke="#625C52" stroke-width="2.2"/>
+      <!-- three lines of ash across the forehead, with a red dot -->
+      <path d="M-18 92 H-4 M-18 95 H-4" stroke="#F3F0EA" stroke-width="1.3"/>
+      <circle cx="-11" cy="93.5" r="1.4" fill="#C0392B"/>
+      <path d="M-24 107 Q-28 111 -24 113" stroke="#8C5A3A" stroke-width="1.4" fill="none"/>
+      <path class="m-close" d="M-15 120.5 Q-11 122.5 -7 120.5" stroke="#4A3A30" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse class="m-open" cx="-11" cy="121" rx="3" ry="2.2" fill="#5A2E22"/>
+    </g>
+  </g>
+</svg>
+<span class="caption" id="cap">By whom?</span>
+</div></div></div>
+
+<template id="senses-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="se-try">Try it · tap a power, then turn awareness off</span>
+  <svg viewBox="160 0 480 320" role="group" aria-label="The powers of a person and the awareness behind them" data-i18n-aria="se-svg" class="csvg sensvg">
+    <rect x="160" width="480" height="320" rx="14" style="fill:var(--bg)"/>
+    <path class="body" d="M296 320 C300 286 336 268 378 264 L452 264 C488 268 516 286 520 320Z"/>
+    <path class="body" d="M354 266 C352 244 342 224 336 198 C328 162 332 114 364 88 C392 64 440 64 468 86 C490 104 496 130 494 148 L508 172 C510 176 508 179 503 180 L498 181 C499 186 498 190 495 192 C497 196 496 200 492 202 C494 212 490 220 478 222 C464 224 454 228 452 266Z"/>
+    <g class="inner"><circle cx="430" cy="150" r="56" fill="url(#warm)"/><circle cx="430" cy="150" r="8" fill="#FFE08A" stroke="#C9963C" stroke-width="1.5"/></g>
+    <path class="ray" d="M430 150 L463 131 M430 150 L406 154 M430 150 L497 174 M430 150 L486 196 M430 150 L414 114" style="fill:none;stroke:#E2A33A;stroke-width:2"/>
+    <g class="out" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round">
+      <path d="M480 128 L538 108 M480 133 L538 148" stroke-dasharray="4 6"/>
+      <path d="M322 140 q-8 12 0 24 M310 134 q-12 18 0 36"/>
+      <path d="M514 170 q6 -4 12 0 t12 0"/>
+      <path d="M504 191 q5 6 0 12 M512 187 q8 10 0 20"/>
+      <g style="fill:var(--muted);stroke:none"><circle cx="386" cy="58" r="3"/><circle cx="376" cy="46" r="4"/><circle cx="364" cy="32" r="5.5"/></g>
+    </g>
+    <g class="hit" data-k="mind" tabindex="0" role="button" aria-label="Mind" data-i18n-aria="se-mind">
+      <circle cx="414" cy="108" r="18" fill="transparent"/>
+      <g class="shape"><path d="M404 108 a10 10 0 1 1 10 10 a6 6 0 1 1 -6 -6" style="fill:none;stroke:#7A5A9A;stroke-width:2.5;stroke-linecap:round"/></g>
+      <text class="lab" x="352" y="38" text-anchor="end" data-i18n="se-mind">Mind</text>
+    </g>
+    <g class="hit" data-k="eye" tabindex="0" role="button" aria-label="Eye" data-i18n-aria="se-eye">
+      <circle cx="466" cy="130" r="15" fill="transparent"/>
+      <g class="shape"><path d="M455 130 Q466 120 477 130 Q466 140 455 130Z" fill="#F3EAD2" stroke="#5A4A3A" stroke-width="1.5"/><circle cx="467" cy="130" r="3.4" fill="#3A2A20"/></g>
+      <text class="lab" x="548" y="118" data-i18n="se-eye">Eye</text>
+    </g>
+    <g class="hit" data-k="ear" tabindex="0" role="button" aria-label="Ear" data-i18n-aria="se-ear">
+      <circle cx="398" cy="154" r="17" fill="transparent"/>
+      <g class="shape"><path d="M398 140 C408 140 411 152 405 159 C401 163 403 168 397 168 C391 168 387 160 389 152 C390 146 393 140 398 140Z" fill="#E2C48E" stroke="#8C7A5A" stroke-width="1.5"/><path d="M398 147 C403 148 404 153 400 157" stroke="#8C7A5A" stroke-width="1.4" fill="none"/></g>
+      <text class="lab" x="296" y="160" text-anchor="end" data-i18n="se-ear">Ear</text>
+    </g>
+    <g class="hit" data-k="breath" tabindex="0" role="button" aria-label="Breath" data-i18n-aria="se-breath">
+      <circle cx="503" cy="174" r="12" fill="transparent"/>
+      <g class="shape"><path d="M498 177 q3 2.5 7 0" style="fill:none;stroke:#3F7F7A;stroke-width:2.4;stroke-linecap:round"/></g>
+      <text class="lab" x="546" y="178" data-i18n="se-breath">Breath</text>
+    </g>
+    <g class="hit" data-k="speech" tabindex="0" role="button" aria-label="Speech" data-i18n-aria="se-speech">
+      <circle cx="491" cy="197" r="12" fill="transparent"/>
+      <g class="shape"><path d="M484 196 Q490 200 497 196" style="fill:none;stroke:#8C3A2A;stroke-width:2.6;stroke-linecap:round"/></g>
+      <text class="lab" x="530" y="226" data-i18n="se-speech">Speech</text>
+    </g>
+  </svg>
+  <div class="chips">
+    <button data-k="speech" data-i18n="se-speech">Speech</button><button data-k="mind" data-i18n="se-mind">Mind</button><button data-k="eye" data-i18n="se-eye">Eye</button><button data-k="ear" data-i18n="se-ear">Ear</button><button data-k="breath" data-i18n="se-breath">Breath</button>
+  </div>
+  <div class="info" aria-live="polite"><h4 data-i18n="se-who">Behind every power</h4><p data-i18n="se-each">Tap a part to see what the teacher says about it.</p></div>
+  <div class="calm-row">
+    <p class="calmtext" aria-live="polite"></p>
+    <div class="seg" role="group" aria-label="Awareness" data-i18n-aria="se-state"><button class="x-on" aria-pressed="true" data-i18n="se-on">With awareness</button><button class="x-off" aria-pressed="false" data-i18n="se-off">Without</button></div>
+  </div>
+</div>
+</template>
+
+<template id="grass-tpl">
+<div class="widget">
+  <span class="dl" data-i18n="gr-try">Try it · send each god to the blade of grass</span>
+  <svg viewBox="40 0 600 300" role="img" aria-label="Agni, Vayu and Indra before a blade of grass and the wonder" data-i18n-aria="gr-svg" class="csvg grsvg">
+    <rect x="40" width="600" height="300" rx="14" style="fill:var(--bg)"/>
+    <path d="M40 262 H640 V286 Q640 300 626 300 H54 Q40 300 40 286Z" style="fill:var(--grass)"/>
+    <g class="yk">
+      <circle cx="530" cy="130" r="80" fill="url(#warm)" class="halo"/>
+      <g class="rays" style="stroke:#E2B04E;stroke-width:3;stroke-linecap:round"><path d="M530 72V60M530 188V200M472 130H460M588 130H600M489 89L481 81M571 89L579 81M489 171L481 179M571 171L579 179"/></g>
+      <ellipse cx="530" cy="130" rx="28" ry="40" fill="#FFF3C4"/><ellipse cx="530" cy="130" rx="14" ry="22" fill="#FFFFFF"/>
+    </g>
+    <g class="uma"><circle cx="530" cy="196" r="70" fill="url(#warm)"/><use href="#devi" transform="translate(530 262) scale(1.3)"/></g>
+    <g class="burn" transform="translate(450 262)">
+      <path class="flame" d="M-20 0 C-27 -15 -16 -26 -11 -40 C-6 -26 2 -24 -2 -11 C4 -20 9 -24 6 -35 C18 -22 20 -9 14 0Z" fill="#F08A3C"/>
+      <path class="flame" style="animation-delay:-1.1s" d="M-11 0 C-13 -9 -6 -15 -5 -22 C-2 -13 5 -11 2 -5 C6 -9 6 -12 6 -15 C11 -9 11 -4 9 0Z" fill="#F5BE4F"/>
+    </g>
+    <g class="blow" style="fill:none;stroke:var(--muted);stroke-width:2.5;stroke-linecap:round"><path class="flow" d="M340 214 q25 -8 50 0 t50 0 t50 0 M330 238 q25 -8 50 0 t50 0 t50 0 M360 190 q25 -8 50 0 t40 0"/></g>
+    <g transform="translate(450 262) scale(1.6)"><g class="blade"><use href="#grass"/></g></g>
+    <g transform="translate(130 262) scale(1.2)"><g class="mover gi"><use href="#indra"/></g></g>
+    <g transform="translate(200 262) scale(1.2)"><g class="mover gv"><use href="#vayu"/></g></g>
+    <g transform="translate(270 262) scale(1.2)"><g class="mover ga"><use href="#agni"/></g></g>
+  </svg>
+  <div class="info" aria-live="polite"><h4 data-i18n="gr-who">One blade of grass</h4><p data-i18n="gr-each">Choose a god and watch what happens.</p></div>
+  <div class="calm-row">
+    <p data-i18n="gr-pick">Who goes to the wonder?</p>
+    <div class="seg" role="group" aria-label="Which god" data-i18n-aria="gr-state"><button data-k="agni" aria-pressed="false" data-i18n="gr-agni">Agni</button><button data-k="vayu" aria-pressed="false" data-i18n="gr-vayu">Vayu</button><button data-k="indra" aria-pressed="false" data-i18n="gr-indra">Indra</button></div>
+  </div>
+</div>
+</template>
+
+<main class="wrap"><div class="chat" id="chat"></div></main>
+
+<footer class="wrap">
+  <p data-i18n="f1">The conversation follows the Kena Upanishad closely, and the small verse numbers show where each idea comes from. The student’s short follow-up questions are added here to carry the telling. This is a simple retelling, some verses are shortened, and the explanations follow Adi Shankaracharya’s commentary.</p>
+  <p data-i18n="f2">The Upanishad names neither the teacher nor the student. The teacher is drawn under a banyan tree with ochre cloth, rudraksha beads and a water pot, like other forest sages in the tradition. Brahman appears to the gods as a yaksha they cannot recognise, so it is drawn only as a light.</p>
+  <p data-i18n="f3">For the full text with commentary, see Eight Upanishads, Volume 1, translated by Swami Gambhirananda (Advaita Ashrama, Ramakrishna Order).</p>
+  <p><a id="katha-link" href="../kathopanishad/" data-i18n="f4">Also told this way: Nachiketa talks with Yama, from the Katha Upanishad.</a></p>
+  <p><a id="mundaka-link" href="../mundakopanishad/" data-i18n="f5">Shaunaka asks Angiras, from the Mundaka Upanishad.</a></p>
+  <p><a id="prashna-link" href="../prashnopanishad/" data-i18n="f6">And six questions for Pippalada, from the Prashna Upanishad.</a></p>
+</footer>
+
+<div class="nextbar" id="nextbar" hidden><button class="next" id="next"><span id="next-label">Continue</span><span class="arr" aria-hidden="true">›</span></button><span class="tap-hint" id="tap-hint" hidden data-i18n="tap">or tap anywhere on the story</span></div>
+
+<script src="kn.js"></script>
+<script>
+/* who: p = the teacher, s = the student; in the story, x = the gods together, f = Agni, w = Vayu, i = Indra, y = the wonder (yaksha), u = Uma.
+   t = storyteller, h = chapter heading [title, scene], q = think question, g = going-deeper card, c = widget [name].
+   Optional 4th field on t = scene change. */
+const S=[
+["h","By whom?","ask"],
+["t","A student came to his teacher with a question. The Kena Upanishad begins with it, and takes its name from its first word, kena, “by whom?”"],
+["s","Sir, by whom is the mind sent out to its objects? At whose command does the breath, the first of the powers, begin to move? Who makes us speak these words? And what god puts the eye and the ear to work?","1.1"],
+["p","It is the ear of the ear, the mind of the mind, the speech of speech. It is the breath of the breath and the eye of the eye.","1.2"],
+["p","The wise know this and stop taking the senses for the Self. When they leave this world, they become immortal.","1.2"],
+["s","The ear of the ear? What do you mean?"],
+["p","Your ear hears, but it does not hear by itself. Something awake behind it puts it to work and hears through it. The ear is its instrument, and so are the eye and the mind.","1.2"],
+["g",{t:"Why the student asks",b:[
+  ["v","1.1","Willed by whom, directed by whom, does the mind go to its object? Directed by whom does the first breath move? Willed by whom do people speak this speech? And what god directs the eye and the ear?"],
+  ["p","The Kena Upanishad is a chapter of the Talavakara Brahmana of the Sama Veda. Shankara notes that the chapters before it teach rites and meditations. This one is for someone who has done those and wants what they cannot give."],
+  ["p","The student has seen that the mind, the breath and the senses each do their own work, and that none of them seems to be in charge. He wants to know who is."],
+  ["p","Shankara explains that the senses and the mind are instruments, and an instrument needs someone to use it. That someone is the Self, which is aware. Calling it “the ear of the ear” means that it hears through the ear without being one more ear."]]}],
+["q","When you read these words, your eyes see them and your mind follows them. Who notices that this is happening?"],
+
+["h","Where the eye cannot go","beyond"],
+["p","The eye does not go there, and neither does speech or the mind. We do not know it the way we know things, so we cannot see how anyone could teach it.","1.3"],
+["p","It is other than all that is known, and it is beyond the unknown as well. That is what we heard from the teachers of old who explained it to us.","1.3"],
+["s","Then how can I come to know it at all?"],
+["p","Listen. What speech cannot express, but what makes speech speak: know that alone as Brahman, and not this that people worship here.","1.4"],
+["p","What no one can think with the mind, but by which, the wise say, the mind thinks: know that alone as Brahman, and not this that people worship here.","1.5"],
+["c","senses"],
+["p","What no one sees with the eye, but by which the eye sees: know that alone as Brahman.","1.6"],
+["p","What no one hears with the ear, but by which the ear hears. What does not breathe by the breath, but by which the breath is led. Know that alone as Brahman, and not this that people worship here.","1.7–8"],
+["g",{t:"Not this that people worship",b:[
+  ["v","1.4","That which is not expressed by speech, but by which speech is expressed: know that alone to be Brahman, not this that people worship here."],
+  ["p","The teacher says the same thing five times, once for each power. Each one reaches many things and cannot reach what makes it work."],
+  ["p","Shankara takes “this that people worship” to mean anything worshipped as an object, set apart from the worshipper, even a god with a name and form. Such worship has its place. Brahman is the Self of the worshipper, the witness within, and so it can never be set in front of the mind as an object."],
+  ["p","“Other than the known and beyond the unknown” leaves only the knower. Shankara concludes that Brahman is nothing to be gained or avoided, because it is your own Self."]]}],
+["q","Can you think of something you never see, though it lets you see everything else?"],
+
+["h","I know, and I do not know","seer"],
+["p","If you think, “I know it well,” then you know very little of Brahman: only the form of it that is in you and the form of it in the gods. So you must think about it further.","2.1"],
+["t","The student went away and thought it over for a long time. Then he came back to his teacher."],
+["s","I do not think I know it well. Nor do I think I do not know it. I know it, and I do not know it. Whoever among us understands that, understands it.","2.2"],
+["p","It is known to the one who does not claim to know it. The one who claims to know it does not know it. Those who say they understand it have not understood, and those who make no such claim have.","2.3"],
+["s","Then when is it really known?"],
+["p","When it is known in every act of knowing. Then one reaches immortality. Through the Self one gains strength, and through this knowledge, immortality.","2.4"],
+["p","If you come to know it here, in this life, all is well. If you do not, the loss is great. The wise see it in every being, and when they leave this world, they become immortal.","2.5"],
+["g",{t:"Known in every act of knowing",b:[
+  ["v","2.4","It is known when it is known in every state of awareness, for then one reaches immortality. Through the Self one gains strength, and through knowledge one reaches immortality."],
+  ["p","The student’s answer sounds like a riddle, and it is exact. He does not know Brahman the way he knows a tree or a sentence, because Brahman is never an object. He is not ignorant of it either, because it is the knower in him."],
+  ["p","Shankara reads “known in every state of awareness” as known through every thought. Whatever a thought is about, the same awareness lights it up. To see that awareness as the witness of every thought is to know Brahman."],
+  ["p","Shankara also explains the strength. Strength that comes from wealth, friends, spells or herbs cannot stand against death, because those things do not last. The strength that comes from the Self can."]]}],
+["q","You are aware of these words. Can the awareness itself become one more thing you are aware of?"],
+
+["h","The wonder the gods could not name","yaksha"],
+["t","Then the teacher told a story. Once Brahman won a victory for the gods, and the gods were full of themselves.","3.1"],
+["x","This victory is ours. This glory is ours.","3.1"],
+["t","Brahman knew what they were thinking and appeared in front of them as a yaksha, a wondrous being. The gods could not tell what it was.","3.2"],
+["x","Agni, you know all that is born. Find out what this wonder is.","3.3"],
+["f","I will.","3.3"],
+["t","Agni ran to it, and it spoke to him.","3.4","agni"],
+["y","Who are you?","3.4"],
+["f","I am Agni, the fire. I am Jatavedas, who knows all that is born.","3.4"],
+["y","And what power is there in you?","3.5"],
+["f","I can burn up everything there is on earth.","3.5"],
+["t","The wonder put a blade of grass down in front of him.","3.6"],
+["y","Burn this.","3.6"],
+["t","Agni rushed at it with all his speed and could not burn it. He went back to the gods.","3.6"],
+["f","I could not find out what this wonder is.","3.6"],
+["t","So the gods turned to Vayu, the wind.","3.7","vayu"],
+["x","Vayu, find out what this wonder is.","3.7"],
+["w","I will.","3.7"],
+["y","Who are you?","3.8"],
+["w","I am Vayu, the wind. I am Matarishvan, who moves through the sky.","3.8"],
+["y","And what power is there in you?","3.9"],
+["w","I can carry off everything there is on earth.","3.9"],
+["y","Then carry this off.","3.10"],
+["t","Vayu rushed at the blade of grass with all his speed and could not move it. He too went back to the gods.","3.10"],
+["w","I could not find out what this wonder is.","3.10"],
+["c","grass"],
+["t","Then the gods turned to Indra, their king.","3.11","indra"],
+["x","Indra, bountiful one, find out what this wonder is.","3.11"],
+["i","I will.","3.11"],
+["t","Indra ran to it, and it vanished in front of him. In that same space he came upon a woman of great beauty, shining as if dressed in gold. She was Uma, daughter of the Himalaya.","3.11–12","uma"],
+["i","What was that wonder?","3.12"],
+["u","That was Brahman. It was in Brahman’s victory that you were glorying.","4.1"],
+["t","Then Indra knew that it was Brahman.","4.1"],
+["p","That is why Agni, Vayu and Indra stand above the other gods. They came closest to Brahman and were the first to know it was Brahman. Indra stands above even those two, because he came nearer still and was the very first to know.","4.2–3"],
+["g",{t:"Why the story is told",b:[
+  ["v","3.12","In that very space he came upon a woman of great beauty, Uma, daughter of Himavat. He asked her: What is this wonder?"],
+  ["p","The gods won because Brahman worked through them, and they took the victory for their own. Fire’s power to burn and the wind’s power to move come from Brahman. Without it, neither can stir a blade of grass."],
+  ["p","Shankara says Uma is knowledge itself, appearing as a woman. He reads Haimavati two ways: as “adorned with gold,” or as the daughter of Himavat. Indra could not catch Brahman by running at it. When the wonder vanished, knowledge told him what he had seen."],
+  ["p","The story also explains Indra’s place as king of the gods: he came nearest, and he was the first to understand."]]}],
+["q","Think of something you did well recently. How much of the power to do it was yours to begin with?"],
+
+["h","Like a flash of lightning","lightning"],
+["p","This is how Brahman was shown to the gods: it flashed like lightning, it came and went like the blink of an eye.","4.4"],
+["p","And this is how it is found within: the mind seems to reach toward it, and with the mind one remembers it again and again and holds it in thought.","4.5"],
+["s","How should I meditate on it?"],
+["p","It is called Tadvana, the one all hold dear. Meditate on it as the one all hold dear. All beings hold dear whoever knows it this way.","4.6"],
+["g",{t:"Lightning and the blink of an eye",b:[
+  ["v","4.4","This is the teaching about it: it flashed like lightning, it came and went like the blink of an eye. So it is told with regard to the gods."],
+  ["p","Shankara reads the two pictures as the way Brahman showed itself to the gods: all at once, and then gone, as the wonder appeared and vanished in front of Indra."],
+  ["p","The next verse turns inward. The mind can never hold Brahman as an object, but it can keep turning toward it and keep remembering it. Shankara treats these verses as meditations, for those who cannot yet take in the direct teaching of the first two chapters."],
+  ["p","Tadvana means “the one to be loved.” Whoever meditates on Brahman as the dear one of all becomes dear to all beings."]]}],
+["q","Have you ever understood something in a flash and then lost hold of it? What stayed with you?"],
+
+["h","The secret teaching","close"],
+["s","Sir, teach me the Upanishad, the secret teaching.","4.7"],
+["p","It has already been told to you. We have told you the secret teaching about Brahman.","4.7"],
+["p","Its feet are austerity, self-control and work. The Vedas are its limbs, and truth is its home.","4.8"],
+["p","Whoever knows it this way shakes off every wrong and stands firm in the endless, highest world. Stands firm.","4.9"],
+["g",{t:"Already told",b:[
+  ["v","4.7","Sir, tell me the Upanishad. The Upanishad has been told to you. We have told you the Upanishad about Brahman."],
+  ["p","The student asks for more, and the teacher says he already has it. Shankara says the teaching about the Self was complete in the first two chapters. The story and the meditations help it along."],
+  ["p","Austerity, self-control and work are the feet the teaching stands on. Shankara explains that they purify the mind, and a mind made clear this way can take in the knowledge of Brahman."]]}],
+["q","The student asked for more teaching and was told he already had it. Have you ever gone looking for something you already had?"]
+];
+
+
+const EN={S,js:{
+  names:{p:"The teacher",s:"The student",x:"The gods",f:"Agni",w:"Vayu",i:"Indra",y:"The wonder",u:"Uma"},
+  lead:{p:"The teacher speaks",s:"The student speaks",x:"The gods speak",f:"Agni speaks",w:"Vayu speaks",i:"Indra speaks",y:"The wonder speaks",u:"Uma answers",
+    t:"Continue the story",q:"Think about it",g:"Go deeper"},
+  cont:{p:"The teacher continues",s:"The student continues",x:"The gods continue",f:"Agni continues",w:"Vayu continues",i:"Indra continues",y:"The wonder continues",u:"Uma continues"},
+  widget:{senses:"See the powers and what moves them",grass:"Send the gods to the grass"},
+  next:"Next: ",
+  think:"Think about it",
+  deep:"Going deeper · Shankara’s reading",
+  lightOn:"With awareness behind them, the eye sees, the ear hears and the mind thinks.",
+  lightOff:"Take awareness away and the eye keeps its shape, but nothing sees through it."
+},senses:{
+  speech:["Speech","1.4 · That by which speech speaks","Speech can describe almost anything you point it at. It cannot describe what makes it speak, because that is the one speaking."],
+  mind:["Mind","1.5 · That by which the mind thinks","The mind can think about anything, even about itself as an idea. It cannot turn round and think the awareness that lets it think."],
+  eye:["Eye","1.6 · That by which the eye sees","The eye sees colours and shapes. It never sees the one who sees through it."],
+  ear:["Ear","1.7 · That by which the ear hears","Sounds reach the ear, and someone hears them. The ear hears every sound except the hearer."],
+  breath:["Breath","1.8 · That by which the breath is led","The breath keeps the body alive even in deep sleep. Something leads it, and that something does not breathe."]
+},grass:{
+  agni:["Agni","“I can burn everything on earth”","Agni rushes at the blade of grass with all his speed and cannot even singe it. His power to burn was never his own."],
+  vayu:["Vayu","“I can carry off everything on earth”","Vayu blows with all his strength, and the blade of grass stays where it is."],
+  indra:["Indra","He comes nearest","As Indra comes near, the wonder vanishes. Uma stands in its place, and from her Indra learns that it was Brahman."]
+}};
+const LANGS={en:EN,kn:KN};
+const RIGHT=new Set(['p','y','u']); // the teacher, the wonder and Uma speak from the right
+let lang=(()=>{
+  let l=new URLSearchParams(location.search).get('lang');
+  // a reader who chose Kannada on another Upanishad page gets it here too
+  if(!l)try{l=localStorage.getItem('kena-lang')||localStorage.getItem('prashna-lang')||localStorage.getItem('mundaka-lang')||localStorage.getItem('katha-lang')}catch(e){}
+  if(!l&&(navigator.languages||[]).some(x=>/^kn\b/i.test(x)))l='kn';
+  return LANGS[l]?l:'en';
+})();
+const L=()=>LANGS[lang].js;
+// swap fixed page text; the English stays in the HTML and is remembered on first swap
+function translate(root){
+  const ui=LANGS[lang].ui||{};
+  root.querySelectorAll('[data-i18n]').forEach(el=>{if(el.dataset.en==null)el.dataset.en=el.textContent;el.textContent=ui[el.dataset.i18n]??el.dataset.en});
+  root.querySelectorAll('[data-i18n-aria]').forEach(el=>{if(el.dataset.enAria==null)el.dataset.enAria=el.getAttribute('aria-label');el.setAttribute('aria-label',ui[el.dataset.i18nAria]??el.dataset.enAria)});
+}
+
+// fill a widget's info panel with [title, what it stands for, explanation]
+function card(info,d){
+  info.innerHTML='';const h=document.createElement('h4');h.textContent=d[0];const m=document.createElement('p');m.className='means';m.textContent=d[1];const p=document.createElement('p');p.textContent=d[2];info.append(h,m,p);
+}
+// tap a part of a picture (or its chip) to see what it stands for
+function parts(root,D){
+  const hits=[...root.querySelectorAll('.hit')],chips=[...root.querySelectorAll('.chips button')],info=root.querySelector('.info');
+  function show(k){card(info,D[k]);hits.forEach(x=>x.classList.toggle('on',x.dataset.k===k));chips.forEach(c=>c.classList.toggle('on',c.dataset.k===k))}
+  hits.forEach(x=>{x.addEventListener('click',()=>show(x.dataset.k));x.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(x.dataset.k)}})});
+  chips.forEach(c=>c.addEventListener('click',()=>show(c.dataset.k)));
+}
+const WIDGETS={
+  senses(root){
+    parts(root,LANGS[lang].senses);
+    const svg=root.querySelector('.csvg'),note=root.querySelector('.calmtext'),bon=root.querySelector('.x-on'),boff=root.querySelector('.x-off');
+    function set(on){svg.classList.toggle('off',!on);bon.setAttribute('aria-pressed',on);boff.setAttribute('aria-pressed',!on);note.textContent=on?L().lightOn:L().lightOff}
+    bon.addEventListener('click',()=>set(true));boff.addEventListener('click',()=>set(false));
+    translate(root);set(true);
+  },
+  grass(root){
+    const svg=root.querySelector('.csvg'),info=root.querySelector('.info'),bs=[...root.querySelectorAll('.calm-row .seg button')];
+    bs.forEach(b=>b.addEventListener('click',()=>{
+      const k=b.dataset.k;
+      bs.forEach(x=>x.setAttribute('aria-pressed',x===b));
+      // start each god's walk from the line-up
+      svg.classList.remove('gs-agni','gs-vayu','gs-indra');void svg.getBoundingClientRect();svg.classList.add('gs-'+k);
+      card(info,LANGS[lang].grass[k]);
+    }));
+    translate(root);
+  }
+};
+
+const chat=document.getElementById('chat'), st=document.getElementById('st'), cap=document.getElementById('cap');
+let items=[];
+function build(){
+  chat.textContent='';
+  const J=L();
+  let prev=null, scene="ask", title="";
+  LANGS[lang].S.forEach(([w,text,ref,sc])=>{
+  let el;
+  if(w==="h"){el=document.createElement('div');el.className='div';el.textContent=text;scene=ref;title=text;prev=null}
+  else if(w==="t"){el=document.createElement('p');el.className='tell';el.textContent=text;if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.append(r)}if(sc)scene=sc;prev=null}
+  else if(w==="q"){el=document.createElement('div');el.className='think';const b=document.createElement('b');b.textContent=J.think;el.append(b,text);prev=null}
+  else if(w==="g"){
+    const d=text;el=document.createElement('div');el.className='deep';
+    el.innerHTML='<span class="dl"></span>';el.firstChild.textContent=J.deep;
+    const h3=document.createElement('h3');h3.textContent=d.t;el.append(h3);
+    d.b.forEach(bl=>{
+      if(bl[0]==="v"){const q=document.createElement('blockquote');const r=document.createElement('span');r.className='vr';r.textContent=bl[1];q.append(r,bl[2]);el.append(q)}
+      else if(bl[0]==="p"){const p=document.createElement('p');p.textContent=bl[1];el.append(p)}
+    });prev=null}
+  else if(w==="c"){el=document.getElementById(text+'-tpl').content.firstElementChild.cloneNode(true);WIDGETS[text](el);el.dataset.w=text;prev=null}
+  else{
+    el=document.createElement('div');el.className='row '+w+(RIGHT.has(w)?' rt':'')+(prev===w?' cont':'');
+    el.innerHTML='<svg class="av" aria-hidden="true"><use href="#av-'+w+'"/></svg><div class="bub"><div class="name">'+J.names[w]+'</div><p></p></div>';
+    el.querySelector('p').textContent=text;
+    if(ref){const r=document.createElement('span');r.className='verse-ref';r.textContent=ref;el.querySelector('.bub').append(r)}
+    el.dataset.who=w;prev=w;
+  }
+  el.dataset.kind=w;el.dataset.scene=scene;el.dataset.title=title;
+  chat.append(el);
+  });
+  items=[...chat.children];
+}
+build();
+
+/* stage */
+let talkT, lastEl=null;
+function setStage(el){
+  if(!el||el===lastEl)return;lastEl=el;
+  st.dataset.scene=el.dataset.scene;cap.textContent=el.dataset.title;
+  const w=el.dataset.who||"";
+  st.dataset.who=w;
+  st.classList.remove('talking');
+  if(w){void st.getBoundingClientRect();st.classList.add('talking');clearTimeout(talkT);talkT=setTimeout(()=>st.classList.remove('talking'),2300)}
+}
+function sizeTools(){document.documentElement.style.setProperty('--tools-h',document.getElementById('tools').offsetHeight+'px')}
+sizeTools();addEventListener('resize',sizeTools);
+
+const next=document.getElementById('next'), nextbar=document.getElementById('nextbar');
+const io=new IntersectionObserver(es=>{
+  if(document.body.classList.contains('slow'))return;
+  es.forEach(e=>{if(e.isIntersecting)setStage(e.target)});
+},{rootMargin:'-62% 0px -30% 0px'});
+items.forEach(el=>io.observe(el));
+
+const nextLabel=document.getElementById('next-label'), tapHint=document.getElementById('tap-hint'), prog=document.getElementById('prog');
+const typing=document.createElement('div');typing.setAttribute('aria-hidden','true');typing.hidden=true;
+typing.innerHTML='<svg class="av"><use href="#av-s"/></svg><div class="bub"><span class="dots"><i></i><i></i><i></i></span></div>';
+chat.append(typing);
+typing.addEventListener('click',()=>step());
+
+// what step() will reveal next: the first visible item, plus any chapter heading on the way
+function peek(){
+  let head=null;
+  for(let j=shown;j<items.length;j++){
+    const k=items[j].dataset.kind;
+    if(k==='h'){head=items[j].dataset.title;continue}
+    if(k==='g'&&document.body.classList.contains('story'))continue;
+    return {k,head,w:items[j].dataset.w};
+  }
+  return null;
+}
+function update(){
+  prog.style.width=(shown/items.length*100)+'%';
+  const p=peek();
+  document.body.classList.toggle('done',!p);
+  if(!p){nextbar.hidden=true;typing.hidden=true;return}
+  const last=items[shown-1]&&items[shown-1].dataset.kind;
+  const J=L();
+  nextLabel.textContent=p.head?J.next+p.head:p.k==='c'?J.widget[p.w]:(J.cont[p.k]&&last===p.k?J.cont[p.k]:J.lead[p.k]);
+  const person=!p.head&&J.names[p.k];
+  typing.className='typing '+(person?'row '+p.k+(RIGHT.has(p.k)?' rt':''):'mid');
+  if(person)typing.querySelector('use').setAttribute('href','#av-'+p.k);
+  typing.hidden=false;nextbar.hidden=false;
+}
+
+let shown=items.length, steps=0, learned=false;
+try{learned=localStorage.getItem('kena-learned')==='1'}catch(e){}
+if(!learned){next.classList.add('hint');tapHint.hidden=false}
+function setSlow(on,noScroll){
+  document.body.classList.toggle('slow',on);
+  document.getElementById('r-slow').setAttribute('aria-pressed',on);
+  document.getElementById('r-all').setAttribute('aria-pressed',!on);
+  if(on){shown=3;items.forEach((el,i)=>el.classList.toggle('later',i>=shown));lastEl=null;setStage(items[2]);update();if(!noScroll)document.querySelector('.stage-wrap').scrollIntoView({behavior:'smooth'})}
+  else{items.forEach(el=>el.classList.remove('later'));nextbar.hidden=true;typing.hidden=true}
+}
+function step(){
+  if(shown>=items.length)return;
+  while(shown<items.length){
+    const el=items[shown];shown++;el.classList.remove('later');el.classList.add('pop');
+    if(getComputedStyle(el).display!=='none'&&!el.classList.contains('div'))break;
+  }
+  const el=items[shown-1];setStage(el);update();
+  (typing.hidden?el:typing).scrollIntoView({behavior:'smooth',block:'end'});
+  steps++;
+  if(steps===1)next.classList.remove('hint');
+  if(steps===3&&!learned){learned=true;tapHint.hidden=true;try{localStorage.setItem('kena-learned','1')}catch(e){}}
+}
+next.addEventListener('click',step);
+// tap anywhere on the conversation or the picture to move on, except on things that are themselves interactive
+function tapAdvance(e){
+  if(!document.body.classList.contains('slow'))return;
+  if(e.target.closest('button,a,input,select,textarea,[role="button"],.widget,.typing'))return;
+  if(String(getSelection()).length)return;
+  step();
+}
+chat.addEventListener('click',tapAdvance);
+document.querySelector('.stage-wrap').addEventListener('click',tapAdvance);
+document.addEventListener('keydown',e=>{if(document.body.classList.contains('slow')&&(e.key==='ArrowRight'||e.key===' '||e.key==='Enter')&&e.target===document.body){e.preventDefault();step()}});
+document.getElementById('r-slow').addEventListener('click',()=>setSlow(true));
+document.getElementById('r-all').addEventListener('click',()=>setSlow(false));
+setSlow(true,true); // default: one at a time, without jumping past the intro
+
+function pair(a,b,cls,key){
+  const A=document.getElementById(a),B=document.getElementById(b);
+  function set(on){document.body.classList.toggle(cls,!on);A.setAttribute('aria-pressed',on);B.setAttribute('aria-pressed',!on);try{localStorage.setItem(key,on?'1':'0')}catch(e){}}
+  A.addEventListener('click',()=>set(true));B.addEventListener('click',()=>set(false));
+  try{if(localStorage.getItem(key)==='0')set(false)}catch(e){}
+}
+pair('d-deep','d-story','story','kena-depth');
+pair('s-on','s-off','no-stage','kena-stage');
+['d-deep','d-story'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{if(document.body.classList.contains('slow'))update()}));
+
+const TITLE_EN=document.title;
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=lang==='en'?TITLE_EN:LANGS[lang].ui.title;
+  translate(document);
+  document.getElementById('l-en').setAttribute('aria-pressed',lang==='en');
+  document.getElementById('l-kn').setAttribute('aria-pressed',lang==='kn');
+  const q=lang==='en'?'':'?lang='+lang;
+  document.getElementById('katha-link').href='../kathopanishad/'+q;
+  document.getElementById('mundaka-link').href='../mundakopanishad/'+q;
+  document.getElementById('prashna-link').href='../prashnopanishad/'+q;
+  sizeTools();
+}
+function setLang(l){
+  if(l===lang)return;
+  // keep the reader on the same line across the switch
+  const anchor=items.find(el=>getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().bottom>innerHeight*.4);
+  const ai=items.indexOf(anchor), top=anchor?anchor.getBoundingClientRect().top:0;
+  lang=l;applyLang();
+  io.disconnect();build();items.forEach(el=>io.observe(el));chat.append(typing);lastEl=null;
+  if(document.body.classList.contains('slow')){items.forEach((el,i)=>el.classList.toggle('later',i>=shown));setStage(items[shown-1]);update()}
+  if(anchor)scrollBy(0,items[ai].getBoundingClientRect().top-top);
+  try{localStorage.setItem('kena-lang',l)}catch(e){}
+  try{const u=new URL(location.href);if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);history.replaceState(null,'',u)}catch(e){}
+}
+document.getElementById('l-en').addEventListener('click',()=>setLang('en'));
+document.getElementById('l-kn').addEventListener('click',()=>setLang('kn'));
+applyLang();
+if(document.body.classList.contains('slow'))update();
+</script>
