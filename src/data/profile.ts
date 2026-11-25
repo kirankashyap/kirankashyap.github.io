@@ -7,9 +7,16 @@ export const person = {
 	name: 'Kiran Kashyap',
 	givenName: 'Kiran',
 	familyName: 'Kashyap',
-	headline: 'Technical Program Manager, Product Owner and Agile Coach',
-	roles: ['Technical Program Manager', 'Product Owner', 'Product Manager', 'Agile Coach', 'SAFe Program Consultant'],
-	currentRole: 'Senior Agile Coach',
+	headline: 'AI Consultant, Author, Speaker and Systems Thinker',
+	roles: [
+		'Forward Deployment Lead',
+		'AI Consultant',
+		'Technical Program Manager',
+		'Product Owner',
+		'Product Manager',
+		'SAFe Program Consultant',
+	],
+	currentRole: 'Forward Deployment Lead',
 	currentEmployer: 'Amadeus',
 	location: { city: 'Bengaluru', region: 'Karnataka', country: 'India', countryCode: 'IN' },
 	email: 'kiran.kashyap.ds@gmail.com',
@@ -17,7 +24,7 @@ export const person = {
 	yearsWithAgileTeams: 8,
 	careerStart: '2013-10',
 	summary:
-		'Kiran Kashyap is a technical program manager, product owner and agile coach based in Bengaluru, India, with 13 years in software, 8 of them with agile teams. He is a certified SAFe Program Consultant (SPC) and a Senior Agile Coach at Amadeus, where he built an AI tool used by Scrum Masters, product owners, product managers and release train engineers across the company. He has written three books on engineering and agile practice, has a fourth on quantum computing on the way, and speaks at conferences in India and abroad.',
+		'Kiran Kashyap is a Senior Agile Coach at Amadeus in Bengaluru, India, and Forward Deployment Lead for the company\'s AI transformation. His work spans AI adoption, technical program management and product ownership. He has 13 years in software, 8 of them with agile teams, and is a certified SAFe Program Consultant (SPC). At Amadeus he built an AI tool used by Scrum Masters, product owners, product managers and release train engineers across the company, and other teams reuse the agents, skills and prompts he wrote. He has written three books on engineering and agile practice, has a fourth on quantum computing on the way, and speaks at conferences in India and abroad.',
 	links: {
 		linkedin: 'https://www.linkedin.com/in/kirankashyapds/',
 		github: 'https://github.com/kirankashyap/',
@@ -39,6 +46,14 @@ export const sameAs = [
 /** Search-facing keywords. Kept honest: every term maps to work on this page. */
 export const keywords = [
 	'Kiran Kashyap',
+	'Forward Deployment Lead',
+	'AI Transformation',
+	'AI Consultant',
+	'AI Adoption',
+	'Agentic AI',
+	'AI coding agents',
+	'Legacy code modernization',
+	'Systems Thinking',
 	'Technical Program Manager',
 	'TPM',
 	'Product Owner',
@@ -86,15 +101,32 @@ export const knowsAbout = [
 export type Practice = {
 	id: string;
 	title: string;
+	icon: 'strategy' | 'kanban' | 'rocket-launch' | 'users' | 'sparkle';
+	/** Featured practices span the full width of the grid. */
+	featured?: boolean;
 	summary: string;
 	evidence: string[];
 };
 
-/** The three roles people hire Kiran for, plus the AI work that now runs through all of them. */
+/** Current AI transformation work, the three roles people hire Kiran for, and the AI building that runs through all of them. */
 export const practices: Practice[] = [
+	{
+		id: 'forward-deployment-lead',
+		title: 'Forward Deployment Lead, AI transformation',
+		icon: 'strategy',
+		featured: true,
+		summary:
+			'At Amadeus I also work as Forward Deployment Lead on the AI transformation team. I work directly with teams across the company to put AI ways of working into practice.',
+		evidence: [
+			'Member of the Amadeus AI transformation team',
+			'Built an AI tool used by Scrum Masters, product owners, product managers and release train engineers across the company',
+			'AI-enabled workshops that save RTEs, Scrum Masters, POs and PMs hours every week',
+		],
+	},
 	{
 		id: 'technical-program-management',
 		title: 'Technical program management',
+		icon: 'kanban',
 		summary:
 			'I plan and run programs that span many teams, from cloud migrations to release trains, and keep dependencies and risks visible the whole way.',
 		evidence: [
@@ -106,6 +138,7 @@ export const practices: Practice[] = [
 	{
 		id: 'product-ownership',
 		title: 'Product ownership and management',
+		icon: 'rocket-launch',
 		summary:
 			'I turn strategy into roadmaps and forecasts that leadership trusts, and measure whether what we shipped worked.',
 		evidence: [
@@ -117,6 +150,7 @@ export const practices: Practice[] = [
 	{
 		id: 'agile-coaching',
 		title: 'Agile and leadership coaching',
+		icon: 'users',
 		summary:
 			'I coach teams, Scrum Masters and leaders, and I tend to measure the result. One set of value stream mapping workshops gave an agile release train a 20% efficiency gain.',
 		evidence: [
@@ -129,11 +163,12 @@ export const practices: Practice[] = [
 	{
 		id: 'ai-builder',
 		title: 'Building with AI',
+		icon: 'sparkle',
 		summary:
 			'I write code. I build AI agents, skills and prompts that other teams reuse, and I teach engineers to keep AI-written code honest with tests.',
 		evidence: [
 			'Agents, skills and prompts adopted by teams across Amadeus',
-			'AI-enabled workshops that save RTEs, Scrum Masters, POs and PMs hours every week',
+			'Co-author of Agentic Code Surgery for Brownfield Systems, a paper on AI coding agents in legacy code',
 			'Co-author of Test-First Copilot, on TDD with GitHub Copilot',
 		],
 	},
@@ -151,7 +186,7 @@ export type Job = {
 export const experience: Job[] = [
 	{
 		company: 'Amadeus',
-		role: 'Senior Agile Coach',
+		role: 'Senior Agile Coach and Forward Deployment Lead',
 		start: '2024-02',
 		highlights: [
 			'Envisioned, built, deployed and maintain an AI tool for every agile role: Scrum Masters, product managers, product owners and release train engineers.',
@@ -354,6 +389,31 @@ export const writings: LinkItem[] = [
 		title: 'How to be a despicable Scrum Master?',
 		description: 'Scrum Master anti-patterns, written as satire.',
 		href: 'https://medium.com/@kiran.kashyap.ds/how-to-be-a-despicable-scrum-master-b42de25b6661',
+	},
+];
+
+export type Paper = {
+	title: string;
+	authors: string[];
+	date: string; // YYYY-MM-DD
+	type: string;
+	doi: string;
+	href: string;
+	summary: string;
+	keywords: string[];
+};
+
+export const papers: Paper[] = [
+	{
+		title: 'Agentic Code Surgery for Brownfield Systems',
+		authors: ['Vivek Ganesan', 'Kamal Raj Sekar', 'Kiran Kashyap'],
+		date: '2026-04-18',
+		type: 'Preprint',
+		doi: '10.5281/zenodo.19640171',
+		href: 'https://doi.org/10.5281/zenodo.19640171',
+		summary:
+			'Left to their defaults, AI coding assistants edit legacy code first and check later. The paper proposes a seven-agent workflow (Plan, Map, Break, Cover, Implement, Refactor, Finish) that makes the assistant write tests for existing behavior before it changes anything, with a human review between each step. On a real brownfield codebase it added 43 passing tests and raised statement coverage from 0.85% to 16.78%. A plain plan-and-implement approach added no tests and introduced critical and major bugs that the workflow avoided.',
+		keywords: ['AI coding agents', 'Agentic workflows', 'Legacy code', 'Characterization tests', 'Software engineering'],
 	},
 ];
 

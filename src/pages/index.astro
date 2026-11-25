@@ -11,6 +11,7 @@ import {
 	experience,
 	formatDate,
 	formatRange,
+	papers,
 	person,
 	practices,
 	talks,
@@ -48,6 +49,8 @@ const talkPhotos = [
 	{ src: tccPhoto, alt: 'Kiran Kashyap presenting "WTH is Quantum Computing!!!" at Tech Coach Circle' },
 ];
 
+const heroTags = ['AI Consultant', 'Author', 'Speaker', 'Systems Thinker'];
+
 const current = experience[0];
 const stats = [
 	{ value: `${person.yearsInTech}`, label: 'years in software' },
@@ -63,19 +66,25 @@ const stats = [
 		<div class="hero-bg" aria-hidden="true"></div>
 		<div class="wrapper hero-grid">
 			<div class="stack hero-copy">
-				<p class="eyebrow">
-					{current.role} at {current.company} · {person.location.city}, {person.location.country}
-				</p>
 				<h1 id="hero-title">
-					<span class="hero-name">{person.name}</span>
+					<span class="hero-name">{person.name}</span>{' '}
 					<span class="hero-roles">
-						Technical program manager, <em>product owner</em> and agile coach.
+						{
+							heroTags.map((tag, i) => (
+								<>
+									{i > 0 && <span class="hero-sep"> | </span>}
+									<span class="hero-tag">{tag}</span>
+								</>
+							))
+						}
 					</span>
 				</h1>
 				<p class="lede">
-					I run programs that cross many teams, turn product strategy into roadmaps teams can deliver,
-					and coach teams and leaders on how they work. I also write code, and lately I build the AI
-					tools that agile teams use.
+					I run programs that span many teams, turn product strategy into roadmaps teams can deliver, and,
+					as Forward Deployment Lead at Amadeus, help teams across the company adopt AI. I still write code.
+					With Vivek Ganesan and Kamal Raj Sekar I co-wrote{' '}
+					<a href="#research"><em>{papers[0].title}</em></a>, a paper on getting AI coding agents to test
+					legacy code before they change it.
 				</p>
 				<p class="hero-badge">
 					<Icon icon="seal-check" /> Certified SAFe Program Consultant (SPC)
@@ -139,9 +148,10 @@ const stats = [
 				<p class="eyebrow">About</p>
 				<h2 id="about-title" class="section-title">Thirteen years of shipping software with other people.</h2>
 				<p>
-					I started in 2013 as a PEGA developer at Cognizant, moved into production support, and then
+					I started in 2013 as a developer, moved into production support, and then
 					volunteered as Scrum Master for a SAFe pilot team. I have worked with agile teams ever since: at
-					Societe Generale, at Lowe's, at two startups, and now as a Senior Agile Coach at Amadeus.
+					Societe Generale, at Lowe's, at two startups, and now at Amadeus, where I'm a Senior Agile Coach and, for the company's AI
+					transformation, Forward Deployment Lead.
 				</p>
 				<p>
 					Most of that time I have been the person who keeps delivery moving across teams. At Lowe's I
@@ -165,7 +175,7 @@ const stats = [
 				<dl>
 					<div>
 						<dt>Roles</dt>
-						<dd>Technical Program Manager, Product Owner / Product Manager, Agile Coach, SAFe Program Consultant (SPC)</dd>
+						<dd>Forward Deployment Lead, AI Consultant, Technical Program Manager, Product Owner / Product Manager, SAFe Program Consultant (SPC)</dd>
 					</div>
 					<div>
 						<dt>Now</dt>
@@ -211,12 +221,13 @@ const stats = [
 			<ul class="practice-grid" role="list">
 				{
 					practices.map((p, i) => (
-						<li class="practice reveal" id={p.id} style={`transition-delay:${i * 70}ms`}>
+						<li
+							class:list={['practice', 'reveal', { 'practice-featured': p.featured }]}
+							id={p.id}
+							style={`transition-delay:${i * 70}ms`}
+						>
 							<span class="practice-icon">
-								<Icon
-									icon={(['kanban', 'rocket-launch', 'users', 'sparkle'] as const)[i]}
-									size="1.4rem"
-								/>
+								<Icon icon={p.icon} size="1.4rem" />
 							</span>
 							<h3>{p.title}</h3>
 							<p>{p.summary}</p>
@@ -453,6 +464,40 @@ const stats = [
 		</div>
 	</section>
 
+	<!-- Research -->
+	<section id="research" class="section" aria-labelledby="research-title">
+		<div class="wrapper">
+			<header class="section-head reveal">
+				<p class="eyebrow">Research</p>
+				<h2 id="research-title" class="section-title">Research I have co-authored.</h2>
+			</header>
+
+			{
+				papers.map((paper) => (
+					<article class="paper reveal">
+						<p class="paper-meta">
+							<span class="tag tag-accent">{paper.type}</span>
+							<time datetime={paper.date}>{formatDate(paper.date)}</time>
+						</p>
+						<h3>
+							<a href={paper.href} target="_blank" rel="noopener">
+								{paper.title} <Icon icon="arrow-up-right" />
+							</a>
+						</h3>
+						<p class="paper-authors">By {paper.authors.join(', ')}</p>
+						<p>{paper.summary}</p>
+						<p class="paper-doi">
+							DOI:{' '}
+							<a href={paper.href} target="_blank" rel="noopener">
+								{paper.doi}
+							</a>
+						</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
 	<!-- Writing & open source -->
 	<section id="writing" class="section" aria-labelledby="writing-title">
 		<div class="wrapper">
@@ -568,13 +613,20 @@ const stats = [
 		line-height: 1.15;
 		letter-spacing: -0.01em;
 		color: var(--ink-2);
-		max-width: 22ch;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		column-gap: 0.5em;
+		row-gap: 0.15em;
 	}
 
-	.hero-roles em {
-		font-style: italic;
-		padding-right: 0.08em;
+	.hero-tag {
+		white-space: nowrap;
+	}
+
+	.hero-sep {
 		color: var(--accent);
+		font-weight: 400;
 	}
 
 	.lede {
@@ -822,6 +874,10 @@ const stats = [
 		gap: 1.25rem;
 	}
 
+	.practice-featured {
+		border-color: var(--accent);
+	}
+
 	.practice {
 		display: flex;
 		flex-direction: column;
@@ -885,6 +941,10 @@ const stats = [
 	@media (min-width: 50em) {
 		.practice-grid {
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.practice-featured {
+			grid-column: 1 / -1;
 		}
 	}
 
@@ -1249,6 +1309,49 @@ const stats = [
 	}
 
 	/* ---------- Books ---------- */
+
+	.paper {
+		display: grid;
+		gap: 0.85rem;
+		max-width: 52rem;
+		padding: clamp(1.25rem, 4vw, 2.25rem);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-lg);
+		background: var(--surface);
+	}
+
+	.paper-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: var(--text-sm);
+		color: var(--ink-2);
+	}
+
+	.paper h3 {
+		font-size: var(--text-xl);
+	}
+
+	.paper h3 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.paper h3 a:hover {
+		color: var(--accent);
+	}
+
+	.paper-authors,
+	.paper-doi {
+		font-size: var(--text-sm);
+		color: var(--ink-2);
+	}
+
+	.paper-doi {
+		font-family: var(--font-mono);
+		overflow-wrap: anywhere;
+	}
 
 	.book-feature {
 		display: grid;

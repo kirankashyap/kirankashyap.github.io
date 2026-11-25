@@ -8,11 +8,32 @@ import {
 	experience,
 	keywords,
 	knowsAbout,
+	papers,
 	person,
 	sameAs,
 	talks,
+	type Paper,
 	type Talk,
 } from './profile';
+
+function paperNode(paper: Paper) {
+	return {
+		'@type': 'ScholarlyArticle',
+		'@id': paper.href,
+		headline: paper.title,
+		name: paper.title,
+		abstract: paper.summary,
+		datePublished: paper.date,
+		url: paper.href,
+		identifier: { '@type': 'PropertyValue', propertyID: 'DOI', value: paper.doi },
+		author: paper.authors.map((name) =>
+			name === person.name ? ref(PERSON_ID) : { '@type': 'Person', name },
+		),
+		keywords: paper.keywords.join(', '),
+		inLanguage: 'en',
+		license: 'https://creativecommons.org/licenses/by/4.0/',
+	};
+}
 
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -138,6 +159,7 @@ export function homeGraph(books: { entry: CollectionEntry<'books'>; coverUrl: st
 			},
 			personNode(),
 			...books.map(({ entry, coverUrl }) => bookNode(entry, coverUrl)),
+			...papers.map(paperNode),
 			...talks.map(talkNode).filter(Boolean),
 		],
 	};

@@ -9,6 +9,7 @@ import {
 	experience,
 	formatDate,
 	formatRange,
+	papers,
 	person,
 	practices,
 	projects,
@@ -60,6 +61,13 @@ export const GET: APIRoute = async () => {
 				`- [${b.data.title}: ${b.data.subtitle}](${SITE_URL}/books/${b.id}/) by ${b.data.authors.join(', ')}. ${
 					b.data.status === 'upcoming' ? 'Upcoming.' : `Published ${b.data.publishDate?.getFullYear()}.`
 				} ${b.data.description.replace(/\s+/g, ' ').trim()}`,
+		),
+		'',
+		'## Research',
+		'',
+		...papers.map(
+			(p) =>
+				`- [${p.title}](${p.href}) by ${p.authors.join(', ')}. ${p.type}, ${formatDate(p.date)}. DOI ${p.doi}. ${p.summary}`,
 		),
 		'',
 		'## Talks',
